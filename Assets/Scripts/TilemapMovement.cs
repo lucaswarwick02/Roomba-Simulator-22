@@ -8,7 +8,8 @@ public enum TileEffect
     SingleDirt,
     DoubleDirt,
     Slippery,
-    Battery
+    Battery,
+    CatPush
 }
 
 public class TilemapMovement : MonoBehaviour
@@ -23,6 +24,7 @@ public class TilemapMovement : MonoBehaviour
     public int dirtCollected = 0;
 
     public static bool sliding = false;
+    public static bool catPush = false;
 
     private Vector3Int currentPos;
     private Vector3 offset = new Vector3(-0.5f, -0.5f, 0f);
@@ -61,7 +63,11 @@ public class TilemapMovement : MonoBehaviour
     {
         Vector3Int nextPos = currentPos + velocity;
 
-        if (invalidTilemap.GetTile(nextPos)) return; // This tilemap only has invalid tiles, so just check it's not null
+        if (invalidTilemap.GetTile(nextPos)){
+            sliding = false; //stop sliding from slipSquares if you were sliding
+            catPush = false; //stop sliding from catPush if you were sliding
+            return; // This tilemap only has invalid tiles, so just check it's not null
+        }
 
         // Update the Roomba's position
         currentPos = nextPos;
@@ -83,19 +89,37 @@ public class TilemapMovement : MonoBehaviour
                 case "Effects_3":
                     PerformEffect(TileEffect.Battery, currentPos, velocity);
                     break;
+                case "Effects_6":
+                    velocity = new Vector3Int(0, 1, 0);
+                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    break;
+                case "Effects_7":
+                    velocity = new Vector3Int(0, -1, 0);
+                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    break;
+                case "Effects_8":
+                    velocity = new Vector3Int(-1, 0, 0);
+                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    break;
+                case "Effects_9":
+                    velocity = new Vector3Int(1, 0, 0);
+                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    break;
                 default:
                     break;
         
+            }
+        }
+        if(catPush){
+                ProcessInput(velocity);
             }
             if(sliding){
                     sliding = false;
                     ProcessInput(velocity);
                 }
-        }
     }
 
-        public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity)
-    {
+        public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity){
         // Perform effect depending on "effect" tile type
         switch (tileEffect)
         {
@@ -104,7 +128,7 @@ public class TilemapMovement : MonoBehaviour
                 dirtCollected++;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
-                if(sliding){
+                if(sliding || catPush){
                     sliding = false;
                     ProcessInput(velocity);
                 }
@@ -114,7 +138,7 @@ public class TilemapMovement : MonoBehaviour
                 dirtCollected++;
                 // Replace with TileEffect.SingleDirt
                 effectsTilemap.SetTile(tilePosition, singleDirtTile);
-                if(sliding){
+                if(sliding  || catPush){
                     sliding = false;
                     ProcessInput(velocity);
                 }
@@ -130,10 +154,16 @@ public class TilemapMovement : MonoBehaviour
                 batteryCount++;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
-                if(sliding){
+                if(sliding || catPush){
                     sliding = false;
-                    ProcessInput(velocity);
+                    ProcessInput(velocity); 
                 }
+                break;
+            case TileEffect.CatPush:
+                catPush = true;
+                ProcessInput(velocity);
+                break;
+            default:
                 break;
         }
     }
