@@ -22,6 +22,8 @@ public class TilemapMovement : MonoBehaviour
     public int batteryCount = 0;
     public int dirtCollected = 0;
 
+    public static bool sliding = false;
+
     private Vector3Int currentPos;
     private Vector3 offset = new Vector3(-0.5f, -0.5f, 0f);
 
@@ -83,11 +85,16 @@ public class TilemapMovement : MonoBehaviour
                     break;
                 default:
                     break;
+        
             }
+            if(sliding){
+                    sliding = false;
+                    ProcessInput(velocity);
+                }
         }
     }
 
-    public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity)
+        public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity)
     {
         // Perform effect depending on "effect" tile type
         switch (tileEffect)
@@ -97,14 +104,24 @@ public class TilemapMovement : MonoBehaviour
                 dirtCollected++;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
+                if(sliding){
+                    sliding = false;
+                    ProcessInput(velocity);
+                }
                 break;
             case TileEffect.DoubleDirt:
                 // +1 to dirt counter
                 dirtCollected++;
                 // Replace with TileEffect.SingleDirt
                 effectsTilemap.SetTile(tilePosition, singleDirtTile);
+                if(sliding){
+                    sliding = false;
+                    ProcessInput(velocity);
+                }
                 break;
             case TileEffect.Slippery:
+                // Player is now sliding
+                sliding = true;
                 // Move player by velocity
                 ProcessInput(velocity);
                 break;
@@ -113,7 +130,15 @@ public class TilemapMovement : MonoBehaviour
                 batteryCount++;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
+                if(sliding){
+                    sliding = false;
+                    ProcessInput(velocity);
+                }
                 break;
         }
     }
 }
+    
+
+    
+
