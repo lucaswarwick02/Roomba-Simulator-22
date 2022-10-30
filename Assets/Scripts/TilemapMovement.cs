@@ -88,7 +88,7 @@ public class TilemapMovement : MonoBehaviour
                 case "Effects_2":
                     PerformEffect(TileEffect.Slippery, currentPos, velocity);
                     break;
-                case "Effects_3":
+                case "Effects_4":
                     PerformEffect(TileEffect.Battery, currentPos, velocity);
                     break;
                 case "Effects_6":
@@ -154,7 +154,7 @@ public class TilemapMovement : MonoBehaviour
                 ProcessInput(velocity);
                 break;
             case TileEffect.Battery:
-                // + to battery counter
+                // + 3 to battery counter
                 batteryCount = batteryCount + 3;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
