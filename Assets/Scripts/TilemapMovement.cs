@@ -9,7 +9,8 @@ public enum TileEffect
     DoubleDirt,
     Slippery,
     Battery,
-    CatPush
+    CatPush,
+    Ring
 }
 
 public class TilemapMovement : MonoBehaviour
@@ -19,6 +20,8 @@ public class TilemapMovement : MonoBehaviour
     public Tilemap invalidTilemap;
     public Vector3Int startPos;
     public Tile singleDirtTile;
+
+    public int initialBattery = 10;
 
     public int battery = 0;
     public int points = 0;
@@ -31,6 +34,7 @@ public class TilemapMovement : MonoBehaviour
 
     private void Start() {
         transform.position = startPos - offset;
+        battery = initialBattery;
     }
 
     // Update is called once per frame
@@ -39,18 +43,22 @@ public class TilemapMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             ProcessInput(new Vector3Int(0, 1, 0));
+            battery--;
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             ProcessInput(new Vector3Int(0, -1, 0));
+            battery--;
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
             ProcessInput(new Vector3Int(-1, 0, 0));
+            battery--;
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             ProcessInput(new Vector3Int(1, 0, 0));
+            battery--;
         }
     }
 
@@ -93,6 +101,9 @@ public class TilemapMovement : MonoBehaviour
                     velocity = new Vector3Int(0, 1, 0);
                     PerformEffect(TileEffect.CatPush, currentPos, velocity);
                     break;
+                case "Effects_5":
+                    PerformEffect(TileEffect.Ring, currentPos, velocity);
+                    break;
                 case "Effects_7":
                     velocity = new Vector3Int(0, -1, 0);
                     PerformEffect(TileEffect.CatPush, currentPos, velocity);
@@ -106,20 +117,22 @@ public class TilemapMovement : MonoBehaviour
                     PerformEffect(TileEffect.CatPush, currentPos, velocity);
                     break;
                 default:
+                    Debug.LogError("Tilename not defined");
                     break;
         
             }
         }
-        if(catPush){
-                ProcessInput(velocity);
-            }
-            if(sliding){
-                    sliding = false;
-                    ProcessInput(velocity);
-                }
+        if (catPush) {
+            ProcessInput(velocity);
+        }
+        if (sliding) {
+            sliding = false;
+            ProcessInput(velocity);
+        }
     }
 
-        public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity){
+    public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity)
+    {
         // Perform effect depending on "effect" tile type
         switch (tileEffect)
         {
@@ -162,6 +175,10 @@ public class TilemapMovement : MonoBehaviour
             case TileEffect.CatPush:
                 catPush = true;
                 ProcessInput(velocity);
+                break;
+            case TileEffect.Ring:
+                points--;
+                effectsTilemap.SetTile(tilePosition, null);
                 break;
             default:
                 break;
