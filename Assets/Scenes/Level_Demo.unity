@@ -158,7 +158,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -15.8, y: -50}
+  m_AnchoredPosition: {x: -15.799988, y: -50}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 1, y: 1}
 --- !u!114 &133333397
@@ -258,6 +258,53 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 133333395}
   m_CullTransparentMesh: 1
+--- !u!1 &396985054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 396985056}
+  - component: {fileID: 396985055}
+  m_Layer: 0
+  m_Name: GameState
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &396985055
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396985054}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 75d349c41ea551e4bbf15b6afdb04d5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  initialBattery: 10
+  battery: 0
+  points: 0
+--- !u!4 &396985056
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 396985054}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 530.28674, y: 225.53334, z: -3.3306713}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &401557015
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +387,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &614597331
 GameObject:
@@ -438,7 +485,7 @@ RectTransform:
   - {fileID: 133333396}
   - {fileID: 1826504967}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -457,7 +504,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83d382074e0386646a7d524a856d9643, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  tilemapMovement: {fileID: 1616589950}
   batteryCount: {fileID: 133333397}
   pointsCount: {fileID: 1826504968}
 --- !u!1 &690046043
@@ -526,7 +572,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &938364048
 GameObject:
@@ -1646,6 +1692,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1552909769}
   - component: {fileID: 1552909768}
+  - component: {fileID: 1552909770}
   m_Layer: 0
   m_Name: Grid
   m_TagString: Untagged
@@ -1681,8 +1728,27 @@ Transform:
   - {fileID: 1827439476}
   - {fileID: 1899078624}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1552909770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1552909767}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c301531ff03b3d24da23bcf83e860bd5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  floorTilemap: {fileID: 938364051}
+  effectsTilemap: {fileID: 1827439478}
+  invalidTilemap: {fileID: 1899078626}
+  singleDirtTile: {fileID: 11400000, guid: 44fcd9059fca1c649b6b6f4f988697f3, type: 2}
+  startPos: {x: 0, y: 0, z: 0}
+  currentPos: {x: 0, y: 0, z: 0}
+  offset: {x: -0.5, y: -0.5, z: 0}
 --- !u!1 &1616589949
 GameObject:
   m_ObjectHideFlags: 0
@@ -1713,13 +1779,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291acdfcd14c2934190fd0765b840eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  floorTilemap: {fileID: 938364051}
-  effectsTilemap: {fileID: 1827439478}
-  invalidTilemap: {fileID: 1899078626}
-  startPos: {x: 0, y: 0, z: 0}
-  singleDirtTile: {fileID: 11400000, guid: 44fcd9059fca1c649b6b6f4f988697f3, type: 2}
-  battery: 0
-  points: 0
 --- !u!212 &1616589951
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1785,7 +1844,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1826504966
 GameObject:

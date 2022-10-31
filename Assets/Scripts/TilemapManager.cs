@@ -13,58 +13,26 @@ public enum TileEffect
     Ring
 }
 
-public class TilemapMovement : MonoBehaviour
+public class TilemapManager : MonoBehaviour
 {
     public Tilemap floorTilemap;
     public Tilemap effectsTilemap;
     public Tilemap invalidTilemap;
-    public Vector3Int startPos;
+
     public Tile singleDirtTile;
 
-    public int initialBattery = 10;
+    public Vector3Int startPos;
 
-    public int battery = 0;
-    public int points = 0;
+    [HideInInspector] public static bool sliding = false;
+    [HideInInspector] public static bool catPush = false;
 
-    public static bool sliding = false;
-    public static bool catPush = false;
+    [HideInInspector] public Vector3Int currentPos;
+    [HideInInspector] public Vector3 offset = new Vector3(-0.5f, -0.5f, 0f);
 
-    private Vector3Int currentPos;
-    private Vector3 offset = new Vector3(-0.5f, -0.5f, 0f);
+    public static TilemapManager INSTANCE;
 
     private void Start() {
-        transform.position = startPos - offset;
-        battery = initialBattery;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.UpArrow))
-        {
-            ProcessInput(new Vector3Int(0, 1, 0));
-            battery--;
-        }
-        if (Input.GetKeyDown(KeyCode.DownArrow))
-        {
-            ProcessInput(new Vector3Int(0, -1, 0));
-            battery--;
-        }
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
-        {
-            ProcessInput(new Vector3Int(-1, 0, 0));
-            battery--;
-        }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
-        {
-            ProcessInput(new Vector3Int(1, 0, 0));
-            battery--;
-        }
-    }
-
-    private void updatePlayerPosition ()
-    {
-        transform.position = currentPos - offset;
+        INSTANCE = this;
     }
 
     public void ProcessInput (Vector3Int velocity)
@@ -79,7 +47,7 @@ public class TilemapMovement : MonoBehaviour
 
         // Update the Roomba's position
         currentPos = nextPos;
-        updatePlayerPosition();
+        PlayerMovement.INSTANCE.UpdatePlayerPosition();
 
         if (effectsTilemap.GetTile(currentPos)) // If we have landed on an "effect" tile (i.e., battery, slippery tile, etc)
         {
@@ -138,7 +106,7 @@ public class TilemapMovement : MonoBehaviour
         {
             case TileEffect.SingleDirt:
                 // +1 to dirt counter
-                points++;
+                GameState.INSTANCE.IncreasePoints(1);
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
                 if(sliding || catPush){
@@ -148,7 +116,7 @@ public class TilemapMovement : MonoBehaviour
                 break;
             case TileEffect.DoubleDirt:
                 // +1 to dirt counter
-                points++;
+                GameState.INSTANCE.IncreasePoints(1);
                 // Replace with TileEffect.SingleDirt
                 effectsTilemap.SetTile(tilePosition, singleDirtTile);
                 if(sliding  || catPush){
@@ -164,7 +132,7 @@ public class TilemapMovement : MonoBehaviour
                 break;
             case TileEffect.Battery:
                 // + 3 to battery counter
-                battery += 3;
+                GameState.INSTANCE.IncreaseBattery(3);
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
                 if(sliding || catPush){
@@ -177,7 +145,7 @@ public class TilemapMovement : MonoBehaviour
                 ProcessInput(velocity);
                 break;
             case TileEffect.Ring:
-                points--;
+                GameState.INSTANCE.DecreasePoints(1);
                 effectsTilemap.SetTile(tilePosition, null);
                 break;
             default:
@@ -185,7 +153,3 @@ public class TilemapMovement : MonoBehaviour
         }
     }
 }
-    
-
-    
-
