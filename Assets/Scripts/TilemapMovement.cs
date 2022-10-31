@@ -8,7 +8,8 @@ public enum TileEffect
     SingleDirt,
     DoubleDirt,
     Slippery,
-    Battery
+    Battery,
+    CatPush
 }
 
 public class TilemapMovement : MonoBehaviour
@@ -21,6 +22,11 @@ public class TilemapMovement : MonoBehaviour
 
     public int batteryCount = 0;
     public int dirtCollected = 0;
+
+    public int points = 0;
+
+    public static bool sliding = false;
+    public static bool catPush = false;
 
     private Vector3Int currentPos;
     private Vector3 offset = new Vector3(-0.5f, -0.5f, 0f);
@@ -59,7 +65,11 @@ public class TilemapMovement : MonoBehaviour
     {
         Vector3Int nextPos = currentPos + velocity;
 
-        if (invalidTilemap.GetTile(nextPos)) return; // This tilemap only has invalid tiles, so just check it's not null
+        if (invalidTilemap.GetTile(nextPos)){
+            sliding = false; //stop sliding from slipSquares if you were sliding
+            catPush = false; //stop sliding from catPush if you were sliding
+            return; // This tilemap only has invalid tiles, so just check it's not null
+        }
 
         // Update the Roomba's position
         currentPos = nextPos;
@@ -78,42 +88,91 @@ public class TilemapMovement : MonoBehaviour
                 case "Effects_2":
                     PerformEffect(TileEffect.Slippery, currentPos, velocity);
                     break;
-                case "Effects_3":
+                case "Effects_4":
                     PerformEffect(TileEffect.Battery, currentPos, velocity);
+                    break;
+                case "Effects_6":
+                    velocity = new Vector3Int(0, 1, 0);
+                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    break;
+                case "Effects_7":
+                    velocity = new Vector3Int(0, -1, 0);
+                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    break;
+                case "Effects_8":
+                    velocity = new Vector3Int(-1, 0, 0);
+                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    break;
+                case "Effects_9":
+                    velocity = new Vector3Int(1, 0, 0);
+                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
                     break;
                 default:
                     break;
+        
             }
         }
+        if(catPush){
+                ProcessInput(velocity);
+            }
+            if(sliding){
+                    sliding = false;
+                    ProcessInput(velocity);
+                }
     }
 
-    public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity)
-    {
+        public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity){
         // Perform effect depending on "effect" tile type
         switch (tileEffect)
         {
             case TileEffect.SingleDirt:
                 // +1 to dirt counter
                 dirtCollected++;
+                points++;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
+                if(sliding || catPush){
+                    sliding = false;
+                    ProcessInput(velocity);
+                }
                 break;
             case TileEffect.DoubleDirt:
                 // +1 to dirt counter
                 dirtCollected++;
+                points++;
                 // Replace with TileEffect.SingleDirt
                 effectsTilemap.SetTile(tilePosition, singleDirtTile);
+                if(sliding  || catPush){
+                    sliding = false;
+                    ProcessInput(velocity);
+                }
                 break;
             case TileEffect.Slippery:
+                // Player is now sliding
+                sliding = true;
                 // Move player by velocity
                 ProcessInput(velocity);
                 break;
             case TileEffect.Battery:
-                // +1 to battery counter
-                batteryCount++;
+                // + 3 to battery counter
+                batteryCount = batteryCount + 3;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
+                if(sliding || catPush){
+                    sliding = false;
+                    ProcessInput(velocity); 
+                }
+                break;
+            case TileEffect.CatPush:
+                catPush = true;
+                ProcessInput(velocity);
+                break;
+            default:
                 break;
         }
     }
 }
+    
+
+    
+
