@@ -20,9 +20,7 @@ public class TilemapMovement : MonoBehaviour
     public Vector3Int startPos;
     public Tile singleDirtTile;
 
-    public int batteryCount = 0;
-    public int dirtCollected = 0;
-
+    public int battery = 0;
     public int points = 0;
 
     public static bool sliding = false;
@@ -127,7 +125,6 @@ public class TilemapMovement : MonoBehaviour
         {
             case TileEffect.SingleDirt:
                 // +1 to dirt counter
-                dirtCollected++;
                 points++;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
@@ -138,7 +135,6 @@ public class TilemapMovement : MonoBehaviour
                 break;
             case TileEffect.DoubleDirt:
                 // +1 to dirt counter
-                dirtCollected++;
                 points++;
                 // Replace with TileEffect.SingleDirt
                 effectsTilemap.SetTile(tilePosition, singleDirtTile);
@@ -155,7 +151,7 @@ public class TilemapMovement : MonoBehaviour
                 break;
             case TileEffect.Battery:
                 // + 3 to battery counter
-                batteryCount = batteryCount + 3;
+                battery += 3;
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
                 if(sliding || catPush){
