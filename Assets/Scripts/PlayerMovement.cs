@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start() {
         INSTANCE = this;
         UpdatePlayerPosition();
+
+        GameSave.NewSave();
     }
 
     // Update is called once per frame
