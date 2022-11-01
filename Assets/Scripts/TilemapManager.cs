@@ -30,6 +30,8 @@ public class TilemapManager : MonoBehaviour
     [HideInInspector] public Vector3 offset = new Vector3(-0.5f, -0.5f, 0f);
 
     public static TilemapManager INSTANCE;
+
+  
     
 
     private void Start() {
@@ -97,6 +99,7 @@ public class TilemapManager : MonoBehaviour
         }
         if (sliding) {
             sliding = false;
+            PlayerMovement.INSTANCE.updateSpeed(6f);
             newPos(velocity);
             ProcessInput(velocity);
         }
