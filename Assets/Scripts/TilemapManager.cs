@@ -30,25 +30,26 @@ public class TilemapManager : MonoBehaviour
     [HideInInspector] public Vector3 offset = new Vector3(-0.5f, -0.5f, 0f);
 
     public static TilemapManager INSTANCE;
+    
 
     private void Start() {
         INSTANCE = this;
+        catPush = false;
+        sliding = false;
+    }
+
+    public void newPos(Vector3Int velocity){
+        Vector3Int nextPos = currentPos + velocity;
+        if (invalidTilemap.GetTile(nextPos)){
+            sliding = false; //stop sliding from slipSquares if you were sliding
+            catPush = false; //stop sliding from catPush if you were sliding
+        } // This tilemap only has invalid tiles, so just check it's not null
+        else{currentPos = nextPos;}
+        PlayerMovement.INSTANCE.movePoint.position = currentPos - offset;
     }
 
     public void ProcessInput (Vector3Int velocity)
     {
-        Vector3Int nextPos = currentPos + velocity;
-
-        if (invalidTilemap.GetTile(nextPos)){
-            sliding = false; //stop sliding from slipSquares if you were sliding
-            catPush = false; //stop sliding from catPush if you were sliding
-            return; // This tilemap only has invalid tiles, so just check it's not null
-        }
-
-        // Update the Roomba's position
-        currentPos = nextPos;
-        PlayerMovement.INSTANCE.UpdatePlayerPosition();
-
         if (effectsTilemap.GetTile(currentPos)) // If we have landed on an "effect" tile (i.e., battery, slippery tile, etc)
         {
             switch (effectsTilemap.GetTile(currentPos).name)
@@ -87,14 +88,16 @@ public class TilemapManager : MonoBehaviour
                 default:
                     Debug.LogError("Tilename not defined");
                     break;
-        
             }
         }
         if (catPush) {
+            newPos(velocity);
             ProcessInput(velocity);
+            // PerformEffect(TileEffect.CatPush, currentPos, velocity);
         }
         if (sliding) {
             sliding = false;
+            newPos(velocity);
             ProcessInput(velocity);
         }
     }
@@ -125,9 +128,11 @@ public class TilemapManager : MonoBehaviour
                 }
                 break;
             case TileEffect.Slippery:
+            PlayerMovement.INSTANCE.updateSpeed(6f);
                 // Player is now sliding
                 sliding = true;
                 // Move player by velocity
+                newPos(velocity);
                 ProcessInput(velocity);
                 break;
             case TileEffect.Battery:
@@ -141,7 +146,9 @@ public class TilemapManager : MonoBehaviour
                 }
                 break;
             case TileEffect.CatPush:
+            PlayerMovement.INSTANCE.updateSpeed(8f);
                 catPush = true;
+                newPos(velocity);
                 ProcessInput(velocity);
                 break;
             case TileEffect.Ring:
