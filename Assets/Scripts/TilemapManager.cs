@@ -115,20 +115,20 @@ public class TilemapManager : MonoBehaviour
                 GameState.INSTANCE.IncreasePoints(1);
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
-                if(sliding || catPush){
-                    sliding = false;
-                    ProcessInput(velocity);
-                }
+                // if(sliding || catPush){
+                //     sliding = false;
+                //     ProcessInput(velocity);
+                // }
                 break;
             case TileEffect.DoubleDirt:
                 // +1 to dirt counter
                 GameState.INSTANCE.IncreasePoints(1);
                 // Replace with TileEffect.SingleDirt
                 effectsTilemap.SetTile(tilePosition, singleDirtTile);
-                if(sliding  || catPush){
-                    sliding = false;
-                    ProcessInput(velocity);
-                }
+                // if(sliding  || catPush){
+                //     sliding = false;
+                //     ProcessInput(velocity);
+                // }
                 break;
             case TileEffect.Slippery:
             PlayerMovement.INSTANCE.updateSpeed(6f);
@@ -143,10 +143,10 @@ public class TilemapManager : MonoBehaviour
                 GameState.INSTANCE.IncreaseBattery(3);
                 // Remove tile
                 effectsTilemap.SetTile(tilePosition, null);
-                if(sliding || catPush){
-                    sliding = false;
-                    ProcessInput(velocity); 
-                }
+                // if(sliding || catPush){
+                //     newPos(velocity);
+                //     ProcessInput(velocity); 
+                // }
                 break;
             case TileEffect.CatPush:
             PlayerMovement.INSTANCE.updateSpeed(8f);
