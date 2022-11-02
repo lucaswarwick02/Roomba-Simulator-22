@@ -77,7 +77,6 @@ public class TilemapManager : MonoBehaviour
                     PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 default:
-                    Debug.LogError("Tilename not defined");
                     break;
             }
         }
@@ -120,43 +119,24 @@ public class TilemapManager : MonoBehaviour
         }
     }
 
-    public void PerformCollection (TileEffect tileEffect) {
+    public void PerformCollection (TileEffect tileEffect, Vector3Int tilePos) {
         switch (tileEffect)
         {
             case TileEffect.SingleDirt:
-                // +1 to dirt counter
                 GameState.INSTANCE.IncreasePoints(1);
-                // Remove tile
-                effectsTilemap.SetTile(currentPos, null);
-                // if(sliding || catPush){
-                //     sliding = false;
-                //     ProcessInput(velocity);
-                // }
+                effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.DoubleDirt:
-                // +1 to dirt counter
                 GameState.INSTANCE.IncreasePoints(1);
-                // Replace with TileEffect.SingleDirt
-                effectsTilemap.SetTile(currentPos, singleDirtTile);
-                // if(sliding  || catPush){
-                //     sliding = false;
-                //     ProcessInput(velocity);
-                // }
+                effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:
-                // + 3 to battery counter
                 GameState.INSTANCE.IncreaseBattery(3);
-                // Remove tile
-                effectsTilemap.SetTile(currentPos, null);
-                // if(sliding || catPush){
-                //     newPos(velocity);
-                //     ProcessInput(velocity); 
-                // }
+                effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.Ring:
-                Debug.Log("Ring effect");
                 GameState.INSTANCE.DecreasePoints(1);
-                effectsTilemap.SetTile(currentPos, null);
+                effectsTilemap.SetTile(tilePos, null);
                 break;
             default:
                 break;
@@ -174,10 +154,10 @@ public class TilemapManager : MonoBehaviour
                     return TileEffect.Slippery;
                 case "Effects_4":
                     return TileEffect.Battery;
-                case "Effects_6":
-                    return TileEffect.CatPush;
                 case "Effects_5":
                     return TileEffect.Ring;
+                case "Effects_6":
+                    return TileEffect.CatPush;
                 case "Effects_7":
                     return TileEffect.CatPush;
                 case "Effects_8":

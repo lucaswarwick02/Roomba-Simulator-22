@@ -103,9 +103,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other) {
         if (other.gameObject.name.Equals("Effects")) {
-            // TODO Roomba has collided with an effects tile
-            string tileName = TilemapManager.INSTANCE.effectsTilemap.GetTile(TilemapManager.INSTANCE.currentPos).name;
-            //TilemapManager.INSTANCE.PerformEffect(TilemapManager.TileNameToEnum(tileName), new Vector3Int(0, 0, 0));
+            // Roomba has collided with an collection tile
+            Vector3Int tilePos =  Vector3Int.FloorToInt(transform.position + TilemapManager.INSTANCE.offset);
+            string tileName = TilemapManager.INSTANCE.effectsTilemap.GetTile(tilePos).name;
+            TilemapManager.INSTANCE.PerformCollection(TilemapManager.TileNameToEnum(tileName), tilePos);
         }
     }
 }
