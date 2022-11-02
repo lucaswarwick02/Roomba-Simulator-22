@@ -17,8 +17,6 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3Int vel;
 
-    
-
     private void Start() {
         INSTANCE = this;
         movePoint.parent = null;
@@ -101,6 +99,14 @@ public class PlayerMovement : MonoBehaviour
         // transform.position = Vector3.MoveTowards(TilemapManager.INSTANCE.currentPos, 
         // TilemapManager.INSTANCE.currentPos,
         // movespeed * Time.deltaTime);
+    }
+
+    private void OnTriggerEnter2D(Collider2D other) {
+        if (other.gameObject.name.Equals("Effects")) {
+            // TODO Roomba has collided with an effects tile
+            string tileName = TilemapManager.INSTANCE.effectsTilemap.GetTile(TilemapManager.INSTANCE.currentPos).name;
+            //TilemapManager.INSTANCE.PerformEffect(TilemapManager.TileNameToEnum(tileName), new Vector3Int(0, 0, 0));
+        }
     }
 }
     

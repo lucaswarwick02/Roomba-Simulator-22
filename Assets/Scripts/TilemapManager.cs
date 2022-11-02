@@ -5,6 +5,7 @@ using UnityEngine.Tilemaps;
 
 public enum TileEffect
 {
+    Invalid,
     SingleDirt,
     DoubleDirt,
     Slippery,
@@ -56,47 +57,37 @@ public class TilemapManager : MonoBehaviour
         {
             switch (effectsTilemap.GetTile(currentPos).name)
             {
-                case "Effects_0":
-                    PerformEffect(TileEffect.SingleDirt, currentPos, velocity);
-                    break;
-                case "Effects_1":
-                    PerformEffect(TileEffect.DoubleDirt, currentPos, velocity);
-                    break;
                 case "Effects_2":
-                    PerformEffect(TileEffect.Slippery, currentPos, velocity);
-                    break;
-                case "Effects_4":
-                    PerformEffect(TileEffect.Battery, currentPos, velocity);
+                    PerformEffect(TileEffect.Slippery, velocity);
                     break;
                 case "Effects_6":
                     velocity = new Vector3Int(0, 1, 0);
-                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
-                    break;
-                case "Effects_5":
-                    PerformEffect(TileEffect.Ring, currentPos, velocity);
+                    PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 case "Effects_7":
                     velocity = new Vector3Int(0, -1, 0);
-                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 case "Effects_8":
                     velocity = new Vector3Int(-1, 0, 0);
-                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 case "Effects_9":
                     velocity = new Vector3Int(1, 0, 0);
-                    PerformEffect(TileEffect.CatPush, currentPos, velocity);
+                    PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 default:
                     Debug.LogError("Tilename not defined");
                     break;
             }
         }
+
         if (catPush) {
             newPos(velocity);
             ProcessInput(velocity);
             // PerformEffect(TileEffect.CatPush, currentPos, velocity);
         }
+        
         if (sliding) {
             sliding = false;
             PlayerMovement.INSTANCE.updateSpeed(6f);
@@ -105,16 +96,38 @@ public class TilemapManager : MonoBehaviour
         }
     }
 
-    public void PerformEffect (TileEffect tileEffect, Vector3Int tilePosition, Vector3Int velocity)
+    public void PerformEffect (TileEffect tileEffect, Vector3Int velocity)
     {
         // Perform effect depending on "effect" tile type
+        switch (tileEffect)
+        {
+            case TileEffect.Slippery:
+            PlayerMovement.INSTANCE.updateSpeed(6f);
+                // Player is now sliding
+                sliding = true;
+                // Move player by velocity
+                newPos(velocity);
+                ProcessInput(velocity);
+                break;
+            case TileEffect.CatPush:
+            PlayerMovement.INSTANCE.updateSpeed(8f);
+                catPush = true;
+                newPos(velocity);
+                ProcessInput(velocity);
+                break;
+            default:
+                break;
+        }
+    }
+
+    public void PerformCollection (TileEffect tileEffect) {
         switch (tileEffect)
         {
             case TileEffect.SingleDirt:
                 // +1 to dirt counter
                 GameState.INSTANCE.IncreasePoints(1);
                 // Remove tile
-                effectsTilemap.SetTile(tilePosition, null);
+                effectsTilemap.SetTile(currentPos, null);
                 // if(sliding || catPush){
                 //     sliding = false;
                 //     ProcessInput(velocity);
@@ -124,42 +137,56 @@ public class TilemapManager : MonoBehaviour
                 // +1 to dirt counter
                 GameState.INSTANCE.IncreasePoints(1);
                 // Replace with TileEffect.SingleDirt
-                effectsTilemap.SetTile(tilePosition, singleDirtTile);
+                effectsTilemap.SetTile(currentPos, singleDirtTile);
                 // if(sliding  || catPush){
                 //     sliding = false;
                 //     ProcessInput(velocity);
                 // }
                 break;
-            case TileEffect.Slippery:
-            PlayerMovement.INSTANCE.updateSpeed(6f);
-                // Player is now sliding
-                sliding = true;
-                // Move player by velocity
-                newPos(velocity);
-                ProcessInput(velocity);
-                break;
             case TileEffect.Battery:
                 // + 3 to battery counter
                 GameState.INSTANCE.IncreaseBattery(3);
                 // Remove tile
-                effectsTilemap.SetTile(tilePosition, null);
+                effectsTilemap.SetTile(currentPos, null);
                 // if(sliding || catPush){
                 //     newPos(velocity);
                 //     ProcessInput(velocity); 
                 // }
                 break;
-            case TileEffect.CatPush:
-            PlayerMovement.INSTANCE.updateSpeed(8f);
-                catPush = true;
-                newPos(velocity);
-                ProcessInput(velocity);
-                break;
             case TileEffect.Ring:
+                Debug.Log("Ring effect");
                 GameState.INSTANCE.DecreasePoints(1);
-                effectsTilemap.SetTile(tilePosition, null);
+                effectsTilemap.SetTile(currentPos, null);
                 break;
             default:
                 break;
         }
+    }
+
+    public static TileEffect TileNameToEnum (string tileName) {
+        switch (tileName)
+            {
+                case "Effects_0":
+                    return TileEffect.SingleDirt;
+                case "Effects_1":
+                    return TileEffect.DoubleDirt;
+                case "Effects_2":
+                    return TileEffect.Slippery;
+                case "Effects_4":
+                    return TileEffect.Battery;
+                case "Effects_6":
+                    return TileEffect.CatPush;
+                case "Effects_5":
+                    return TileEffect.Ring;
+                case "Effects_7":
+                    return TileEffect.CatPush;
+                case "Effects_8":
+                    return TileEffect.CatPush;
+                case "Effects_9":
+                    return TileEffect.CatPush;
+                default:
+                    Debug.LogError("Tilename" + tileName + " not defined");
+                    return TileEffect.Invalid;
+            }
     }
 }
