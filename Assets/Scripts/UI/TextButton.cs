@@ -15,37 +15,27 @@ public class TextButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private TextMeshProUGUI textComp;
     private bool isHovered;
 
-    private bool isEnabled;
-
-    private void Awake() {
-        textComp = GetComponent<TextMeshProUGUI>();
-    }
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        ToggleEffects(true);
-    }
+    private bool effectsEnabled = true;
 
     public void OnPointerEnter (PointerEventData eventData) {
-        if (!isEnabled) return;
+        if (!effectsEnabled) return;
         isHovered = true;
-        textComp.color = hovered;
+        getTextComponent().color = hovered;
     }
 
     public void OnPointerExit (PointerEventData eventData) {
-        if (!isEnabled) return;
+        if (!effectsEnabled) return;
         isHovered = false;
-        textComp.color = normal;
+        getTextComponent().color = normal;
     }
 
     public void OnPointerDown (PointerEventData eventData) {
-        if (!isEnabled) return;
-        textComp.color = down;
+        if (!effectsEnabled) return;
+        getTextComponent().color = down;
     }
 
     public void OnPointerUp (PointerEventData eventData) {
-        if (!isEnabled) return;
+        if (!effectsEnabled) return;
         if (isHovered) {
             OnPointerEnter(null);
         }
@@ -55,14 +45,19 @@ public class TextButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     }
 
     public void ToggleEffects (bool enabled) {
+        effectsEnabled = enabled;
         if (enabled) {
             OnPointerExit(null);
-            isEnabled = true;
         }
         else {
-            isEnabled = false;
-            textComp = GetComponent<TextMeshProUGUI>();
-            textComp.color = disabled;
+            getTextComponent().color = disabled;
         }
+    }
+
+    private TextMeshProUGUI getTextComponent () {
+        if (this.textComp == null) {
+            this.textComp = GetComponent<TextMeshProUGUI>();
+        }
+        return this.textComp;
     }
 }
