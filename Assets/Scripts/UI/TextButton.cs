@@ -7,40 +7,66 @@ using TMPro;
 
 public class TextButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler, IPointerUpHandler
 {
-    public Color normal;
-    public Color hovered;
-    public Color down;
+    private Color normal = new Color(1f, 1f, 1f);
+    private Color hovered = new Color(0.5377358f, 0.5377358f, 0.5377358f);
+    private Color down = new Color(0.3604486f, 0.9433962f, 0.882103f);
+    private Color disabled = new Color(0.3113208f, 0.3113208f, 0.3113208f, 0.5f);
 
     private TextMeshProUGUI textComp;
     private bool isHovered;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        textComp = GetComponent<TextMeshProUGUI>();
-        OnPointerExit(null);
+    private bool effectsEnabled = true;
+
+    private void OnEnable() {
+        if (effectsEnabled) {
+            OnPointerExit(null);
+        }
+        else {
+            getTextComponent().color = disabled;
+        }
     }
 
     public void OnPointerEnter (PointerEventData eventData) {
+        if (!effectsEnabled) return;
         isHovered = true;
-        textComp.color = hovered;
+        getTextComponent().color = hovered;
     }
 
     public void OnPointerExit (PointerEventData eventData) {
+        if (!effectsEnabled) return;
         isHovered = false;
-        textComp.color = normal;
+        getTextComponent().color = normal;
     }
 
     public void OnPointerDown (PointerEventData eventData) {
-        textComp.color = down;
+        if (!effectsEnabled) return;
+        getTextComponent().color = down;
     }
 
     public void OnPointerUp (PointerEventData eventData) {
+        if (!effectsEnabled) return;
         if (isHovered) {
             OnPointerEnter(null);
         }
         else {
             OnPointerExit(null);
         }
+    }
+
+    public void ToggleEffects (bool enabled) {
+        effectsEnabled = enabled;
+        if (effectsEnabled) {
+            OnPointerExit(null);
+        }
+        else {
+            getTextComponent().color = disabled;
+        }
+    }
+
+    private TextMeshProUGUI getTextComponent () {
+        if (this.textComp == null) {
+            this.textComp = GetComponent<TextMeshProUGUI>();
+        }
+        return this.textComp;
     }
 }

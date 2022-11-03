@@ -53,5 +53,11 @@ public class GameSave
 /// </summary>
 [System.Serializable]
 public class SaveData {
-    public bool tutorialComplete = false;
+    public bool week1Unlocked = true;
+    public bool week2Unlocked = false;
+    public bool week3Unlocked = false;
+
+    public bool[] week1LevelsUnlocked = {true, false, false, false, false};
+    public bool[] week2LevelsUnlocked = {false, false, false, false, false};
+    public bool[] week3LevelsUnlocked = {false, false, false, false, false};
 }
