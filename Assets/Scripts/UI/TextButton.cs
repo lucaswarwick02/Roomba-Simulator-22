@@ -17,6 +17,15 @@ public class TextButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     private bool effectsEnabled = true;
 
+    private void OnEnable() {
+        if (effectsEnabled) {
+            OnPointerExit(null);
+        }
+        else {
+            getTextComponent().color = disabled;
+        }
+    }
+
     public void OnPointerEnter (PointerEventData eventData) {
         if (!effectsEnabled) return;
         isHovered = true;
@@ -46,7 +55,7 @@ public class TextButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
 
     public void ToggleEffects (bool enabled) {
         effectsEnabled = enabled;
-        if (enabled) {
+        if (effectsEnabled) {
             OnPointerExit(null);
         }
         else {
