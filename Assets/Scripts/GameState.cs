@@ -10,11 +10,11 @@ public class GameState : MonoBehaviour
     [HideInInspector] public int battery = 0;
     [HideInInspector] public int points = 0;
 
+    public Vector3Int startPos;
+
     public static GameState INSTANCE;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    private void Awake() {
         INSTANCE = this;
         battery = initialBattery;
     }

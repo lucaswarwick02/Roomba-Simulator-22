@@ -17,9 +17,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3Int vel;
 
-    private void Start() {
+    private void Awake() {
         INSTANCE = this;
         movePoint.parent = null;
+    }
+
+    private void Start() {
         movePoint.position = transform.position - TilemapManager.INSTANCE.offset;
         // transform.position = TilemapManager.INSTANCE.currentPos - TilemapManager.INSTANCE.offset;
         UpdatePlayerPosition(nd);

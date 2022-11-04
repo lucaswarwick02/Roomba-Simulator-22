@@ -22,8 +22,6 @@ public class TilemapManager : MonoBehaviour
 
     public Tile singleDirtTile;
 
-    public Vector3Int startPos;
-
     [HideInInspector] public static bool sliding = false;
     [HideInInspector] public static bool catPush = false;
 
@@ -32,13 +30,12 @@ public class TilemapManager : MonoBehaviour
 
     public static TilemapManager INSTANCE;
 
-  
-    
-
-    private void Start() {
+    private void Awake() {
         INSTANCE = this;
         catPush = false;
         sliding = false;
+
+        currentPos = GameState.INSTANCE.startPos;
     }
 
     public void newPos(Vector3Int velocity){
