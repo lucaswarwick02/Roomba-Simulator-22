@@ -120,19 +120,19 @@ public class TilemapManager : MonoBehaviour
         switch (tileEffect)
         {
             case TileEffect.SingleDirt:
-                GameState.INSTANCE.IncreasePoints(1);
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.DoubleDirt:
-                GameState.INSTANCE.IncreasePoints(1);
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:
-                GameState.INSTANCE.IncreaseBattery(3);
+                GameState.INSTANCE.Battery += 3;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.Ring:
-                GameState.INSTANCE.DecreasePoints(1);
+                GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             default:

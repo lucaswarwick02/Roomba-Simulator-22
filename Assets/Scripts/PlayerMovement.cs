@@ -56,14 +56,14 @@ public class PlayerMovement : MonoBehaviour
             else{ 
         updateSpeed(3f);
 
-        if(GameState.INSTANCE.battery > 0){
+        if(GameState.INSTANCE.Battery > 0){
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             wfe = true;
             movementDir = new Vector3Int(0, 1, 0);
             TilemapManager.INSTANCE.newPos(new Vector3Int(0, 1, 0));
-            GameState.INSTANCE.DecreaseBattery(1);
+            GameState.INSTANCE.Battery -= 1;
          
         }
         if (Input.GetKeyDown(KeyCode.DownArrow))
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
             wfe = true;
             movementDir = new Vector3Int(0, -1, 0);
             TilemapManager.INSTANCE.newPos(new Vector3Int(0, -1, 0));
-            GameState.INSTANCE.DecreaseBattery(1);
+            GameState.INSTANCE.Battery -= 1;
           
         }
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -79,7 +79,7 @@ public class PlayerMovement : MonoBehaviour
             wfe = true;
             movementDir = new Vector3Int(-1, 0, 0);
             TilemapManager.INSTANCE.newPos(new Vector3Int(-1,0, 0));
-            GameState.INSTANCE.DecreaseBattery(1);
+            GameState.INSTANCE.Battery -= 1;
         
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
@@ -87,7 +87,7 @@ public class PlayerMovement : MonoBehaviour
             wfe = true;
             movementDir = new Vector3Int(1, 0, 0);
             TilemapManager.INSTANCE.newPos(new Vector3Int(1, 0, 0));
-            GameState.INSTANCE.DecreaseBattery(1);
+            GameState.INSTANCE.Battery -= 1;
             
         }
         }

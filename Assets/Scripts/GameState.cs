@@ -1,53 +1,64 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameState : MonoBehaviour
 {
-    public int initialBattery = 10;
-    public int pointsNeeded = 3;
-
-    [HideInInspector] public int battery = 0;
-    [HideInInspector] public int points = 0;
-
     public Vector3Int startPos;
+    public int initialBattery = 10;
+    public int maxDirt = 3;
+
+    private int _battery;
+    public int Battery {
+        get { return _battery; }
+        set { _battery = value; onStateChange.Invoke(); }
+    }
+
+    private int _rings;
+    public int Rings {
+        get { return _rings; }
+        set { _rings = value; onStateChange.Invoke(); }
+    }
+
+    private int _dirt;
+    public int Dirt {
+        get { return _dirt; }
+        set { _dirt = value; onStateChange.Invoke(); }
+    }
+
+    private UnityEvent onStateChange = new UnityEvent();
 
     public static GameState INSTANCE;
 
     private void Awake() {
         INSTANCE = this;
-        battery = initialBattery;
+        Battery = initialBattery;
+        
+        onStateChange.AddListener(checkGameStatus);
     }
 
-    public void DecreaseBattery (int amount) {
-        battery -= amount;
-        checkGameState();
-    }
-    public void IncreaseBattery (int amount) {
-        battery += amount;
-        checkGameState();
+    private void checkGameStatus () {
+        // Stop function if the game is still runnings
+        if (Battery < 0) return;
+        if (Dirt < maxDirt) return;
+
+        float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
+        Debug.Log("Score = " + score);
+
+        if (score >= 0.5f) {
+            GameWin();
+        }
+        else {
+            GameLose();
+        }
     }
 
-    public void DecreasePoints (int amount) {
-        points -= amount;
-        checkGameState();
-    }
-    public void IncreasePoints (int amount) {
-        points += amount;
-        checkGameState();
+    private void GameLose () {
+        Debug.Log("Game Lost!");
     }
 
-    private void checkGameState () {
-        if (battery <= 0) GameLose();
-
-        if (points >= pointsNeeded) GameWin();
-    }
-
-    public void GameWin () {
-        Debug.Log("You win!");
-    }
-
-    public void GameLose () {
-        Debug.Log("You lose!");
+    private void GameWin () {
+        Debug.Log("Game Win!");
     }
 }
