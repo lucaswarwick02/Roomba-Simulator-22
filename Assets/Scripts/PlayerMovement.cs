@@ -7,26 +7,46 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement INSTANCE;
 
     private Vector3Int nd = new Vector3Int(0,0,0);
+    private Vector3Int nd2 = new Vector3Int(-2,-1,0);
 
-    private float movespeed;
-    public Transform movePoint; //This is what gets moved instantly and the roomba sprite follows non instantly causing animation
+    public GameObject roomba1;
+    public GameObject roomba2;
+
+    private Vector3 offset2 = new Vector3(-0.5f, -0.5f, 0f);
+
+    private float movespeed1;
+    private float movespeed2;
+    public Transform movePoint1;
+    public Transform movePoint2; //This is what gets moved instantly and the roomba sprite follows non instantly causing animation
 
     private bool wfe; //Wait For Effect, specifically if the square is due for cat push (cannot move until you let cat push roomba)
 
     private Vector3Int movementDir; //vector follows what key is last pressed and saved in a variable (for slip squares)
 
-    private Vector3Int vel;
-
     private void Start() {
+        roomba1 = GameObject.FindWithTag("roomba1");
+        roomba2 = GameObject.FindWithTag("roomba2");
         INSTANCE = this;
-        movePoint.parent = null;
-        movePoint.position = transform.position - TilemapManager.INSTANCE.offset;
-        // transform.position = TilemapManager.INSTANCE.currentPos - TilemapManager.INSTANCE.offset;
-        UpdatePlayerPosition(nd);
+        
+        movePoint1.parent = null;
+        movePoint2.parent = null;
+        movespeed1 = 3f;
+        movespeed2 = 3f;
+
+        // TilemapManager.INSTANCE.newPos(nd, nd);
+
+        roomba1.transform.position = nd - offset2;
+        roomba2.transform.position = nd - offset2 + nd2;
+        movePoint1.position = roomba1.transform.position;
+        movePoint2.position = roomba2.transform.position;
+        Debug.Log(roomba1.transform.position);
+        Debug.Log(roomba2.transform.position);
+        UpdatePlayerPositions(nd);
     }
 
     public bool isMoving(){
-        if(Vector3.Distance(transform.position, movePoint.position) != 0f){
+        if((Vector3.Distance(roomba1.transform.position, movePoint1.position) != 0f)
+        || (Vector3.Distance(roomba2.transform.position, movePoint2.position) != 0f)){
             return true;
         }
         else{
@@ -34,32 +54,40 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    public void updateSpeed(float speed){
-        movespeed = speed;
+    public void updateSpeed1(float speed){
+        movespeed1 = speed;
+    }
+    public void updateSpeed2(float speed){
+        movespeed2 = speed;
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.position = Vector3.MoveTowards(transform.position, 
-                movePoint.position,
-                movespeed * Time.deltaTime);
+        roomba1.transform.position = Vector3.MoveTowards(roomba1.transform.position, 
+                movePoint1.position,
+                movespeed1 * Time.deltaTime);
+        roomba2.transform.position = Vector3.MoveTowards(roomba2.transform.position, 
+                movePoint2.position,
+                movespeed2 * Time.deltaTime);
 
         if(!isMoving()){ // cant have tile effects act until roomba stops moving
             if(wfe){
                 wfe = false;
-                TilemapManager.INSTANCE.ProcessInput(movementDir);
+                TilemapManager.INSTANCE.ProcessInput1(movementDir);
+                TilemapManager.INSTANCE.ProcessInput2(movementDir);
             }
             else{ 
-        updateSpeed(3f);
+        updateSpeed1(3f);
+        updateSpeed2(3f);
 
-        if(GameState.INSTANCE.battery > 0){
+        if(GameState.INSTANCE.battery1 > 0){
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             wfe = true;
             movementDir = new Vector3Int(0, 1, 0);
-            TilemapManager.INSTANCE.newPos(new Vector3Int(0, 1, 0));
+            TilemapManager.INSTANCE.newPos(movementDir, movementDir);
             GameState.INSTANCE.DecreaseBattery(1);
          
         }
@@ -67,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
         {
             wfe = true;
             movementDir = new Vector3Int(0, -1, 0);
-            TilemapManager.INSTANCE.newPos(new Vector3Int(0, -1, 0));
+            TilemapManager.INSTANCE.newPos(movementDir, movementDir);
             GameState.INSTANCE.DecreaseBattery(1);
           
         }
@@ -75,7 +103,7 @@ public class PlayerMovement : MonoBehaviour
         {
             wfe = true;
             movementDir = new Vector3Int(-1, 0, 0);
-            TilemapManager.INSTANCE.newPos(new Vector3Int(-1,0, 0));
+            TilemapManager.INSTANCE.newPos(movementDir, movementDir);
             GameState.INSTANCE.DecreaseBattery(1);
         
         }
@@ -83,32 +111,26 @@ public class PlayerMovement : MonoBehaviour
         {
             wfe = true;
             movementDir = new Vector3Int(1, 0, 0);
-            TilemapManager.INSTANCE.newPos(new Vector3Int(1, 0, 0));
+            TilemapManager.INSTANCE.newPos(movementDir, movementDir);
             GameState.INSTANCE.DecreaseBattery(1);
             
-        }
-        }
-        }
-        }
+               }
+    
+            }
+          }
 
-    }
+        } 
 
-    public void UpdatePlayerPosition (Vector3Int velocity)
+}
+
+private void UpdatePlayerPositions (Vector3Int velocity)
     {
-        transform.position = TilemapManager.INSTANCE.currentPos - TilemapManager.INSTANCE.offset;
-        // transform.position = Vector3.MoveTowards(TilemapManager.INSTANCE.currentPos, 
-        // TilemapManager.INSTANCE.currentPos,
-        // movespeed * Time.deltaTime);
+        // roomba1.transform.position = nd - offset2;
+        // roomba2.transform.position = nd - offset2;
+        // roomba1.transform.position = TilemapManager.INSTANCE.currentPos1 - offset2 ;
+        // roomba2.transform.position = TilemapManager.INSTANCE.currentPos2 - offset2;
     }
 
-    private void OnTriggerEnter2D(Collider2D other) {
-        if (other.gameObject.name.Equals("Effects")) {
-            // Roomba has collided with an collection tile
-            Vector3Int tilePos =  Vector3Int.FloorToInt(transform.position + TilemapManager.INSTANCE.offset);
-            string tileName = TilemapManager.INSTANCE.effectsTilemap.GetTile(tilePos).name;
-            TilemapManager.INSTANCE.PerformCollection(TilemapManager.TileNameToEnum(tileName), tilePos);
-        }
-    }
 }
     
 
