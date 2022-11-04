@@ -12,7 +12,7 @@ public class GameStateUI : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        batteryCount.text = "Battery: " + GameState.INSTANCE.battery1;
+        batteryCount.text = "Battery: " + GameState.INSTANCE.battery;
         pointsCount.text = "Points: " + GameState.INSTANCE.points;
     }
 }

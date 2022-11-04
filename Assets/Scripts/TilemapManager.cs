@@ -22,189 +22,105 @@ public class TilemapManager : MonoBehaviour
 
     public Tile singleDirtTile;
 
-    public Vector3Int startPos1;
-    public Vector3Int startPos2;
+    public Vector3Int startPos;
 
-    [HideInInspector] public static bool sliding1 = false;
-    [HideInInspector] public static bool sliding2 = false;
-    [HideInInspector] public static bool catPush1 = false;
-    [HideInInspector] public static bool catPush2 = false;
+    [HideInInspector] public static bool sliding = false;
+    [HideInInspector] public static bool catPush = false;
 
-    [HideInInspector] public Vector3Int currentPos1;
-    [HideInInspector] public Vector3Int currentPos2;
+    [HideInInspector] public Vector3Int currentPos;
     [HideInInspector] public Vector3 offset = new Vector3(-0.5f, -0.5f, 0f);
 
     public static TilemapManager INSTANCE;
 
+  
+    
+
     private void Start() {
-        currentPos1 = new Vector3Int(0, 0, 0);
-        currentPos2 = new Vector3Int(-2, -1, 0);
-
         INSTANCE = this;
-        sliding1 = false;
-        sliding2 = false;
-        catPush1 = false;
-        catPush2 = false;
-        
+        catPush = false;
+        sliding = false;
     }
 
-    public void newPos(Vector3Int velocity1,Vector3Int velocity2){
-        Vector3Int nextPos1 = currentPos1 + velocity1;
-        if (invalidTilemap.GetTile(nextPos1)){
-            sliding1 = false; //stop sliding from slipSquares if you were sliding
-            catPush1 = false; //stop sliding from catPush if you were sliding
+    public void newPos(Vector3Int velocity){
+        Vector3Int nextPos = currentPos + velocity;
+        if (invalidTilemap.GetTile(nextPos)){
+            sliding = false; //stop sliding from slipSquares if you were sliding
+            catPush = false; //stop sliding from catPush if you were sliding
         } // This tilemap only has invalid tiles, so just check it's not null
-        else{currentPos1 = nextPos1;}
-        Vector3Int nextPos2 = currentPos2 + velocity2;
-        if (invalidTilemap.GetTile(nextPos2)){
-            sliding2 = false; //stop sliding from slipSquares if you were sliding
-            catPush2 = false; //stop sliding from catPush if you were sliding
-        } // This tilemap only has invalid tiles, so just check it's not null
-        else{currentPos2 = nextPos2;}
-        PlayerMovement.INSTANCE.movePoint1.position = currentPos1 - offset;
-        PlayerMovement.INSTANCE.movePoint2.position = currentPos2 - offset;
+        else{currentPos = nextPos;}
+        PlayerMovement.INSTANCE.movePoint.position = currentPos - offset;
     }
 
-    public void ProcessInput1 (Vector3Int velocity)
+    public void ProcessInput (Vector3Int velocity)
     {
-        if (effectsTilemap.GetTile(currentPos1)) // If we have landed on an "effect" tile (i.e., battery, slippery tile, etc)
+        if (effectsTilemap.GetTile(currentPos)) // If we have landed on an "effect" tile (i.e., battery, slippery tile, etc)
         {
-            switch (effectsTilemap.GetTile(currentPos1).name)
+            switch (effectsTilemap.GetTile(currentPos).name)
             {
                 case "Effects_2":
-                    PerformEffect1(TileEffect.Slippery, velocity);
+                    PerformEffect(TileEffect.Slippery, velocity);
                     break;
                 case "Effects_6":
                     velocity = new Vector3Int(0, 1, 0);
-                    PerformEffect1(TileEffect.CatPush, velocity);
+                    PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 case "Effects_7":
                     velocity = new Vector3Int(0, -1, 0);
-                    PerformEffect1(TileEffect.CatPush, velocity);
+                    PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 case "Effects_8":
                     velocity = new Vector3Int(-1, 0, 0);
-                    PerformEffect1(TileEffect.CatPush, velocity);
+                    PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 case "Effects_9":
                     velocity = new Vector3Int(1, 0, 0);
-                    PerformEffect1(TileEffect.CatPush, velocity);
+                    PerformEffect(TileEffect.CatPush, velocity);
                     break;
                 default:
                     break;
             }
         }
 
-        if (catPush1) {
-            sliding1 = false;
-            newPos(velocity, new Vector3Int(0, 0, 0));
-            ProcessInput1(velocity);
+        if (catPush) {
+            newPos(velocity);
+            ProcessInput(velocity);
             // PerformEffect(TileEffect.CatPush, currentPos, velocity);
         }
         
-        if (sliding1) {
-            sliding1 = false;
-            PlayerMovement.INSTANCE.updateSpeed1(6f);
-            newPos(velocity, new Vector3Int(0, 0, 0));
-            ProcessInput1(velocity);
+        if (sliding) {
+            sliding = false;
+            PlayerMovement.INSTANCE.updateSpeed(6f);
+            newPos(velocity);
+            ProcessInput(velocity);
         }
     }
 
-    public void ProcessInput2 (Vector3Int velocity)
-    {
-        if (effectsTilemap.GetTile(currentPos2)) // If we have landed on an "effect" tile (i.e., battery, slippery tile, etc)
-        {
-            switch (effectsTilemap.GetTile(currentPos2).name)
-            {
-                case "Effects_2":
-                    PerformEffect2(TileEffect.Slippery, velocity);
-                    break;
-                case "Effects_6":
-                    velocity = new Vector3Int(0, 1, 0);
-                    PerformEffect2(TileEffect.CatPush, velocity);
-                    break;
-                case "Effects_7":
-                    velocity = new Vector3Int(0, -1, 0);
-                    PerformEffect2(TileEffect.CatPush, velocity);
-                    break;
-                case "Effects_8":
-                    velocity = new Vector3Int(-1, 0, 0);
-                    PerformEffect2(TileEffect.CatPush, velocity);
-                    break;
-                case "Effects_9":
-                    velocity = new Vector3Int(1, 0, 0);
-                    PerformEffect2(TileEffect.CatPush, velocity);
-                    break;
-                default:
-                    break;
-            }
-        }
-
-        if (catPush2) {
-            sliding2 = false;
-            newPos(new Vector3Int(0, 0, 0),velocity);
-            ProcessInput2(velocity);
-            // PerformEffect(TileEffect.CatPush, currentPos, velocity);
-        }
-        
-        if (sliding2) {
-            sliding2 = false;
-            PlayerMovement.INSTANCE.updateSpeed2(6f);
-            newPos(new Vector3Int(0, 0, 0),velocity);
-            ProcessInput2(velocity);
-        }
-    }
-
-
-    public void PerformEffect1 (TileEffect tileEffect2, Vector3Int velocity)
+    public void PerformEffect (TileEffect tileEffect, Vector3Int velocity)
     {
         // Perform effect depending on "effect" tile type
-        switch (tileEffect2)
+        switch (tileEffect)
         {
             case TileEffect.Slippery:
-            PlayerMovement.INSTANCE.updateSpeed1(6f);
+            PlayerMovement.INSTANCE.updateSpeed(6f);
                 // Player is now sliding
-                sliding1 = true;
+                sliding = true;
                 // Move player by velocity
-                newPos(velocity, new Vector3Int(0, 0, 0));
-                ProcessInput1(velocity);
+                newPos(velocity);
+                ProcessInput(velocity);
                 break;
             case TileEffect.CatPush:
-            PlayerMovement.INSTANCE.updateSpeed1(8f);
-                catPush1 = true;
-                newPos(velocity, new Vector3Int(0, 0, 0));
-                ProcessInput1(velocity);
-                break;
-            default:
-                break;
-        }
-    }
-    public void PerformEffect2 (TileEffect tileEffect2, Vector3Int velocity)
-    {
-        // Perform effect depending on "effect" tile type
-        switch (tileEffect2)
-        {
-            case TileEffect.Slippery:
-            PlayerMovement.INSTANCE.updateSpeed2(6f);
-                // Player is now sliding
-                sliding2 = true;
-                // Move player by velocity
-                newPos(new Vector3Int(0, 0, 0),velocity);
-                ProcessInput2(velocity);
-                break;
-            case TileEffect.CatPush:
-            PlayerMovement.INSTANCE.updateSpeed2(8f);
-                catPush2 = true;
-                newPos(new Vector3Int(0, 0, 0),velocity);
-                ProcessInput2(velocity);
+            PlayerMovement.INSTANCE.updateSpeed(8f);
+                catPush = true;
+                newPos(velocity);
+                ProcessInput(velocity);
                 break;
             default:
                 break;
         }
     }
 
-    public void PerformCollection1 (TileEffect tileEffect2, Vector3Int tilePos) {
-        switch (tileEffect2)
+    public void PerformCollection (TileEffect tileEffect, Vector3Int tilePos) {
+        switch (tileEffect)
         {
             case TileEffect.SingleDirt:
                 GameState.INSTANCE.IncreasePoints(1);
@@ -215,30 +131,7 @@ public class TilemapManager : MonoBehaviour
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:
-                GameState.INSTANCE.IncreaseBattery1(3);
-                effectsTilemap.SetTile(tilePos, null);
-                break;
-            case TileEffect.Ring:
-                GameState.INSTANCE.DecreasePoints(1);
-                effectsTilemap.SetTile(tilePos, null);
-                break;
-            default:
-                break;
-        }
-    }
-    public void PerformCollection2 (TileEffect tileEffect2, Vector3Int tilePos) {
-        switch (tileEffect2)
-        {
-            case TileEffect.SingleDirt:
-                GameState.INSTANCE.IncreasePoints(1);
-                effectsTilemap.SetTile(tilePos, null);
-                break;
-            case TileEffect.DoubleDirt:
-                GameState.INSTANCE.IncreasePoints(1);
-                effectsTilemap.SetTile(tilePos, singleDirtTile);
-                break;
-            case TileEffect.Battery:
-                GameState.INSTANCE.IncreaseBattery2(3);
+                GameState.INSTANCE.IncreaseBattery(3);
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.Ring:
