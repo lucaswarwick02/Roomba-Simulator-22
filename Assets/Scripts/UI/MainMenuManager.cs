@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
@@ -91,8 +92,8 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void StartLevel (string levelID) {
-        // TODO Load level scene
-        Debug.Log("TODO: Load level " + levelID);
+        // Load level scene
+        SceneManager.LoadScene("Level_" + levelID);
     }
 
     private void DeactivateAllPanels () {

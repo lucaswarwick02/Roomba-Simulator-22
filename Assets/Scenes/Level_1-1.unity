@@ -290,6 +290,9 @@ MonoBehaviour:
   startPos: {x: 0, y: 0, z: 0}
   initialBattery: 5
   maxDirt: 1
+  level:
+    week: 1
+    day: 1
 --- !u!4 &396985056
 Transform:
   m_ObjectHideFlags: 0

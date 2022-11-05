@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
     public Vector3Int startPos;
     public int initialBattery = 10;
     public int maxDirt = 3;
+    public Level level;
 
     private int _battery;
     public int Battery {
@@ -60,5 +61,23 @@ public class GameState : MonoBehaviour
 
     private void GameWin () {
         Debug.Log("Game Win!");
+
+        // Unlock next level
+        Level nextLevel = level.NextLevel();
+        switch (nextLevel.week) {
+            case 1:
+                GameSave.INSTANCE.week1LevelsUnlocked[nextLevel.day - 1] = true;
+                break;
+            case 2:
+                GameSave.INSTANCE.week2LevelsUnlocked[nextLevel.day - 1] = true;
+                break;
+            case 3:
+                GameSave.INSTANCE.week3LevelsUnlocked[nextLevel.day - 1] = true;
+                break;
+            default:
+                break;
+        }
+
+        GameSave.Save();
     }
 }
