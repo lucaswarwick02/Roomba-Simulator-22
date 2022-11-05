@@ -47,37 +47,37 @@ public class GameState : MonoBehaviour
         float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
         Debug.Log("Score = " + score);
 
-        if (score >= 0.5f) {
-            GameWin();
-        }
-        else {
-            GameLose();
-        }
-    }
-
-    private void GameLose () {
-        Debug.Log("Game Lost!");
-    }
-
-    private void GameWin () {
-        Debug.Log("Game Win!");
-
-        // Unlock next level
-        Level nextLevel = level.NextLevel();
-        switch (nextLevel.week) {
+        // Assign score to level save data
+        switch (level.week) {
             case 1:
-                GameSave.INSTANCE.week1LevelsUnlocked[nextLevel.day - 1] = true;
+                if (GameSave.INSTANCE.week1Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week1Levels[level.day - 1].percentage = score;
                 break;
             case 2:
-                GameSave.INSTANCE.week2LevelsUnlocked[nextLevel.day - 1] = true;
+                if (GameSave.INSTANCE.week2Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week2Levels[level.day - 1].percentage = score;
                 break;
             case 3:
-                GameSave.INSTANCE.week3LevelsUnlocked[nextLevel.day - 1] = true;
+                if (GameSave.INSTANCE.week3Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week3Levels[level.day - 1].percentage = score;
                 break;
             default:
                 break;
         }
 
-        GameSave.Save();
+        if (score >= 0.5f) {
+            // Unlock next level
+            Level nextLevel = level.NextLevel();
+            switch (nextLevel.week) {
+                case 1:
+                    GameSave.INSTANCE.week1Levels[nextLevel.day - 1].unlocked = true;
+                    break;
+                case 2:
+                    GameSave.INSTANCE.week2Levels[nextLevel.day - 1].unlocked = true;
+                    break;
+                case 3:
+                    GameSave.INSTANCE.week3Levels[nextLevel.day - 1].unlocked = true;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }

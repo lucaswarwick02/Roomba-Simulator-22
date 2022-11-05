@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     private void Awake()
     {
         INSTANCE = this;
-        movePoint.parent = null;
     }
 
     private void Start()
@@ -28,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
         movePoint.position = transform.position - TilemapManager.INSTANCE.offset;
         // transform.position = TilemapManager.INSTANCE.currentPos - TilemapManager.INSTANCE.offset;
         UpdatePlayerPosition(nd);
+        movePoint.parent = null;
+        movePoint.position = transform.position;
     }
 
     public bool isMoving()

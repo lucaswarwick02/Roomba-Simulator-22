@@ -24,6 +24,17 @@ public class Level
         return nextLevel;
     }
 
+    public Level PreviousLevel () {
+        Level previousLevel = new Level(this.week, this.day - 1);
+
+        if (previousLevel.day == 0) {
+            previousLevel.week--;
+            previousLevel.day = 1;
+        }
+
+        return previousLevel;
+    }
+
     public override string ToString () {
         return "Level_" + this.week + "-" + this.day;
     }
