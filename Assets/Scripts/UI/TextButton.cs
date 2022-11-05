@@ -18,12 +18,7 @@ public class TextButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private bool effectsEnabled = true;
 
     private void OnEnable() {
-        if (effectsEnabled) {
-            OnPointerExit(null);
-        }
-        else {
-            getTextComponent().color = disabled;
-        }
+        OnPointerExit(null);
     }
 
     public void OnPointerEnter (PointerEventData eventData) {
@@ -61,6 +56,10 @@ public class TextButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
         else {
             getTextComponent().color = disabled;
         }
+    }
+
+    public void ForceDisable () {
+        effectsEnabled = false;
     }
 
     private TextMeshProUGUI getTextComponent () {

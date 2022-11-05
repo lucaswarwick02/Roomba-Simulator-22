@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.Serialization.Formatters.Binary;
 using UnityEngine;
+using System.Linq;
 
 public class GameSave
 {
@@ -45,5 +46,31 @@ public class GameSave
         file.Close();
 
         Debug.Log("Progress Loaded");
+    }
+
+    public static bool IsWeekUnlocked (int week) {
+        switch (week) {
+            case 1:
+                return true; // Week 1 is always unlocked
+            case 2:
+                return GameSave.INSTANCE.week1Levels.All(levelSaveData => levelSaveData.percentage == 1f);
+            case 3:
+                return GameSave.INSTANCE.week2Levels.All(levelSaveData => levelSaveData.percentage == 1f);
+            default:
+                return false;
+        }
+    }
+
+    public static bool IsDayUnlocked (int week, int day) {
+        switch (week) {
+            case 1:
+                return GameSave.INSTANCE.week1Levels[day - 1].unlocked;
+            case 2:
+                return GameSave.INSTANCE.week2Levels[day - 1].unlocked;
+            case 3:
+                return GameSave.INSTANCE.week3Levels[day - 1].unlocked;;
+            default:
+                return false;
+        }
     }
 }

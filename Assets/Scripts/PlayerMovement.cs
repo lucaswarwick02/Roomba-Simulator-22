@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Vector3.Distance(transform.position, movePoint.position) != 0f)
         {
-            Debug.Log("We are moving!");
             return true;
         }
         else

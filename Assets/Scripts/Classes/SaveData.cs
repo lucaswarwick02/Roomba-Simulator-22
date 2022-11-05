@@ -7,11 +7,39 @@ using UnityEngine;
 /// </summary>
 [System.Serializable]
 public class SaveData {
-    public bool week1Unlocked = true;
-    public bool week2Unlocked = false;
-    public bool week3Unlocked = false;
+    public LevelSaveData[] week1Levels = {
+        new LevelSaveData(true),
+        new LevelSaveData(false),
+        new LevelSaveData(false),
+        new LevelSaveData(false),
+        new LevelSaveData(false)
+    };
 
-    public bool[] week1LevelsUnlocked = {true, false, false, false, false};
-    public bool[] week2LevelsUnlocked = {false, false, false, false, false};
-    public bool[] week3LevelsUnlocked = {false, false, false, false, false};
+    public LevelSaveData[] week2Levels = {
+        new LevelSaveData(false),
+        new LevelSaveData(false),
+        new LevelSaveData(false),
+        new LevelSaveData(false),
+        new LevelSaveData(false)
+    };
+
+    public LevelSaveData[] week3Levels = {
+        new LevelSaveData(false),
+        new LevelSaveData(false),
+        new LevelSaveData(false),
+        new LevelSaveData(false),
+        new LevelSaveData(false)
+    };
+
+}
+
+[System.Serializable]
+public struct LevelSaveData {
+    public bool unlocked;
+    public float percentage;
+
+    public LevelSaveData (bool unlocked) {
+        this.unlocked = unlocked;
+        this.percentage = 0f;
+    }
 }
