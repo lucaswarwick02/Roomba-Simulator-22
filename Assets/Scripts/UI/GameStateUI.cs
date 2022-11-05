@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameStateUI : MonoBehaviour
@@ -16,5 +17,9 @@ public class GameStateUI : MonoBehaviour
         batteryCount.text = "Battery: " + GameState.INSTANCE.Battery;
         dirtCount.text = "Dirt: " + GameState.INSTANCE.Dirt;
         ringsCount.text = "Rings: " + GameState.INSTANCE.Rings;
+    }
+
+    public void BackToMainMenu () {
+        SceneManager.LoadScene("MainMenu");
     }
 }

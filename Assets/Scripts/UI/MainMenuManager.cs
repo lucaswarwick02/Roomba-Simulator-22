@@ -20,6 +20,11 @@ public class MainMenuManager : MonoBehaviour
     public GameObject[] week2Levels;
     public GameObject[] week3Levels;
 
+    private void Start() {
+        if (GameSave.INSTANCE == null) return;
+        UpdateUI();
+    }
+
     public void SelectWeek1 () {
         DeactivateAllPanels();
         week1Panel.SetActive(true);
