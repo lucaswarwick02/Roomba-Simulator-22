@@ -5,21 +5,28 @@ using UnityEngine.Events;
 
 public class GameState : MonoBehaviour
 {
-    public Vector3Int startPos;
-    public int initialBattery = 10;
+    public static GameState INSTANCE;
+
+    public int initialBattery1 = 10;
+    public int initialBattery2 = 10;
     public int maxDirt = 3;
     public Level level;
 
-    private int _battery;
-    public int Battery {
-        get { return _battery; }
-        set { _battery = value; onStateChange.Invoke(); }
+    public Vector3Int startPos1 = new Vector3Int(0, 0, 0);
+    public Vector3Int startPos2 = new Vector3Int(-100, 0, 0);
+
+    private UnityEvent onStateChange = new UnityEvent();
+
+    private int _battery1;
+    public int Battery1 {
+        get { return _battery1; }
+        set { _battery1 = value; onStateChange.Invoke(); }
     }
 
-    private int _rings;
-    public int Rings {
-        get { return _rings; }
-        set { _rings = value; onStateChange.Invoke(); }
+    private int _battery2;
+    public int Battery2 {
+        get { return _battery2; }
+        set { _battery2 = value; onStateChange.Invoke(); }
     }
 
     private int _dirt;
@@ -28,21 +35,35 @@ public class GameState : MonoBehaviour
         set { _dirt = value; onStateChange.Invoke(); }
     }
 
-    private UnityEvent onStateChange = new UnityEvent();
-
-    public static GameState INSTANCE;
+    private int _rings;
+    public int Rings {
+        get { return _rings; }
+        set { _rings = value; onStateChange.Invoke(); }
+    }
 
     private void Awake() {
         INSTANCE = this;
-        Battery = initialBattery;
+        Battery1 = initialBattery1;
+        Battery2 = initialBattery2;
         
         onStateChange.AddListener(checkGameStatus);
-    }
+    }  
+
 
     private void checkGameStatus () {
         // Stop function if the game is still runnings
-        if (Battery < 0) return;
-        if (Dirt < maxDirt) return;
+        bool isGameOver = false;
+
+        if (Battery1 <= 0 && Battery2 <= 0) {
+            // Both Roombas have died! (Lose)
+            isGameOver = true;
+        }
+        if (Dirt >= maxDirt) {
+            // They have collected all the dirt! (Win)
+            isGameOver = true;
+        }
+
+        if (!isGameOver) return;
 
         float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
         Debug.Log("Score = " + score);
@@ -63,6 +84,7 @@ public class GameState : MonoBehaviour
         }
 
         if (score >= 0.5f) {
+            Camera.main.backgroundColor = Color.green;
             // Unlock next level
             Level nextLevel = level.NextLevel();
             switch (nextLevel.week) {
@@ -78,6 +100,9 @@ public class GameState : MonoBehaviour
                 default:
                     break;
             }
+        }
+        else {
+            Camera.main.backgroundColor = Color.red;
         }
     }
 }
