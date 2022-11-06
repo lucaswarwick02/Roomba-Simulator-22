@@ -38,7 +38,7 @@ public class TilemapManager : MonoBehaviour
 
     private void Start() {
         currentPos1 = new Vector3Int(0, 0, 0);
-        currentPos2 = new Vector3Int(0, -3, 0);
+        currentPos2 = new Vector3Int(-100, 0, 0);
 
         INSTANCE = this;
         sliding1 = false;

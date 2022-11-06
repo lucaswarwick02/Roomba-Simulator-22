@@ -333,6 +333,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291acdfcd14c2934190fd0765b840eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nd2: {x: -100, y: 0, z: 0}
   roomba1: {fileID: 1616589949}
   roomba2: {fileID: 1940450458}
   movePoint1: {fileID: 277110603}
@@ -590,6 +591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   batteryCount: {fileID: 133333397}
+  roomba2Text: {fileID: 676974179}
   batteryCount2: {fileID: 1678226867}
   pointsCount: {fileID: 1826504968}
 --- !u!1 &676974177

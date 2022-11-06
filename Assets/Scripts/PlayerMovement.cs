@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement INSTANCE;
 
     private Vector3Int nd = new Vector3Int(0,0,0);
-    private Vector3Int nd2 = new Vector3Int(0,-3,0);
+    public Vector3Int nd2 = new Vector3Int(-100,0,0);
 
     public GameObject roomba1;
     public GameObject roomba2;

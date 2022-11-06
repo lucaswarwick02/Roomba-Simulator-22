@@ -7,9 +7,13 @@ using TMPro;
 public class GameStateUI : MonoBehaviour
 {
     public TextMeshProUGUI batteryCount;
+
+    public TextMeshProUGUI roomba2Text;
     public TextMeshProUGUI batteryCount2;
 
     public TextMeshProUGUI pointsCount;
+
+    private Vector3Int check = new Vector3Int(-100,0,0);
 
     // Update is called once per frame
     void Update()
@@ -27,5 +31,10 @@ public class GameStateUI : MonoBehaviour
             batteryCount2.text = "Battery: " + GameState.INSTANCE.battery2;
         }
         pointsCount.text = "Points: " + GameState.INSTANCE.points;
+
+        if(PlayerMovement.INSTANCE.nd2 == check){
+            batteryCount2.text = "";
+            roomba2Text.text = "";
+        }
     }
 }
