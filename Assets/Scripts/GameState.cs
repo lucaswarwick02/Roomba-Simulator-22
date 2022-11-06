@@ -1,62 +1,91 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class GameState : MonoBehaviour
 {
-    public int initialBattery1 = 10;
-    public int initialBattery2 = 10;
-    
-    public int pointsNeeded = 3;
-
-    [HideInInspector] public int battery1 = 0;
-    [HideInInspector] public int battery2 = 0;
-    [HideInInspector] public int points = 0;
-
     public static GameState INSTANCE;
 
-    // Start is called before the first frame update
-    void Start()
-    {
+    public int initialBattery1 = 10;
+    public int initialBattery2 = 10;
+    public int maxDirt = 3;
+    public Level level;
+
+    private UnityEvent onStateChange = new UnityEvent();
+
+    private int _battery1;
+    public int Battery1 {
+        get { return _battery1; }
+        set { _battery1 = value; onStateChange.Invoke(); }
+    }
+
+    private int _battery2;
+    public int Battery2 {
+        get { return _battery2; }
+        set { _battery2 = value; onStateChange.Invoke(); }
+    }
+
+    private int _dirt;
+    public int Dirt {
+        get { return _dirt; }
+        set { _dirt = value; onStateChange.Invoke(); }
+    }
+
+    private int _rings;
+    public int Rings {
+        get { return _rings; }
+        set { _rings = value; onStateChange.Invoke(); }
+    }
+
+    private void Awake() {
         INSTANCE = this;
-        battery1 = initialBattery1;
-        battery2 = initialBattery2;
-    }
+        Battery1 = initialBattery1;
+        Battery2 = initialBattery2;
+        
+        onStateChange.AddListener(checkGameStatus);
+    }  
 
-    public void DecreaseBattery (int amount) {
-        battery1 -= amount;
-        battery2 -= amount;
-        checkGameState();
-    }
-    public void IncreaseBattery1 (int amount) {
-        battery1 += amount;
-        checkGameState();
-    }
-    public void IncreaseBattery2 (int amount) {
-        battery2 += amount;
-        checkGameState();
-    }
 
-    public void DecreasePoints (int amount) {
-        points -= amount;
-        checkGameState();
-    }
-    public void IncreasePoints (int amount) {
-        points += amount;
-        checkGameState();
-    }
+    private void checkGameStatus () {
+        // Stop function if the game is still runnings
+        if (Battery1 > 0 && Battery2 > 0) return;
+        if (Dirt < maxDirt) return;
 
-    private void checkGameState () {
-        if (battery1 <= 0 & battery2 <= 0) GameLose();
+        float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
+        Debug.Log("Score = " + score);
 
-        if (points >= pointsNeeded) GameWin();
-    }
+        // Assign score to level save data
+        switch (level.week) {
+            case 1:
+                if (GameSave.INSTANCE.week1Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week1Levels[level.day - 1].percentage = score;
+                break;
+            case 2:
+                if (GameSave.INSTANCE.week2Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week2Levels[level.day - 1].percentage = score;
+                break;
+            case 3:
+                if (GameSave.INSTANCE.week3Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week3Levels[level.day - 1].percentage = score;
+                break;
+            default:
+                break;
+        }
 
-    public void GameWin () {
-        Debug.Log("You win!");
-    }
-
-    public void GameLose () {
-        Debug.Log("You lose!");
+        if (score >= 0.5f) {
+            // Unlock next level
+            Level nextLevel = level.NextLevel();
+            switch (nextLevel.week) {
+                case 1:
+                    GameSave.INSTANCE.week1Levels[nextLevel.day - 1].unlocked = true;
+                    break;
+                case 2:
+                    GameSave.INSTANCE.week2Levels[nextLevel.day - 1].unlocked = true;
+                    break;
+                case 3:
+                    GameSave.INSTANCE.week3Levels[nextLevel.day - 1].unlocked = true;
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 }
