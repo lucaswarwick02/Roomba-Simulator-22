@@ -49,8 +49,18 @@ public class GameState : MonoBehaviour
 
     private void checkGameStatus () {
         // Stop function if the game is still runnings
-        if (Battery1 > 0 && Battery2 > 0) return;
-        if (Dirt < maxDirt) return;
+        bool isGameOver = false;
+
+        if (Battery1 <= 0 && Battery2 <= 0) {
+            // Both Roombas have died! (Lose)
+            isGameOver = true;
+        }
+        if (Dirt >= maxDirt) {
+            // They have collected all the dirt! (Win)
+            isGameOver = true;
+        }
+
+        if (!isGameOver) return;
 
         float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
         Debug.Log("Score = " + score);
@@ -71,6 +81,7 @@ public class GameState : MonoBehaviour
         }
 
         if (score >= 0.5f) {
+            Camera.main.backgroundColor = Color.green;
             // Unlock next level
             Level nextLevel = level.NextLevel();
             switch (nextLevel.week) {
@@ -86,6 +97,9 @@ public class GameState : MonoBehaviour
                 default:
                     break;
             }
+        }
+        else {
+            Camera.main.backgroundColor = Color.red;
         }
     }
 }
