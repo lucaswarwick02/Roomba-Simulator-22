@@ -7,7 +7,7 @@ public class PlayerMovement : MonoBehaviour
     public static PlayerMovement INSTANCE;
 
     private Vector3Int nd = new Vector3Int(0,0,0);
-    private Vector3Int nd2 = new Vector3Int(-2,-1,0);
+    private Vector3Int nd2 = new Vector3Int(0,-3,0);
 
     public GameObject roomba1;
     public GameObject roomba2;
@@ -81,7 +81,7 @@ public class PlayerMovement : MonoBehaviour
         updateSpeed1(3f);
         updateSpeed2(3f);
 
-        if(GameState.INSTANCE.battery1 > 0){
+        if((GameState.INSTANCE.battery1 > 0) && (GameState.INSTANCE.battery2 > 0)){
 
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
@@ -117,6 +117,78 @@ public class PlayerMovement : MonoBehaviour
                }
     
             }
+        else if((GameState.INSTANCE.battery1 > 0)){
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            wfe = true;
+            movementDir = new Vector3Int(0, 1, 0);
+            TilemapManager.INSTANCE.newPos(movementDir, nd);
+            GameState.INSTANCE.DecreaseBattery(1);
+         
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            wfe = true;
+            movementDir = new Vector3Int(0, -1, 0);
+            TilemapManager.INSTANCE.newPos(movementDir, nd);
+            GameState.INSTANCE.DecreaseBattery(1);
+          
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            wfe = true;
+            movementDir = new Vector3Int(-1, 0, 0);
+            TilemapManager.INSTANCE.newPos(movementDir, nd);
+            GameState.INSTANCE.DecreaseBattery(1);
+        
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            wfe = true;
+            movementDir = new Vector3Int(1, 0, 0);
+            TilemapManager.INSTANCE.newPos(movementDir, nd);
+            GameState.INSTANCE.DecreaseBattery(1);
+            
+               }
+    
+
+        }
+        else if((GameState.INSTANCE.battery2 > 0)){
+            if (Input.GetKeyDown(KeyCode.UpArrow))
+        {
+            wfe = true;
+            movementDir = new Vector3Int(0, 1, 0);
+            TilemapManager.INSTANCE.newPos(nd, movementDir);
+            GameState.INSTANCE.DecreaseBattery(1);
+         
+        }
+        if (Input.GetKeyDown(KeyCode.DownArrow))
+        {
+            wfe = true;
+            movementDir = new Vector3Int(0, -1, 0);
+            TilemapManager.INSTANCE.newPos(nd, movementDir);
+            GameState.INSTANCE.DecreaseBattery(1);
+          
+        }
+        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        {
+            wfe = true;
+            movementDir = new Vector3Int(-1, 0, 0);
+            TilemapManager.INSTANCE.newPos(nd, movementDir);
+            GameState.INSTANCE.DecreaseBattery(1);
+        
+        }
+        if (Input.GetKeyDown(KeyCode.RightArrow))
+        {
+            wfe = true;
+            movementDir = new Vector3Int(1, 0, 0);
+            TilemapManager.INSTANCE.newPos(nd, movementDir);
+            GameState.INSTANCE.DecreaseBattery(1);
+            
+               }
+    
+            
+        }
           }
 
         } 

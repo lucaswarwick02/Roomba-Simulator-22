@@ -38,7 +38,7 @@ public class TilemapManager : MonoBehaviour
 
     private void Start() {
         currentPos1 = new Vector3Int(0, 0, 0);
-        currentPos2 = new Vector3Int(-2, -1, 0);
+        currentPos2 = new Vector3Int(0, -3, 0);
 
         INSTANCE = this;
         sliding1 = false;
@@ -49,18 +49,45 @@ public class TilemapManager : MonoBehaviour
     }
 
     public void newPos(Vector3Int velocity1,Vector3Int velocity2){
+        bool invalidCheck1 = false;
+        bool invalidCheck2 = false;
+        Vector3Int nextPosRCheck1 = new Vector3Int(0,0,0);
+        Vector3Int nextPosRCheck2 = new Vector3Int(0,0,0);
+       
         Vector3Int nextPos1 = currentPos1 + velocity1;
         if (invalidTilemap.GetTile(nextPos1)){
+            invalidCheck1 = true;
             sliding1 = false; //stop sliding from slipSquares if you were sliding
             catPush1 = false; //stop sliding from catPush if you were sliding
+            nextPosRCheck1 =  currentPos1;
         } // This tilemap only has invalid tiles, so just check it's not null
-        else{currentPos1 = nextPos1;}
+        else{
+            nextPosRCheck1 = nextPos1;}
         Vector3Int nextPos2 = currentPos2 + velocity2;
         if (invalidTilemap.GetTile(nextPos2)){
+            invalidCheck2 = true;
             sliding2 = false; //stop sliding from slipSquares if you were sliding
             catPush2 = false; //stop sliding from catPush if you were sliding
+            nextPosRCheck2 =  currentPos2;
         } // This tilemap only has invalid tiles, so just check it's not null
-        else{currentPos2 = nextPos2;}
+        else{
+            nextPosRCheck2 = nextPos2;}
+
+        if(nextPosRCheck1 != nextPosRCheck2){
+            if(!invalidCheck1){
+                currentPos1 = nextPos1;
+            }
+            if(!invalidCheck2){
+                currentPos2 = nextPos2;
+            }
+        }
+        else{
+            sliding1 = false; 
+            catPush1 = false;
+            sliding2 = false; 
+            catPush2 = false;
+        }
+
         PlayerMovement.INSTANCE.movePoint1.position = currentPos1 - offset;
         PlayerMovement.INSTANCE.movePoint2.position = currentPos2 - offset;
     }
