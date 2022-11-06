@@ -12,6 +12,9 @@ public class GameState : MonoBehaviour
     public int maxDirt = 3;
     public Level level;
 
+    public Vector3Int startPos1 = new Vector3Int(0, 0, 0);
+    public Vector3Int startPos2 = new Vector3Int(-100, 0, 0);
+
     private UnityEvent onStateChange = new UnityEvent();
 
     private int _battery1;

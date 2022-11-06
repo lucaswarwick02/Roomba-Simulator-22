@@ -35,7 +35,7 @@ public class GameStateUI : MonoBehaviour
         dirtCount.text = "Dirt: " + GameState.INSTANCE.Dirt;
         ringsCount.text = "Rings: " + GameState.INSTANCE.Rings;
 
-        if(PlayerMovement.INSTANCE.nd2 == check){
+        if(GameState.INSTANCE.startPos2 == check){
             batteryCount2.text = "";
             roomba2Text.text = "";
         }

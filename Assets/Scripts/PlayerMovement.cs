@@ -6,9 +6,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public static PlayerMovement INSTANCE;
 
-    private Vector3Int nd = new Vector3Int(0, 0, 0);
-    public Vector3Int nd2 = new Vector3Int(-100, 0, 0);
-
     [HideInInspector] public GameObject roomba1;
     [HideInInspector] public GameObject roomba2;
 
@@ -45,13 +42,12 @@ public class PlayerMovement : MonoBehaviour
     {
         // TilemapManager.INSTANCE.newPos(nd, nd);
 
-        roomba1.transform.position = nd - offset2;
-        roomba2.transform.position = nd - offset2 + nd2;
+        roomba1.transform.position = GameState.INSTANCE.startPos1 - offset2;
+        roomba2.transform.position = GameState.INSTANCE.startPos2- offset2 ;
         movePoint1.position = roomba1.transform.position;
         movePoint2.position = roomba2.transform.position;
         // Debug.Log(roomba1.transform.position);
         // Debug.Log(roomba2.transform.position);
-        UpdatePlayerPositions(nd);
     }
 
     public bool isMoving()
@@ -144,7 +140,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         wfe = true;
                         movementDir = new Vector3Int(0, 1, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, nd);
+                        TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
                         GameState.INSTANCE.Battery1--;
                         GameState.INSTANCE.Battery2--;
 
@@ -153,7 +149,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         wfe = true;
                         movementDir = new Vector3Int(0, -1, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, nd);
+                        TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
                         GameState.INSTANCE.Battery1--;
                         GameState.INSTANCE.Battery2--;
 
@@ -162,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         wfe = true;
                         movementDir = new Vector3Int(-1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, nd);
+                        TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
                         GameState.INSTANCE.Battery1--;
                         GameState.INSTANCE.Battery2--;
 
@@ -171,7 +167,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         wfe = true;
                         movementDir = new Vector3Int(1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, nd);
+                        TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
                         GameState.INSTANCE.Battery1--;
                         GameState.INSTANCE.Battery2--;
 
@@ -185,7 +181,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         wfe = true;
                         movementDir = new Vector3Int(0, 1, 0);
-                        TilemapManager.INSTANCE.newPos(nd, movementDir);
+                        TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
                         GameState.INSTANCE.Battery1--;
                         GameState.INSTANCE.Battery2--;
 
@@ -194,7 +190,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         wfe = true;
                         movementDir = new Vector3Int(0, -1, 0);
-                        TilemapManager.INSTANCE.newPos(nd, movementDir);
+                        TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
                         GameState.INSTANCE.Battery1--;
                         GameState.INSTANCE.Battery2--;
 
@@ -203,7 +199,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         wfe = true;
                         movementDir = new Vector3Int(-1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(nd, movementDir);
+                        TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
                         GameState.INSTANCE.Battery1--;
                         GameState.INSTANCE.Battery2--;
 
@@ -212,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
                     {
                         wfe = true;
                         movementDir = new Vector3Int(1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(nd, movementDir);
+                        TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
                         GameState.INSTANCE.Battery1--;
                         GameState.INSTANCE.Battery2--;
 
@@ -225,15 +221,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
     }
-
-    private void UpdatePlayerPositions(Vector3Int velocity)
-    {
-        // roomba1.transform.position = nd - offset2;
-        // roomba2.transform.position = nd - offset2;
-        // roomba1.transform.position = TilemapManager.INSTANCE.currentPos1 - offset2 ;
-        // roomba2.transform.position = TilemapManager.INSTANCE.currentPos2 - offset2;
-    }
-
 }
 
 
