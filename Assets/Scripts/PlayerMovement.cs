@@ -82,6 +82,7 @@ public class PlayerMovement : MonoBehaviour
                 movePoint2.position,
                 movespeed2 * Time.deltaTime);
 
+
         if (!isMoving())
         { // cant have tile effects act until roomba stops moving
             if (wfe)
