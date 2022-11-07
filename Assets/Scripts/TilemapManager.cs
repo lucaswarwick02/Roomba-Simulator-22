@@ -22,9 +22,6 @@ public class TilemapManager : MonoBehaviour
 
     public Tile singleDirtTile;
 
-    public Vector3Int startPos1;
-    public Vector3Int startPos2;
-
     [HideInInspector] public static bool sliding1 = false;
     [HideInInspector] public static bool sliding2 = false;
     [HideInInspector] public static bool catPush1 = false;
@@ -36,16 +33,15 @@ public class TilemapManager : MonoBehaviour
 
     public static TilemapManager INSTANCE;
 
-    private void Start() {
-        currentPos1 = new Vector3Int(0, 0, 0);
-        currentPos2 = new Vector3Int(-100, 0, 0);
+    private void Awake() {
+        currentPos1 = GameState.INSTANCE.startPos1;
+        currentPos2 = GameState.INSTANCE.startPos2;
 
         INSTANCE = this;
         sliding1 = false;
         sliding2 = false;
         catPush1 = false;
         catPush2 = false;
-        
     }
 
     public void newPos(Vector3Int velocity1,Vector3Int velocity2){
@@ -234,19 +230,19 @@ public class TilemapManager : MonoBehaviour
         switch (tileEffect2)
         {
             case TileEffect.SingleDirt:
-                GameState.INSTANCE.IncreasePoints(1);
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.DoubleDirt:
-                GameState.INSTANCE.IncreasePoints(1);
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:
-                GameState.INSTANCE.IncreaseBattery1(3);
+                GameState.INSTANCE.Battery1 += 3;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.Ring:
-                GameState.INSTANCE.DecreasePoints(1);
+                GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             default:
@@ -257,19 +253,19 @@ public class TilemapManager : MonoBehaviour
         switch (tileEffect2)
         {
             case TileEffect.SingleDirt:
-                GameState.INSTANCE.IncreasePoints(1);
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.DoubleDirt:
-                GameState.INSTANCE.IncreasePoints(1);
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:
-                GameState.INSTANCE.IncreaseBattery2(3);
+                GameState.INSTANCE.Battery2 += 3;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.Ring:
-                GameState.INSTANCE.DecreasePoints(1);
+                GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             default:
