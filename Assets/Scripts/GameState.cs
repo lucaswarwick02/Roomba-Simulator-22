@@ -15,39 +15,41 @@ public class GameState : MonoBehaviour
     public Vector3Int startPos1 = new Vector3Int(0, 0, 0);
     public Vector3Int startPos2 = new Vector3Int(-100, 0, 0);
 
-    private UnityEvent onStateChange = new UnityEvent();
+    private bool gameOver = false;
 
     private int _battery1;
     public int Battery1 {
         get { return _battery1; }
-        set { _battery1 = value; onStateChange.Invoke(); }
+        set { _battery1 = value; }
     }
 
     private int _battery2;
     public int Battery2 {
         get { return _battery2; }
-        set { _battery2 = value; onStateChange.Invoke(); }
+        set { _battery2 = value; }
     }
 
     private int _dirt;
     public int Dirt {
         get { return _dirt; }
-        set { _dirt = value; onStateChange.Invoke(); }
+        set { _dirt = value; }
     }
 
     private int _rings;
     public int Rings {
         get { return _rings; }
-        set { _rings = value; onStateChange.Invoke(); }
+        set { _rings = value; }
     }
 
     private void Awake() {
         INSTANCE = this;
         Battery1 = initialBattery1;
         Battery2 = initialBattery2;
-        
-        onStateChange.AddListener(checkGameStatus);
     }  
+
+    private void Update() {
+        if (!gameOver) checkGameStatus();
+    }
 
 
     private void checkGameStatus () {
@@ -63,7 +65,16 @@ public class GameState : MonoBehaviour
             isGameOver = true;
         }
 
-        if (!isGameOver) return;
+        if (PlayerMovement.INSTANCE.isMoving()) {
+            isGameOver = false;
+        }
+
+        if (!isGameOver) {
+            return;
+        }
+        else {
+            gameOver = true;
+        }
 
         float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
         Debug.Log("Score = " + score);
