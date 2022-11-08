@@ -68,6 +68,8 @@ public class TilemapManager : MonoBehaviour
             GameState.INSTANCE.slipSound.Stop();
             GameState.INSTANCE.bumpWallSound.Play();
             nextPosRCheck1 =  currentPos1;
+
+            
         } // This tilemap only has invalid tiles, so just check it's not null
         else{
             nextPosRCheck1 = nextPos1;}
@@ -92,26 +94,18 @@ public class TilemapManager : MonoBehaviour
                 }
                 currentPos1 = nextPos1;
             }
-            else{
-                GameState.INSTANCE.catPushSound.Stop();
-                GameState.INSTANCE.slipSound.Stop();
-                GameState.INSTANCE.bumpRoombaSound.Play();
-            }
             if(!invalidCheck2){
                 if(sliding2 | catPush2){}
                 else{
                     GameState.INSTANCE.roombaMoveSound.Play();
                 }
-                GameState.INSTANCE.roombaMoveSound.Play();
                 currentPos2 = nextPos2;
-            }
-            else{
-                GameState.INSTANCE.catPushSound.Stop();
-                GameState.INSTANCE.slipSound.Stop();
-                GameState.INSTANCE.bumpRoombaSound.Play();
             }
         }
         else{
+            GameState.INSTANCE.catPushSound.Stop();
+            GameState.INSTANCE.slipSound.Stop();
+            GameState.INSTANCE.bumpRoombaSound.Play();
             sliding1 = false; 
             catPush1 = false;
             sliding2 = false; 

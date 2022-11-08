@@ -76,7 +76,7 @@ public class GameState : MonoBehaviour
         if (!PlayerMovement.INSTANCE.isMoving()) {
         if(!batteryCheck2){
             if (_battery2 <= 0){
-                batteryCheck2 = false;
+                batteryCheck2 = true;
                 roombaDiesSound.Play();
             }
         }

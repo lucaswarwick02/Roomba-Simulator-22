@@ -1302,8 +1302,8 @@ MonoBehaviour:
   catPushSound: {fileID: 0}
   bumpWallSound: {fileID: 0}
   bumpRoombaSound: {fileID: 0}
-  startPos1: {x: 0, y: 0, z: 0}
-  startPos2: {x: -100, y: 0, z: 0}
+  startPos1: {x: 3, y: -2, z: 0}
+  startPos2: {x: -1, y: -1, z: 0}
 --- !u!82 &6839250525515142253
 AudioSource:
   m_ObjectHideFlags: 0
