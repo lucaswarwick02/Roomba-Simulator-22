@@ -1277,14 +1277,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d349c41ea551e4bbf15b6afdb04d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBattery1: 3
-  initialBattery2: 2
-  maxDirt: 3
+  initialBattery1: 10
+  initialBattery2: 10
+  maxDirt: 1
   level:
-    week: 3
+    week: 1
     day: 1
-  startPos1: {x: 1, y: -2, z: 0}
-  startPos2: {x: 0, y: -2, z: 0}
 --- !u!1 &5458795278973231779
 GameObject:
   m_ObjectHideFlags: 0
@@ -1895,6 +1893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 291acdfcd14c2934190fd0765b840eea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nd2: {x: -100, y: 0, z: 0}
   roomba1: {fileID: 0}
   roomba2: {fileID: 0}
   movePoint1: {fileID: 0}

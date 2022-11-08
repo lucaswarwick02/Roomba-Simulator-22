@@ -34,14 +34,22 @@ public class TilemapManager : MonoBehaviour
     public static TilemapManager INSTANCE;
 
     private void Awake() {
-        currentPos1 = GameState.INSTANCE.startPos1;
-        currentPos2 = GameState.INSTANCE.startPos2;
+
+
+
 
         INSTANCE = this;
         sliding1 = false;
         sliding2 = false;
         catPush1 = false;
         catPush2 = false;
+
+    }
+
+    private void Start () {
+        currentPos1 = GameState.INSTANCE.startPos1;
+        currentPos2 = GameState.INSTANCE.startPos2;
+
     }
 
     public void newPos(Vector3Int velocity1,Vector3Int velocity2){
