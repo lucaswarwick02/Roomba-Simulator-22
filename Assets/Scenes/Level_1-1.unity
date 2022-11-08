@@ -135,6 +135,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 572833368}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: ringSound
+      value: 
+      objectReference: {fileID: 1019946811}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: slipSound
+      value: 
+      objectReference: {fileID: 572833370}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: startPos1.x
       value: -1
       objectReference: {fileID: 0}
@@ -142,6 +150,18 @@ PrefabInstance:
       propertyPath: startPos1.y
       value: -2
       objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: startPos2.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: startPos2.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: catPushSound
+      value: 
+      objectReference: {fileID: 1019946811}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: bumpWallSound
       value: 
@@ -860,6 +880,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!82 &1019946811 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3542439165937634090, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 572833366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1552909767
 GameObject:
   m_ObjectHideFlags: 0

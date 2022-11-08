@@ -1287,23 +1287,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d349c41ea551e4bbf15b6afdb04d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialBattery1: 10
-  initialBattery2: 10
+  initialBattery1: 11
+  initialBattery2: 0
   maxDirt: 1
   level:
     week: 1
     day: 1
-  roombaMoveSound: {fileID: 0}
-  roombaDiesSound: {fileID: 0}
+  roombaMoveSound: {fileID: 6839250525515142253}
+  roombaDiesSound: {fileID: 6404980488817953843}
   batterySound: {fileID: 0}
-  dirtSound: {fileID: 0}
+  dirtSound: {fileID: 3717099336262501756}
   ringSound: {fileID: 0}
-  slipSound: {fileID: 0}
-  catPushSound: {fileID: 0}
-  bumpWallSound: {fileID: 0}
+  slipSound: {fileID: 3542439165937634090}
+  catPushSound: {fileID: 6404980488817953843}
+  bumpWallSound: {fileID: 2800554106366346431}
   bumpRoombaSound: {fileID: 0}
   startPos1: {x: 3, y: -2, z: 0}
-  startPos2: {x: -1, y: -1, z: 0}
+  startPos2: {x: -100, y: 0, z: 0}
 --- !u!82 &6839250525515142253
 AudioSource:
   m_ObjectHideFlags: 0
