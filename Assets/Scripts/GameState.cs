@@ -12,12 +12,26 @@ public class GameState : MonoBehaviour
     public int maxDirt = 3;
     public Level level;
 
+    [SerializeField] public AudioSource roombaMoveSound;
+    [SerializeField] public AudioSource roombaDiesSound;
+
+    [SerializeField] public AudioSource batterySound;
+    [SerializeField] public AudioSource dirtSound;
+    [SerializeField] public AudioSource ringSound;
+    [SerializeField] public AudioSource slipSound;
+    [SerializeField] public AudioSource catPushSound;
+    [SerializeField] public AudioSource bumpWallSound;
+    [SerializeField] public AudioSource bumpRoombaSound;
+
     public Vector3Int startPos1 = new Vector3Int(0, 0, 0);
     public Vector3Int startPos2 = new Vector3Int(-100, 0, 0);
 
     private bool gameOver = false;
+    private bool batteryCheck1 = false;
+    private bool batteryCheck2 = false;
 
     private int _battery1;
+    private Vector3Int check = new Vector3Int(-100,0,0);
     public int Battery1 {
         get { return _battery1; }
         set { _battery1 = value; }
@@ -49,6 +63,25 @@ public class GameState : MonoBehaviour
 
     private void Update() {
         if (!gameOver) checkGameStatus();
+
+        if (!PlayerMovement.INSTANCE.isMoving()) {
+        if(!batteryCheck1){
+            if (_battery1 <= 0){
+                batteryCheck1 = true;
+                roombaDiesSound.Play();
+            }
+        }
+        }
+        if(startPos2 != check){
+        if (!PlayerMovement.INSTANCE.isMoving()) {
+        if(!batteryCheck2){
+            if (_battery2 <= 0){
+                batteryCheck2 = false;
+                roombaDiesSound.Play();
+            }
+        }
+      }  
+    }
     }
 
 

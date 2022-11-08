@@ -14,12 +14,13 @@ public enum TileEffect
     Ring
 }
 
+
+
 public class TilemapManager : MonoBehaviour
 {
     public Tilemap floorTilemap;
     public Tilemap effectsTilemap;
     public Tilemap invalidTilemap;
-
     public Tile singleDirtTile;
 
     [HideInInspector] public static bool sliding1 = false;
@@ -63,6 +64,9 @@ public class TilemapManager : MonoBehaviour
             invalidCheck1 = true;
             sliding1 = false; //stop sliding from slipSquares if you were sliding
             catPush1 = false; //stop sliding from catPush if you were sliding
+            GameState.INSTANCE.catPushSound.Stop();
+            GameState.INSTANCE.slipSound.Stop();
+            GameState.INSTANCE.bumpWallSound.Play();
             nextPosRCheck1 =  currentPos1;
         } // This tilemap only has invalid tiles, so just check it's not null
         else{
@@ -72,6 +76,9 @@ public class TilemapManager : MonoBehaviour
             invalidCheck2 = true;
             sliding2 = false; //stop sliding from slipSquares if you were sliding
             catPush2 = false; //stop sliding from catPush if you were sliding
+            GameState.INSTANCE.catPushSound.Stop();
+            GameState.INSTANCE.slipSound.Stop();
+            GameState.INSTANCE.bumpWallSound.Play();
             nextPosRCheck2 =  currentPos2;
         } // This tilemap only has invalid tiles, so just check it's not null
         else{
@@ -79,10 +86,29 @@ public class TilemapManager : MonoBehaviour
 
         if(nextPosRCheck1 != nextPosRCheck2){
             if(!invalidCheck1){
+                if(sliding1 | catPush1){}
+                else{
+                    GameState.INSTANCE.roombaMoveSound.Play();
+                }
                 currentPos1 = nextPos1;
             }
+            else{
+                GameState.INSTANCE.catPushSound.Stop();
+                GameState.INSTANCE.slipSound.Stop();
+                GameState.INSTANCE.bumpRoombaSound.Play();
+            }
             if(!invalidCheck2){
+                if(sliding2 | catPush2){}
+                else{
+                    GameState.INSTANCE.roombaMoveSound.Play();
+                }
+                GameState.INSTANCE.roombaMoveSound.Play();
                 currentPos2 = nextPos2;
+            }
+            else{
+                GameState.INSTANCE.catPushSound.Stop();
+                GameState.INSTANCE.slipSound.Stop();
+                GameState.INSTANCE.bumpRoombaSound.Play();
             }
         }
         else{
@@ -195,6 +221,7 @@ public class TilemapManager : MonoBehaviour
             case TileEffect.Slippery:
             PlayerMovement.INSTANCE.updateSpeed1(6f);
                 // Player is now sliding
+                GameState.INSTANCE.slipSound.Play();
                 sliding1 = true;
                 // Move player by velocity
                 newPos(velocity, new Vector3Int(0, 0, 0));
@@ -202,6 +229,7 @@ public class TilemapManager : MonoBehaviour
                 break;
             case TileEffect.CatPush:
             PlayerMovement.INSTANCE.updateSpeed1(8f);
+            GameState.INSTANCE.catPushSound.Play();
                 catPush1 = true;
                 newPos(velocity, new Vector3Int(0, 0, 0));
                 ProcessInput1(velocity);
@@ -218,6 +246,7 @@ public class TilemapManager : MonoBehaviour
             case TileEffect.Slippery:
             PlayerMovement.INSTANCE.updateSpeed2(6f);
                 // Player is now sliding
+                GameState.INSTANCE.slipSound.Play();
                 sliding2 = true;
                 // Move player by velocity
                 newPos(new Vector3Int(0, 0, 0),velocity);
@@ -225,6 +254,7 @@ public class TilemapManager : MonoBehaviour
                 break;
             case TileEffect.CatPush:
             PlayerMovement.INSTANCE.updateSpeed2(8f);
+            GameState.INSTANCE.catPushSound.Play();
                 catPush2 = true;
                 newPos(new Vector3Int(0, 0, 0),velocity);
                 ProcessInput2(velocity);
@@ -238,18 +268,22 @@ public class TilemapManager : MonoBehaviour
         switch (tileEffect2)
         {
             case TileEffect.SingleDirt:
+                GameState.INSTANCE.dirtSound.Play();
                 GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.DoubleDirt:
+                GameState.INSTANCE.dirtSound.Play();
                 GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:
+                GameState.INSTANCE.batterySound.Play();
                 GameState.INSTANCE.Battery1 += 3;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.Ring:
+                GameState.INSTANCE.ringSound.Play();
                 GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
@@ -261,18 +295,22 @@ public class TilemapManager : MonoBehaviour
         switch (tileEffect2)
         {
             case TileEffect.SingleDirt:
+                GameState.INSTANCE.dirtSound.Play();
                 GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.DoubleDirt:
+                GameState.INSTANCE.dirtSound.Play();
                 GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:
+                GameState.INSTANCE.batterySound.Play();
                 GameState.INSTANCE.Battery2 += 3;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.Ring:
+                GameState.INSTANCE.ringSound.Play();
                 GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;

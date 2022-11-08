@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 offset2 = new Vector3(-0.5f, -0.5f, 0f);
 
+    
+
     private float movespeed1;
     private float movespeed2;
     [HideInInspector] public Transform movePoint1;

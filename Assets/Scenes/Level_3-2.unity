@@ -1789,9 +1789,17 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: dirtSound
+      value: 
+      objectReference: {fileID: 1334988305}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: level.day
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: ringSound
+      value: 
+      objectReference: {fileID: 1334988306}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: level.week
       value: 3
@@ -1813,6 +1821,18 @@ PrefabInstance:
       value: -3
       objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: catPushSound
+      value: 
+      objectReference: {fileID: 1334988304}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: bumpWallSound
+      value: 
+      objectReference: {fileID: 1334988302}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: bumpRoombaSound
+      value: 
+      objectReference: {fileID: 1334988303}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: initialBattery1
       value: 4
       objectReference: {fileID: 0}
@@ -1820,6 +1840,14 @@ PrefabInstance:
       propertyPath: initialBattery2
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: roombaDiesSound
+      value: 
+      objectReference: {fileID: 1334988307}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: roombaMoveSound
+      value: 
+      objectReference: {fileID: 1334988308}
     - target: {fileID: 6397920106987399341, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1870,3 +1898,38 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+--- !u!82 &1334988302 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2800554106366346431, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1334988301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1334988303 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 700596266054376009, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1334988301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1334988304 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 7400421688325159276, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1334988301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1334988305 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3717099336262501756, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1334988301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1334988306 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3542439165937634090, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1334988301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1334988307 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6404980488817953843, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1334988301}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1334988308 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6839250525515142253, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1334988301}
+  m_PrefabAsset: {fileID: 0}
