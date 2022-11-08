@@ -31,6 +31,7 @@ public class GameState : MonoBehaviour
     private bool batteryCheck2 = false;
 
     private int _battery1;
+    private Vector3Int check = new Vector3Int(-100,0,0);
     public int Battery1 {
         get { return _battery1; }
         set { _battery1 = value; }
@@ -62,25 +63,25 @@ public class GameState : MonoBehaviour
 
     private void Update() {
         if (!gameOver) checkGameStatus();
-        if (PlayerMovement.INSTANCE.isMoving()) {
+
+        if (!PlayerMovement.INSTANCE.isMoving()) {
         if(!batteryCheck1){
             if (_battery1 <= 0){
                 batteryCheck1 = true;
                 roombaDiesSound.Play();
-
             }
         }
         }
-        if (PlayerMovement.INSTANCE.isMoving()) {
+        if(startPos2 != check){
+        if (!PlayerMovement.INSTANCE.isMoving()) {
         if(!batteryCheck2){
             if (_battery2 <= 0){
                 batteryCheck2 = false;
                 roombaDiesSound.Play();
-                
             }
         }
-        }
-        
+      }  
+    }
     }
 
 

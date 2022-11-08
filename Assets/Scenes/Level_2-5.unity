@@ -941,9 +941,17 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1512169113}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: catPushSound
+      value: 
+      objectReference: {fileID: 1878050237}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: bumpWallSound
       value: 
-      objectReference: {fileID: 1512169116}
+      objectReference: {fileID: 1878050237}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: bumpRoombaSound
+      value: 
+      objectReference: {fileID: 1878050237}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: initialBattery1
       value: 4
@@ -1370,6 +1378,11 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!82 &1878050237 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2800554106366346431, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1512169110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1899078623
 GameObject:
   m_ObjectHideFlags: 0
