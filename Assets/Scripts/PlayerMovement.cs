@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
+
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -11,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 offset2 = new Vector3(-0.5f, -0.5f, 0f);
 
-    
+
 
     private float movespeed1;
     private float movespeed2;
@@ -22,7 +24,35 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3Int movementDir; //vector follows what key is last pressed and saved in a variable (for slip squares)
 
-    private void Awake() {
+    private bool allowInput = true;
+
+    public void OnMove (InputValue input) {
+
+        if (!allowInput) return;
+
+        Vector2 inputVec = input.Get<Vector2>();
+        wfe = true;
+        movementDir = new Vector3Int(Mathf.RoundToInt(inputVec.x), Mathf.RoundToInt(inputVec.y), 0);
+        
+        if ((GameState.INSTANCE.Battery1 > 0) && (GameState.INSTANCE.Battery2 > 0))
+        {
+            TilemapManager.INSTANCE.newPos(movementDir, movementDir);
+        }
+        else if ((GameState.INSTANCE.Battery1 > 0))
+        {
+            TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
+        }
+        else if ((GameState.INSTANCE.Battery2 > 0))
+        {
+            TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
+        }
+
+        GameState.INSTANCE.Battery1--;
+        GameState.INSTANCE.Battery2--;
+    }
+
+    private void Awake()
+    {
         INSTANCE = this;
 
         // Grab references to the roobas
@@ -42,27 +72,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        // TilemapManager.INSTANCE.newPos(nd, nd);
-
         roomba1.transform.position = GameState.INSTANCE.startPos1 - offset2;
-        roomba2.transform.position = GameState.INSTANCE.startPos2- offset2 ;
+        roomba2.transform.position = GameState.INSTANCE.startPos2 - offset2;
         movePoint1.position = roomba1.transform.position;
         movePoint2.position = roomba2.transform.position;
-        // Debug.Log(roomba1.transform.position);
-        // Debug.Log(roomba2.transform.position);
     }
 
     public bool isMoving()
     {
-        if ((Vector3.Distance(roomba1.transform.position, movePoint1.position) != 0f)
-        || (Vector3.Distance(roomba2.transform.position, movePoint2.position) != 0f))
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (Vector3.Distance(roomba1.transform.position, movePoint1.position) != 0f) || (Vector3.Distance(roomba2.transform.position, movePoint2.position) != 0f);
     }
 
     public void updateSpeed1(float speed)
@@ -99,124 +117,19 @@ public class PlayerMovement : MonoBehaviour
 
                 if ((GameState.INSTANCE.Battery1 > 0) && (GameState.INSTANCE.Battery2 > 0))
                 {
-
-                    if (Input.GetKeyDown(KeyCode.UpArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(0, 1, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, movementDir);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-                    if (Input.GetKeyDown(KeyCode.DownArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(0, -1, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, movementDir);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-                    }
-                    if (Input.GetKeyDown(KeyCode.LeftArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(-1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, movementDir);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-                    }
-                    if (Input.GetKeyDown(KeyCode.RightArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, movementDir);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-
+                    allowInput = true;
                 }
                 else if ((GameState.INSTANCE.Battery1 > 0))
                 {
-                    if (Input.GetKeyDown(KeyCode.UpArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(0, 1, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-                    if (Input.GetKeyDown(KeyCode.DownArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(0, -1, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-                    if (Input.GetKeyDown(KeyCode.LeftArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(-1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-                    if (Input.GetKeyDown(KeyCode.RightArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(movementDir, Vector3Int.zero);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-
-
+                    allowInput = true;
                 }
                 else if ((GameState.INSTANCE.Battery2 > 0))
                 {
-                    if (Input.GetKeyDown(KeyCode.UpArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(0, 1, 0);
-                        TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-                    if (Input.GetKeyDown(KeyCode.DownArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(0, -1, 0);
-                        TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-                    if (Input.GetKeyDown(KeyCode.LeftArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(-1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-                    if (Input.GetKeyDown(KeyCode.RightArrow))
-                    {
-                        wfe = true;
-                        movementDir = new Vector3Int(1, 0, 0);
-                        TilemapManager.INSTANCE.newPos(Vector3Int.zero, movementDir);
-                        GameState.INSTANCE.Battery1--;
-                        GameState.INSTANCE.Battery2--;
-
-                    }
-
-
+                    allowInput = true;
+                }
+                else
+                {
+                    allowInput = false;
                 }
             }
 
