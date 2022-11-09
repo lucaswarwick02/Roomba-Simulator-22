@@ -63,3 +63,5 @@ crashlytics-build.properties
 
 *.blob
 UserSettings/
+
+ProjectSettings/ProjectVersion.txt
