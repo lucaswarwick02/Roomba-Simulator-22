@@ -134,7 +134,9 @@ public class PlayerMovement : MonoBehaviour
             }
 
         }
-
+        else {
+            allowInput = false;
+        }
     }
 }
 
