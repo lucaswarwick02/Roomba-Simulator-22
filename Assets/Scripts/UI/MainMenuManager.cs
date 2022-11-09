@@ -48,23 +48,10 @@ public class MainMenuManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Create a new save on persistent storage.
+    /// Create a new save.
     /// </summary>
-    public void NewSave () {
+    public void ResetProgress () {
         GameSave.NewSave();
-        UpdateUI();
-    }
-    /// <summary>
-    /// Saves data to persistent storage.
-    /// </summary>
-    public void Save () {
-        GameSave.Save();
-    }
-    /// <summary>
-    /// Loads data from persistent storage.
-    /// </summary>
-    public void Load() {
-        GameSave.Load();
         UpdateUI();
     }
 

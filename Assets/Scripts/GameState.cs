@@ -110,7 +110,8 @@ public class GameState : MonoBehaviour
         }
 
         float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
-        Debug.Log("Score = " + score);
+        
+        GameSave.Save();
 
         // Assign score to level save data
         switch (level.week) {

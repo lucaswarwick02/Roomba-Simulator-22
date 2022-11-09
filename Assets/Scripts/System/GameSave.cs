@@ -13,11 +13,26 @@ public class GameSave
     /// </summary>
     public static SaveData INSTANCE;
 
+    private static string getSaveDataPath () {
+        return Application.persistentDataPath + "/savedata.sav";
+    }
+
+    [RuntimeInitializeOnLoadMethod(RuntimeInitializeLoadType.BeforeSceneLoad)]
+    static void OnBeforeSceneLoadRuntimeMethod () {
+        if (File.Exists(getSaveDataPath())) {
+            // Load data
+            Load();
+        }
+        else {
+            // Create new data
+            NewSave();
+        }
+    }
+
     /// <summary>
     /// Cverride and delete any old saves, and create a fresh new one.
     /// </summary>
     public static void NewSave () {
-        Debug.Log("New Save Data Created");
         SaveData saveData = new SaveData();
         // Here is where to initialise the variables
         GameSave.INSTANCE = saveData;
@@ -29,7 +44,7 @@ public class GameSave
     /// </summary>
     public static void Save () {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Create(Application.persistentDataPath + "/gamesave.sav");
+        FileStream file = File.Create(getSaveDataPath());
         bf.Serialize(file, GameSave.INSTANCE);
         file.Close();
 
@@ -41,11 +56,9 @@ public class GameSave
     /// </summary>
     public static void Load () {
         BinaryFormatter bf = new BinaryFormatter();
-        FileStream file = File.Open(Application.persistentDataPath + "/gamesave.sav", FileMode.Open);
+        FileStream file = File.Open(getSaveDataPath(), FileMode.Open);
         GameSave.INSTANCE = (SaveData) bf.Deserialize(file);
         file.Close();
-
-        Debug.Log("Progress Loaded");
     }
 
     public static bool IsWeekUnlocked (int week) {
