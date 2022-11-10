@@ -12,6 +12,8 @@ public class GameState : MonoBehaviour
     public int maxDirt = 3;
     public Level level;
 
+    public CompletionPanel completionPanel;
+
     [SerializeField] public AudioSource roombaMoveSound;
     [SerializeField] public AudioSource roombaDiesSound;
 
@@ -128,11 +130,19 @@ public class GameState : MonoBehaviour
                 break;
         }
 
-        if (score >= 0.5f) {
-            Camera.main.backgroundColor = Color.green;
+        if (score >= 0.5f)
+        {
+
+            // * Completion Panel = Win
+            completionPanel.gameObject.SetActive(true);
+            completionPanel.titleText.text = "You Win!";
+            completionPanel.percentageText.text = (score * 100f).ToString("#") + "%";
+            completionPanel.percentageText.color = Color.green;
+
             // Unlock next level
             Level nextLevel = level.NextLevel();
-            switch (nextLevel.week) {
+            switch (nextLevel.week)
+            {
                 case 1:
                     GameSave.INSTANCE.week1Levels[nextLevel.day - 1].unlocked = true;
                     break;
@@ -146,8 +156,13 @@ public class GameState : MonoBehaviour
                     break;
             }
         }
-        else {
-            Camera.main.backgroundColor = Color.red;
+        else
+        {
+            // * Completion Panel = Lose
+            completionPanel.gameObject.SetActive(true);
+            completionPanel.titleText.text = "You Lose";
+            completionPanel.percentageText.text = (score * 100f).ToString("#") + "%";
+            completionPanel.percentageText.color = Color.red;
         }
     }
 }
