@@ -61,7 +61,6 @@ public class MainMenuManager : MonoBehaviour
     /// (De)activates the UI based on the current GameSave data.
     /// </summary>
     public void UpdateUI () {
-
         week1Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(1);
         week1Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsWeekUnlocked(1));
 
@@ -94,7 +93,6 @@ public class MainMenuManager : MonoBehaviour
             week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(3, i + 1));
             week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
         }
-        Debug.Log(gameProgress.week1Levels[1].percentage + " - " + gameProgress.week1Levels[1].percentage);
     }
 
     public void StartLevel (string levelID) {

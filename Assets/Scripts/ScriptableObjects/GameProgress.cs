@@ -7,7 +7,6 @@ using System;
 [CreateAssetMenu(fileName = "New Game Progress", menuName = "Game Progress")]
 public class GameProgress : ScriptableObject
 {
-    public bool test;
     public LevelSaveData[] week1Levels = {
         new LevelSaveData(true),
         new LevelSaveData(false),

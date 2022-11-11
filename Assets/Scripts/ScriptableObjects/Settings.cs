@@ -6,5 +6,5 @@ using UnityEngine;
 public class Settings : ScriptableObject
 {
     public bool mute;
-    public float cameraScale;
+    public bool largeScale;
 }

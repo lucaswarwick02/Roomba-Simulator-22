@@ -1482,7 +1482,6 @@ GameObject:
   - component: {fileID: 4767796685123189155}
   - component: {fileID: 4767796685123189152}
   - component: {fileID: 4767796685123189153}
-  - component: {fileID: 4767796685123189154}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1533,7 +1532,7 @@ Camera:
   field of view: 60
   orthographic: 1
   orthographic size: 5
-  m_Depth: -1
+  m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1556,26 +1555,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4767796685123189166}
   m_Enabled: 1
---- !u!114 &4767796685123189154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4767796685123189166}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6a160d838ff8b4b4693ac20007e008c7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AssetsPPU: 16
-  m_RefResolutionX: 240
-  m_RefResolutionY: 135
-  m_UpscaleRT: 1
-  m_PixelSnapping: 1
-  m_CropFrameX: 0
-  m_CropFrameY: 0
-  m_StretchFill: 0
 --- !u!1 &5065912997770088979
 GameObject:
   m_ObjectHideFlags: 0
@@ -1631,6 +1610,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameProgress: {fileID: 11400000, guid: 4e59b25331aab7a4ea096744efbea0fa, type: 2}
+  settings: {fileID: 11400000, guid: 1bf6f159bd7f9494aa57d7c634f3ccea, type: 2}
   initialBattery1: 11
   initialBattery2: 0
   maxDirt: 1

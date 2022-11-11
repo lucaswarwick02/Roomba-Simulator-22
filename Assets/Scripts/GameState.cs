@@ -8,6 +8,7 @@ public class GameState : MonoBehaviour
     public static GameState INSTANCE;
 
     public GameProgress gameProgress;
+    public Settings settings;
 
     public int initialBattery1 = 10;
     public int initialBattery2 = 10;
@@ -33,8 +34,6 @@ public class GameState : MonoBehaviour
     private bool gameOver = false;
     private bool batteryCheck1 = false;
     private bool batteryCheck2 = false;
-
-
 
     private int _battery1;
     private Vector3Int check = new Vector3Int(-100,0,0);
@@ -66,6 +65,11 @@ public class GameState : MonoBehaviour
         Battery1 = initialBattery1;
         Battery2 = initialBattery2;
     }  
+
+    private void Start() {
+        // Change scale of camera to match settings
+        Camera.main.orthographicSize  = settings.largeScale ? 5f : 10f;
+    }
 
     private void Update() {
         if (!gameOver) checkGameStatus();

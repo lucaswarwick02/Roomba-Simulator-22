@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 551c2555b39359944a6dfaed3cd1da8f
+guid: e8a81fa16cdf38549a0fa0546e49c97a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -105,34 +105,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: gui_flat_0
+      name: buttons_1x_1
       rect:
         serializedVersion: 2
         x: 32
-        y: 224
-        width: 96
-        height: 96
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 5, y: 5, z: 5, w: 5}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 357b4ab28f474ab43858698e0c3ba9b8
-      internalID: 544095168
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: gui_flat_2
-      rect:
-        serializedVersion: 2
-        x: 544
-        y: 207
-        width: 32
-        height: 3
+        y: 0
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -140,29 +119,113 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 12919f4486a8c9541985850a5c11dac7
-      internalID: 397474197
+      spriteID: ce7d55387fb828f4586cbefaaaf7cbbb
+      internalID: 1455223720
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: gui_flat_4
+      name: buttons_1x_0
       rect:
         serializedVersion: 2
-        x: 704
-        y: 160
-        width: 32
-        height: 32
+        x: 40
+        y: 0
+        width: 8
+        height: 8
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
-      border: {x: 4, y: 10, z: 4, w: 4}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c4b751df4b2911648aff3e577f1765b4
-      internalID: 854063767
+      spriteID: 891ef0ea96bfa4046af7b078632cee25
+      internalID: 2039171017
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_1x_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 5, z: 3, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d573f76dcebce9744af2516906946c44
+      internalID: -535108207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_1x_3
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 0
+        width: 16
+        height: 16
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 3, y: 5, z: 3, w: 3}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26f7dee8ad486114c90c4b461a372b8e
+      internalID: -1156338771
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_1x_4
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4c4f0db3afaa55a4781d26068d0854d5
+      internalID: 554760741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: buttons_1x_5
+      rect:
+        serializedVersion: 2
+        x: 72
+        y: 0
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a2f79f6f82fed24b9058381c2365a67
+      internalID: -1922796520
       vertices: []
       indices: 
       edges: []
@@ -178,13 +241,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      gui_flat_2: 397474197
-      gui_flat_4: 854063767
-      gui_flat_1: -1142141557
-      gui_flat_0: 544095168
-      gui_flat_6: 1523861677
-      gui_flat_3: 1863746534
-      gui_flat_5: 1526039597
+      buttons_1x_0: 2039171017
+      buttons_1x_3: -1156338771
+      buttons_1x_2: -535108207
+      buttons_1x_5: -1922796520
+      buttons_1x_1: 1455223720
+      buttons_1x_4: 554760741
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
