@@ -7,6 +7,9 @@ using TMPro;
 
 public class MainMenuManager : MonoBehaviour
 {
+    public GameProgress gameProgress;
+    public Settings settings;
+
     public GameObject mainMenuPanel;
 
     public GameObject week1Panel;
@@ -22,7 +25,6 @@ public class MainMenuManager : MonoBehaviour
     public GameObject[] week3Levels;
 
     private void Start() {
-        if (GameSave.INSTANCE == null) return;
         UpdateUI();
     }
 
@@ -51,7 +53,7 @@ public class MainMenuManager : MonoBehaviour
     /// Create a new save.
     /// </summary>
     public void ResetProgress () {
-        GameSave.NewSave();
+        // ! THIS DOES NOTHING CURRENTLY
         UpdateUI();
     }
 
@@ -59,38 +61,40 @@ public class MainMenuManager : MonoBehaviour
     /// (De)activates the UI based on the current GameSave data.
     /// </summary>
     public void UpdateUI () {
-        week1Option.GetComponent<Button>().enabled = GameSave.IsWeekUnlocked(1);
-        week1Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(GameSave.IsWeekUnlocked(1));
 
-        week2Option.GetComponent<Button>().enabled = GameSave.IsWeekUnlocked(2);
-        week2Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(GameSave.IsWeekUnlocked(2));
+        week1Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(1);
+        week1Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsWeekUnlocked(1));
 
-        week3Option.GetComponent<Button>().enabled = GameSave.IsWeekUnlocked(3);
-        week3Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(GameSave.IsWeekUnlocked(3));
+        week2Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(2);
+        week2Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsWeekUnlocked(2));
 
-        for (int i = 0; i < GameSave.INSTANCE.week1Levels.Length; i++) {
-            week1Levels[i].GetComponent<Button>().enabled = GameSave.IsDayUnlocked(1, i + 1);
-            week1Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(GameSave.IsDayUnlocked(1, i + 1));
-            week1Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (GameSave.INSTANCE.week1Levels[i].percentage * 100) + "%";
-            week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(GameSave.IsDayUnlocked(1, i + 1));
+        week3Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(3);
+        week3Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsWeekUnlocked(3));
+
+        for (int i = 0; i < gameProgress.week1Levels.Length; i++) {
+            week1Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(1, i + 1);
+            week1Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(1, i + 1));
+            week1Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (gameProgress.week1Levels[i].percentage * 100) + "%";
+            week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(1, i + 1));
             week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
         }
 
-        for (int i = 0; i < GameSave.INSTANCE.week2Levels.Length; i++) {
-            week2Levels[i].GetComponent<Button>().enabled = GameSave.IsDayUnlocked(2, i + 1);
-            week2Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(GameSave.IsDayUnlocked(2, i + 1));
-            week2Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (GameSave.INSTANCE.week2Levels[i].percentage * 100) + "%";
-            week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(GameSave.IsDayUnlocked(2, i + 1));
+        for (int i = 0; i < gameProgress.week2Levels.Length; i++) {
+            week2Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(2, i + 1);
+            week2Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(2, i + 1));
+            week2Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (gameProgress.week2Levels[i].percentage * 100) + "%";
+            week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(2, i + 1));
             week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
         }
 
-        for (int i = 0; i < GameSave.INSTANCE.week3Levels.Length; i++) {
-            week3Levels[i].GetComponent<Button>().enabled = GameSave.IsDayUnlocked(3, i + 1);
-            week3Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(GameSave.IsDayUnlocked(3, i + 1));
-            week3Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (GameSave.INSTANCE.week3Levels[i].percentage * 100) + "%";
-            week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(GameSave.IsDayUnlocked(3, i + 1));
+        for (int i = 0; i < gameProgress.week3Levels.Length; i++) {
+            week3Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(3, i + 1);
+            week3Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(3, i + 1));
+            week3Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = (gameProgress.week3Levels[i].percentage * 100) + "%";
+            week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(3, i + 1));
             week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
         }
+        Debug.Log(gameProgress.week1Levels[1].percentage + " - " + gameProgress.week1Levels[1].percentage);
     }
 
     public void StartLevel (string levelID) {

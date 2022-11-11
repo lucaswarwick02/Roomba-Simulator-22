@@ -7,6 +7,8 @@ public class GameState : MonoBehaviour
 {
     public static GameState INSTANCE;
 
+    public GameProgress gameProgress;
+
     public int initialBattery1 = 10;
     public int initialBattery2 = 10;
     public int maxDirt = 3;
@@ -31,6 +33,8 @@ public class GameState : MonoBehaviour
     private bool gameOver = false;
     private bool batteryCheck1 = false;
     private bool batteryCheck2 = false;
+
+
 
     private int _battery1;
     private Vector3Int check = new Vector3Int(-100,0,0);
@@ -112,19 +116,17 @@ public class GameState : MonoBehaviour
         }
 
         float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
-        
-        GameSave.Save();
 
         // Assign score to level save data
         switch (level.week) {
             case 1:
-                if (GameSave.INSTANCE.week1Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week1Levels[level.day - 1].percentage = score;
+                if (gameProgress.week1Levels[level.day - 1].percentage < score) gameProgress.week1Levels[level.day - 1].percentage = score;
                 break;
             case 2:
-                if (GameSave.INSTANCE.week2Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week2Levels[level.day - 1].percentage = score;
+                if (gameProgress.week2Levels[level.day - 1].percentage < score) gameProgress.week2Levels[level.day - 1].percentage = score;
                 break;
             case 3:
-                if (GameSave.INSTANCE.week3Levels[level.day - 1].percentage < score) GameSave.INSTANCE.week3Levels[level.day - 1].percentage = score;
+                if (gameProgress.week3Levels[level.day - 1].percentage < score) gameProgress.week3Levels[level.day - 1].percentage = score;
                 break;
             default:
                 break;
@@ -144,13 +146,13 @@ public class GameState : MonoBehaviour
             switch (nextLevel.week)
             {
                 case 1:
-                    GameSave.INSTANCE.week1Levels[nextLevel.day - 1].unlocked = true;
+                    gameProgress.week1Levels[nextLevel.day - 1].unlocked = true;
                     break;
                 case 2:
-                    GameSave.INSTANCE.week2Levels[nextLevel.day - 1].unlocked = true;
+                    gameProgress.week2Levels[nextLevel.day - 1].unlocked = true;
                     break;
                 case 3:
-                    GameSave.INSTANCE.week3Levels[nextLevel.day - 1].unlocked = true;
+                    gameProgress.week3Levels[nextLevel.day - 1].unlocked = true;
                     break;
                 default:
                     break;

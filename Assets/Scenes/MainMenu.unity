@@ -857,6 +857,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cf44fd361257471429edaed6d462147f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameProgress: {fileID: 11400000, guid: 4e59b25331aab7a4ea096744efbea0fa, type: 2}
+  settings: {fileID: 11400000, guid: 1bf6f159bd7f9494aa57d7c634f3ccea, type: 2}
   mainMenuPanel: {fileID: 909471251}
   week1Panel: {fileID: 895196972}
   week2Panel: {fileID: 917969407}
@@ -5760,8 +5762,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 47.221, y: 0}
-  m_SizeDelta: {x: 94.442, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0.000061035, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1272075698
 MonoBehaviour:
@@ -5810,8 +5812,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
-  m_fontSizeBase: 30
+  m_fontSize: 75
+  m_fontSizeBase: 75
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -9873,7 +9875,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: -0.0000038146973}
-  m_SizeDelta: {x: 126.20001, y: 25.625092}
+  m_SizeDelta: {x: 569.957, y: 87.168}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &2037092120
 MonoBehaviour:

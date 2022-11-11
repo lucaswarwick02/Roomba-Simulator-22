@@ -1630,6 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75d349c41ea551e4bbf15b6afdb04d5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameProgress: {fileID: 11400000, guid: 4e59b25331aab7a4ea096744efbea0fa, type: 2}
   initialBattery1: 11
   initialBattery2: 0
   maxDirt: 1
