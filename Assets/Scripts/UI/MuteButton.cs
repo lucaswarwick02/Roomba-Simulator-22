@@ -24,6 +24,7 @@ public class MuteButton : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         settings.mute = !settings.mute;
+        AudioListener.volume = settings.mute ? 0 : 1;
         updateVisuals();
     }
 

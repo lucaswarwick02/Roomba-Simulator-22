@@ -50,17 +50,11 @@ public class MainMenuManager : MonoBehaviour
     }
 
     /// <summary>
-    /// Create a new save.
-    /// </summary>
-    public void ResetProgress () {
-        // ! THIS DOES NOTHING CURRENTLY
-        UpdateUI();
-    }
-
-    /// <summary>
     /// (De)activates the UI based on the current GameSave data.
     /// </summary>
     public void UpdateUI () {
+        AudioListener.volume = settings.mute ? 0 : 1;
+
         week1Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(1);
         week1Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsWeekUnlocked(1));
 
