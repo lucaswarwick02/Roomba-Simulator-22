@@ -14,8 +14,6 @@ public enum TileEffect
     Ring
 }
 
-
-
 public class TilemapManager : MonoBehaviour
 {
     public Tilemap floorTilemap;
@@ -197,6 +195,25 @@ public class TilemapManager : MonoBehaviour
                     PerformEffect2(TileEffect.CatPush, velocity);
                     break;
                 case "Effects_9":
+                    velocity = new Vector3Int(1, 0, 0);
+                    PerformEffect2(TileEffect.CatPush, velocity);
+                    break;
+                    case "slippery":
+                    PerformEffect2(TileEffect.Slippery, velocity);
+                    break;
+                case "catUpA":
+                    velocity = new Vector3Int(0, 1, 0);
+                    PerformEffect2(TileEffect.CatPush, velocity);
+                    break;
+                case "catDownA":
+                    velocity = new Vector3Int(0, -1, 0);
+                    PerformEffect2(TileEffect.CatPush, velocity);
+                    break;
+                case "catLeftA":
+                    velocity = new Vector3Int(-1, 0, 0);
+                    PerformEffect2(TileEffect.CatPush, velocity);
+                    break;
+                case "catRightA":
                     velocity = new Vector3Int(1, 0, 0);
                     PerformEffect2(TileEffect.CatPush, velocity);
                     break;
