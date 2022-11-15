@@ -136,15 +136,18 @@ public class GameState : MonoBehaviour
                 break;
         }
 
+        // Completion Panel
+        completionPanel.gameObject.SetActive(true);
+        completionPanel.resultsTitle.text = "Level " + level.week + "-" + level.day + " Results:";
+        completionPanel.dirtCollected.text = Dirt.ToString();
+        completionPanel.ringsCollected.text = Rings.ToString();
+        completionPanel.dirtScore.text = "+" + Dirt;
+        completionPanel.ringsScore.text = "-" + Rings;
+        completionPanel.score.text = "Score: " + (Dirt - Rings) + "/" + maxDirt;
+        completionPanel.level = level;
+
         if (score >= 0.5f)
         {
-
-            // * Completion Panel = Win
-            completionPanel.gameObject.SetActive(true);
-            completionPanel.titleText.text = "You Win!";
-            completionPanel.percentageText.text = (score * 100f).ToString("#") + "%";
-            completionPanel.percentageText.color = Color.green;
-
             // Unlock next level
             Level nextLevel = level.NextLevel();
             switch (nextLevel.week)
@@ -162,13 +165,15 @@ public class GameState : MonoBehaviour
                     break;
             }
         }
-        else
-        {
-            // * Completion Panel = Lose
-            completionPanel.gameObject.SetActive(true);
-            completionPanel.titleText.text = "You Lose";
-            completionPanel.percentageText.text = (score * 100f).ToString("#") + "%";
-            completionPanel.percentageText.color = Color.red;
+        else {
+            completionPanel.deactivateNextLevel();
+            completionPanel.redFlag.color = new Color(1f, 1f, 1f, 0.5f);
         }
+
+        if (score < 1f) {
+            completionPanel.goldFlag.color = new Color(1f, 1f, 1f, 0.5f);
+        }
+
+        if (level.week == 3 && level.day == 5) completionPanel.deactivateNextLevel();
     }
 }
