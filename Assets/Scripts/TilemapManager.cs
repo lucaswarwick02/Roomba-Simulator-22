@@ -14,8 +14,6 @@ public enum TileEffect
     Ring
 }
 
-
-
 public class TilemapManager : MonoBehaviour
 {
     public Tilemap floorTilemap;
@@ -35,22 +33,16 @@ public class TilemapManager : MonoBehaviour
     public static TilemapManager INSTANCE;
 
     private void Awake() {
-
-
-
-
         INSTANCE = this;
         sliding1 = false;
         sliding2 = false;
         catPush1 = false;
         catPush2 = false;
-
     }
 
     private void Start () {
         currentPos1 = GameState.INSTANCE.startPos1;
         currentPos2 = GameState.INSTANCE.startPos2;
-
     }
 
     public void newPos(Vector3Int velocity1,Vector3Int velocity2){
@@ -64,7 +56,7 @@ public class TilemapManager : MonoBehaviour
             invalidCheck1 = true;
             sliding1 = false; //stop sliding from slipSquares if you were sliding
             catPush1 = false; //stop sliding from catPush if you were sliding
-            GameState.INSTANCE.catPushSound.Stop();
+            // GameState.INSTANCE.catPushSound.Stop();
             GameState.INSTANCE.slipSound.Stop();
             GameState.INSTANCE.bumpWallSound.Play();
             nextPosRCheck1 =  currentPos1;
@@ -78,7 +70,7 @@ public class TilemapManager : MonoBehaviour
             invalidCheck2 = true;
             sliding2 = false; //stop sliding from slipSquares if you were sliding
             catPush2 = false; //stop sliding from catPush if you were sliding
-            GameState.INSTANCE.catPushSound.Stop();
+            // GameState.INSTANCE.catPushSound.Stop();
             GameState.INSTANCE.slipSound.Stop();
             GameState.INSTANCE.bumpWallSound.Play();
             nextPosRCheck2 =  currentPos2;
@@ -103,7 +95,7 @@ public class TilemapManager : MonoBehaviour
             }
         }
         else{
-            GameState.INSTANCE.catPushSound.Stop();
+            // GameState.INSTANCE.catPushSound.Stop();
             GameState.INSTANCE.slipSound.Stop();
             GameState.INSTANCE.bumpRoombaSound.Play();
             sliding1 = false; 
@@ -139,8 +131,28 @@ public class TilemapManager : MonoBehaviour
                     break;
                 case "Effects_9":
                     velocity = new Vector3Int(1, 0, 0);
+                    PerformEffect1(TileEffect.SingleDirt, velocity);
+                    break;
+                case "slippery":
+                    PerformEffect1(TileEffect.Slippery, velocity);
+                    break;
+                case "catUpA":
+                    velocity = new Vector3Int(0, 1, 0);
                     PerformEffect1(TileEffect.CatPush, velocity);
                     break;
+                case "catDownA":
+                    velocity = new Vector3Int(0, -1, 0);
+                    PerformEffect1(TileEffect.CatPush, velocity);
+                    break;
+                case "catLeftA":
+                    velocity = new Vector3Int(-1, 0, 0);
+                    PerformEffect1(TileEffect.CatPush, velocity);
+                    break;
+                case "catRightA":
+                    velocity = new Vector3Int(1, 0, 0);
+                    PerformEffect1(TileEffect.CatPush, velocity);
+                    break;
+
                 default:
                     break;
             }
@@ -183,6 +195,25 @@ public class TilemapManager : MonoBehaviour
                     PerformEffect2(TileEffect.CatPush, velocity);
                     break;
                 case "Effects_9":
+                    velocity = new Vector3Int(1, 0, 0);
+                    PerformEffect2(TileEffect.CatPush, velocity);
+                    break;
+                    case "slippery":
+                    PerformEffect2(TileEffect.Slippery, velocity);
+                    break;
+                case "catUpA":
+                    velocity = new Vector3Int(0, 1, 0);
+                    PerformEffect2(TileEffect.CatPush, velocity);
+                    break;
+                case "catDownA":
+                    velocity = new Vector3Int(0, -1, 0);
+                    PerformEffect2(TileEffect.CatPush, velocity);
+                    break;
+                case "catLeftA":
+                    velocity = new Vector3Int(-1, 0, 0);
+                    PerformEffect2(TileEffect.CatPush, velocity);
+                    break;
+                case "catRightA":
                     velocity = new Vector3Int(1, 0, 0);
                     PerformEffect2(TileEffect.CatPush, velocity);
                     break;
@@ -333,6 +364,24 @@ public class TilemapManager : MonoBehaviour
                 case "Effects_8":
                     return TileEffect.CatPush;
                 case "Effects_9":
+                    return TileEffect.CatPush;
+                case "singleDirt":
+                    return TileEffect.SingleDirt;
+                case "doubleDirt":
+                    return TileEffect.DoubleDirt;
+                case "battery":
+                    return TileEffect.Battery;
+                case "slippery":
+                    return TileEffect.Slippery;
+                case "ring":
+                    return TileEffect.Ring;
+                case "catDownA":
+                    return TileEffect.CatPush;
+                case "catUpA":
+                    return TileEffect.CatPush;
+                case "catLeftA":
+                    return TileEffect.CatPush;
+                case "catRightA":
                     return TileEffect.CatPush;
                 default:
                     Debug.LogError("Tilename" + tileName + " not defined");

@@ -3516,7 +3516,7 @@ MonoBehaviour:
   settings: {fileID: 11400000, guid: 1bf6f159bd7f9494aa57d7c634f3ccea, type: 2}
   initialBattery1: 11
   initialBattery2: 0
-  maxDirt: 1
+  maxDirt: 5
   level:
     week: 1
     day: 1
