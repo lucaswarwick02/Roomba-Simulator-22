@@ -1589,7 +1589,7 @@ MonoBehaviour:
   floorTilemap: {fileID: 938364051}
   effectsTilemap: {fileID: 1827439478}
   invalidTilemap: {fileID: 1899078626}
-  singleDirtTile: {fileID: 11400000, guid: 44fcd9059fca1c649b6b6f4f988697f3, type: 2}
+  singleDirtTile: {fileID: 11400000, guid: 9e96e211082c1488184e2b2d3f0f0c1c, type: 2}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}
