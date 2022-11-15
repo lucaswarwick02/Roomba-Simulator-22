@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class GameState : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameState : MonoBehaviour
     public int initialBattery2 = 10;
     public int maxDirt = 3;
     public Level level;
+    private int passScore;
 
     public CompletionPanel completionPanel;
 
@@ -48,6 +50,10 @@ public class GameState : MonoBehaviour
         set { _battery2 = value; }
     }
 
+    public int dirtCollected;
+
+
+
     private int _dirt;
     public int Dirt {
         get { return _dirt; }
@@ -67,6 +73,11 @@ public class GameState : MonoBehaviour
     }  
 
     private void Start() {
+        completionPanel.gameObject.SetActive(false);
+        dirtCollected = 0;
+        float passScore1 = (float) maxDirt/2;
+        passScore = (int) Math.Ceiling((decimal) passScore1);
+        Dirt = maxDirt;
         // Change scale of camera to match settings
         Camera.main.orthographicSize  = settings.largeScale ? 5f : 10f;
     }
@@ -103,7 +114,7 @@ public class GameState : MonoBehaviour
             // Both Roombas have died! (Lose)
             isGameOver = true;
         }
-        if (Dirt >= maxDirt) {
+        if (Dirt <= 0) {
             // They have collected all the dirt! (Win)
             isGameOver = true;
         }
@@ -116,10 +127,11 @@ public class GameState : MonoBehaviour
             return;
         }
         else {
+            
             gameOver = true;
         }
 
-        float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
+        float score = ((float) dirtCollected - (float) Rings);
 
         // Assign score to level save data
         switch (level.week) {
@@ -136,18 +148,32 @@ public class GameState : MonoBehaviour
                 break;
         }
 
-        // Completion Panel
-        completionPanel.gameObject.SetActive(true);
-        completionPanel.resultsTitle.text = "Level " + level.week + "-" + level.day + " Results:";
-        completionPanel.dirtCollected.text = Dirt.ToString();
+        completionPanel.dirtCollected.text = dirtCollected.ToString();
         completionPanel.ringsCollected.text = Rings.ToString();
-        completionPanel.dirtScore.text = "+" + Dirt;
-        completionPanel.ringsScore.text = "-" + Rings;
-        completionPanel.score.text = "Score: " + (Dirt - Rings) + "/" + maxDirt;
-        completionPanel.level = level;
+ 
+    
 
-        if (score >= 0.5f)
+        if (score > (int) passScore)
         {
+
+            if(passScore == 1){
+                completionPanel.passScore.text =  "get 1 point to unlock next level";
+            }
+            else{
+                completionPanel.passScore.text =  "get " + passScore.ToString() + " points to unlock next level";
+            }
+
+        completionPanel.medalScore.text =  "get " + maxDirt.ToString() + " points to earn clean sweep medal";
+
+            completionPanel.score.text = score.ToString();
+
+
+            // * Completion Panel = Win
+            completionPanel.gameObject.SetActive(true);
+            // completionPanel.titleText.text = "You Win!";
+            // completionPanel.percentageText.text = (score).ToString("#");
+            // completionPanel.percentageText.color = Color.green;
+
             // Unlock next level
             Level nextLevel = level.NextLevel();
             switch (nextLevel.week)
@@ -165,15 +191,25 @@ public class GameState : MonoBehaviour
                     break;
             }
         }
-        else {
-            completionPanel.deactivateNextLevel();
-            completionPanel.redFlag.color = new Color(1f, 1f, 1f, 0.5f);
+        else
+        {
+            if(passScore == 1){
+                completionPanel.passScore.text =  "get 1 point to unlock next level";
+            }
+            else{
+                completionPanel.passScore.text =  "get " + passScore.ToString() + " points to unlock next level";
+            }
+        completionPanel.medalScore.text =  "get " + maxDirt.ToString() + " points to earn clean sweep medal";
+            // * Completion Panel = Lose
+            completionPanel.gameObject.SetActive(true);
+            // completionPanel.titleText.text = "You Lose";
+            if(score <= 0){
+                completionPanel.score.text = (0).ToString("#");
+            }
+            else{
+                completionPanel.score.text = (score).ToString("#");
+            }
+            // completionPanel.percentageText.color = Color.red;
         }
-
-        if (score < 1f) {
-            completionPanel.goldFlag.color = new Color(1f, 1f, 1f, 0.5f);
-        }
-
-        if (level.week == 3 && level.day == 5) completionPanel.deactivateNextLevel();
     }
 }

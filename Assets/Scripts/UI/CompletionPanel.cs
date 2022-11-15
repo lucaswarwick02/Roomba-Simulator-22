@@ -11,8 +11,8 @@ public class CompletionPanel : MonoBehaviour
 
     public TextMeshProUGUI dirtCollected;
     public TextMeshProUGUI ringsCollected;
-    public TextMeshProUGUI dirtScore;
-    public TextMeshProUGUI ringsScore;
+    public TextMeshProUGUI passScore;
+    public TextMeshProUGUI medalScore;
 
     public TextMeshProUGUI score;
 

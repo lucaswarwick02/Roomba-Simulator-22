@@ -1270,6 +1270,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &659386739 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2383217998352845836, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1040436134}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35550ca371e05a7488decef361d42230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &791606757
 GameObject:
   m_ObjectHideFlags: 0
@@ -1500,6 +1511,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1442231373793345598, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_text
+      value: 'Battery life: 0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442231373793345599, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 596.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442231373793345599, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 44.736
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442231374621811360, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 596.398
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442231374621811360, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70.837
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442231374621811367, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_text
+      value: 'Rings vacuumed: 0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1442231375251669155, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_text
+      value: 'Dirt left: 0'
+      objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt
       value: 3
@@ -1556,6 +1595,10 @@ PrefabInstance:
       propertyPath: bumpRoombaSound
       value: 
       objectReference: {fileID: 1040436135}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: completionPanel
+      value: 
+      objectReference: {fileID: 659386739}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: initialBattery1
       value: 3
@@ -1619,6 +1662,18 @@ PrefabInstance:
     - target: {fileID: 6397920106987399343, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_Name
       value: LevelCreator
+      objectReference: {fileID: 0}
+    - target: {fileID: 7823037228997227115, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_text
+      value: 'Battery life: 0'
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126722224459833537, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 563.771
+      objectReference: {fileID: 0}
+    - target: {fileID: 9126722224459833537, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 70.837
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
