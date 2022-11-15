@@ -808,6 +808,18 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 534515632649749620, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399048
+      objectReference: {fileID: 0}
+    - target: {fileID: 534515632649749620, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -179.57999
+      objectReference: {fileID: 0}
+    - target: {fileID: 3632321284377396788, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399048
+      objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt
       value: 4
@@ -836,6 +848,10 @@ PrefabInstance:
       propertyPath: bumpWallSound
       value: 
       objectReference: {fileID: 1456064028}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: completionPanel
+      value: 
+      objectReference: {fileID: 1462953436}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: initialBattery1
       value: 5
@@ -900,6 +916,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelCreator
       objectReference: {fileID: 0}
+    - target: {fileID: 8243075926101541254, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399048
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
 --- !u!82 &1456064028 stripped
@@ -927,6 +947,17 @@ AudioSource:
   m_CorrespondingSourceObject: {fileID: 6839250525515142253, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
   m_PrefabInstance: {fileID: 1456064027}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1462953436 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7739133625081244291, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1456064027}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35550ca371e05a7488decef361d42230, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1552909767
 GameObject:
   m_ObjectHideFlags: 0
