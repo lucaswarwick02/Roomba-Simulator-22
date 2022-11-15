@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using System;
 
 public class GameState : MonoBehaviour
 {
@@ -14,6 +15,7 @@ public class GameState : MonoBehaviour
     public int initialBattery2 = 10;
     public int maxDirt = 3;
     public Level level;
+    public double passScore;
 
     public CompletionPanel completionPanel;
 
@@ -67,6 +69,8 @@ public class GameState : MonoBehaviour
     }  
 
     private void Start() {
+        passScore = Math.Ceiling((double) (maxDirt/2));
+        Dirt = maxDirt;
         // Change scale of camera to match settings
         Camera.main.orthographicSize  = settings.largeScale ? 5f : 10f;
     }
@@ -103,7 +107,7 @@ public class GameState : MonoBehaviour
             // Both Roombas have died! (Lose)
             isGameOver = true;
         }
-        if (Dirt >= maxDirt) {
+        if (Dirt <= 0) {
             // They have collected all the dirt! (Win)
             isGameOver = true;
         }
@@ -116,10 +120,12 @@ public class GameState : MonoBehaviour
             return;
         }
         else {
+            
             gameOver = true;
         }
 
-        float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
+        float score = (((float) maxDirt - (float) Dirt) - (float) Rings);
+        Debug.Log(score);
 
         // Assign score to level save data
         switch (level.week) {
@@ -136,13 +142,14 @@ public class GameState : MonoBehaviour
                 break;
         }
 
-        if (score >= 0.5f)
+        if (score > passScore)
         {
+
 
             // * Completion Panel = Win
             completionPanel.gameObject.SetActive(true);
             completionPanel.titleText.text = "You Win!";
-            completionPanel.percentageText.text = (score * 100f).ToString("#") + "%";
+            completionPanel.percentageText.text = (score).ToString("#");
             completionPanel.percentageText.color = Color.green;
 
             // Unlock next level
@@ -167,7 +174,12 @@ public class GameState : MonoBehaviour
             // * Completion Panel = Lose
             completionPanel.gameObject.SetActive(true);
             completionPanel.titleText.text = "You Lose";
-            completionPanel.percentageText.text = (score * 100f).ToString("#") + "%";
+            if(score <= 0){
+                completionPanel.percentageText.text = (0).ToString("#");
+            }
+            else{
+                completionPanel.percentageText.text = (score).ToString("#");
+            }
             completionPanel.percentageText.color = Color.red;
         }
     }
