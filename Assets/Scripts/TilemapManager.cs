@@ -294,12 +294,12 @@ public class TilemapManager : MonoBehaviour
         {
             case TileEffect.SingleDirt:
                 GameState.INSTANCE.dirtSound.Play();
-                GameState.INSTANCE.Dirt -= 1;
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.DoubleDirt:
                 GameState.INSTANCE.dirtSound.Play();
-                GameState.INSTANCE.Dirt -= 1;
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:
@@ -321,12 +321,12 @@ public class TilemapManager : MonoBehaviour
         {
             case TileEffect.SingleDirt:
                 GameState.INSTANCE.dirtSound.Play();
-                GameState.INSTANCE.Dirt -= 1;
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 break;
             case TileEffect.DoubleDirt:
                 GameState.INSTANCE.dirtSound.Play();
-                GameState.INSTANCE.Dirt -= 1;
+                GameState.INSTANCE.Dirt += 1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
                 break;
             case TileEffect.Battery:

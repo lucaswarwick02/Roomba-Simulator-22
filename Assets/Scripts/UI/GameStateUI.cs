@@ -8,7 +8,6 @@ using TMPro;
 public class GameStateUI : MonoBehaviour
 {
     public TextMeshProUGUI batteryCount;
-    public TextMeshProUGUI roomba1Text;
     public TextMeshProUGUI roomba2Text;
     public TextMeshProUGUI batteryCount2;
 
@@ -21,24 +20,23 @@ public class GameStateUI : MonoBehaviour
     void Update()
     {
         if(GameState.INSTANCE.Battery1 <= 0){
-            batteryCount.text = "Battery Life: " + 0;
+            batteryCount.text = "Battery: " + 0;
         }
         else{
-            batteryCount.text = "Battery Life: " + GameState.INSTANCE.Battery1;
+            batteryCount.text = "Battery: " + GameState.INSTANCE.Battery1;
         }
         if(GameState.INSTANCE.Battery2 <= 0){
-            batteryCount2.text = "Battery Life: " + 0;
+            batteryCount2.text = "Battery: " + 0;
         }
         else{
-            batteryCount2.text = "Battery Life: " + GameState.INSTANCE.Battery2;
+            batteryCount2.text = "Battery: " + GameState.INSTANCE.Battery2;
         }
 
-        dirtCount.text = "Dirt Left: " + GameState.INSTANCE.Dirt;
-        ringsCount.text = "Rings Vacuumed: " + GameState.INSTANCE.Rings;
+        dirtCount.text = "Dirt: " + GameState.INSTANCE.Dirt;
+        ringsCount.text = "Rings: " + GameState.INSTANCE.Rings;
 
         if(GameState.INSTANCE.startPos2 == check){
             batteryCount2.text = "";
-            roomba1Text.text = "";
             roomba2Text.text = "";
         }
     }

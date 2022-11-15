@@ -1431,10 +1431,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1097334321}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
-      propertyPath: completionPanel
-      value: 
-      objectReference: {fileID: 2123332907}
-    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: initialBattery1
       value: 4
       objectReference: {fileID: 0}
@@ -1689,7 +1685,7 @@ Tilemap:
   m_GameObject: {fileID: 1827439475}
   m_Enabled: 1
   m_Tiles:
-  - first: {x: 0, y: -4, z: 0}
+  - first: {x: 1, y: -4, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 7
@@ -1719,11 +1715,11 @@ Tilemap:
       m_TileObjectToInstantiateIndex: 65535
       dummyAlignment: 0
       m_AllTileFlags: 1073741825
-  - first: {x: 1, y: -3, z: 0}
+  - first: {x: 2, y: -3, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 6
-      m_TileSpriteIndex: 5
+      m_TileSpriteIndex: 7
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1743,7 +1739,7 @@ Tilemap:
     second:
       serializedVersion: 2
       m_TileIndex: 5
-      m_TileSpriteIndex: 7
+      m_TileSpriteIndex: 5
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -1801,11 +1797,11 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 1817943931, guid: eaa25a8b70bf94f53b5a1e383d41b85d, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 720880861, guid: 20a48d68670784458b3b398c92d99a6f, type: 3}
+    m_Data: {fileID: -2093340345, guid: de5798376a6b94dacbbf22458893f342, type: 3}
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 7ad8afc38972042d5ad8e83ca0a5f3a0, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: -2093340345, guid: de5798376a6b94dacbbf22458893f342, type: 3}
+    m_Data: {fileID: 720880861, guid: 20a48d68670784458b3b398c92d99a6f, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -66721705, guid: de06c2c62eaa24e0fb04ca55077ce261, type: 3}
   m_TileMatrixArray:
@@ -2430,14 +2426,3 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &2123332907 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7739133625081244291, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
-  m_PrefabInstance: {fileID: 1097334320}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35550ca371e05a7488decef361d42230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
-using System;
 
 public class GameState : MonoBehaviour
 {
@@ -15,7 +14,6 @@ public class GameState : MonoBehaviour
     public int initialBattery2 = 10;
     public int maxDirt = 3;
     public Level level;
-    public double passScore;
 
     public CompletionPanel completionPanel;
 
@@ -69,8 +67,6 @@ public class GameState : MonoBehaviour
     }  
 
     private void Start() {
-        passScore = Math.Ceiling((double) (maxDirt/2));
-        Dirt = maxDirt;
         // Change scale of camera to match settings
         Camera.main.orthographicSize  = settings.largeScale ? 5f : 10f;
     }
@@ -107,7 +103,7 @@ public class GameState : MonoBehaviour
             // Both Roombas have died! (Lose)
             isGameOver = true;
         }
-        if (Dirt <= 0) {
+        if (Dirt >= maxDirt) {
             // They have collected all the dirt! (Win)
             isGameOver = true;
         }
@@ -120,12 +116,10 @@ public class GameState : MonoBehaviour
             return;
         }
         else {
-            
             gameOver = true;
         }
 
-        float score = (((float) maxDirt - (float) Dirt) - (float) Rings);
-        Debug.Log(score);
+        float score = ((float) Dirt - (float) Rings) / (float) maxDirt;
 
         // Assign score to level save data
         switch (level.week) {
@@ -142,16 +136,18 @@ public class GameState : MonoBehaviour
                 break;
         }
 
-        if (score > passScore)
+        // Completion Panel
+        completionPanel.gameObject.SetActive(true);
+        completionPanel.resultsTitle.text = "Level " + level.week + "-" + level.day + " Results:";
+        completionPanel.dirtCollected.text = Dirt.ToString();
+        completionPanel.ringsCollected.text = Rings.ToString();
+        completionPanel.dirtScore.text = "+" + Dirt;
+        completionPanel.ringsScore.text = "-" + Rings;
+        completionPanel.score.text = "Score: " + (Dirt - Rings) + "/" + maxDirt;
+        completionPanel.level = level;
+
+        if (score >= 0.5f)
         {
-
-
-            // * Completion Panel = Win
-            completionPanel.gameObject.SetActive(true);
-            completionPanel.titleText.text = "You Win!";
-            completionPanel.percentageText.text = (score).ToString("#");
-            completionPanel.percentageText.color = Color.green;
-
             // Unlock next level
             Level nextLevel = level.NextLevel();
             switch (nextLevel.week)
@@ -169,18 +165,15 @@ public class GameState : MonoBehaviour
                     break;
             }
         }
-        else
-        {
-            // * Completion Panel = Lose
-            completionPanel.gameObject.SetActive(true);
-            completionPanel.titleText.text = "You Lose";
-            if(score <= 0){
-                completionPanel.percentageText.text = (0).ToString("#");
-            }
-            else{
-                completionPanel.percentageText.text = (score).ToString("#");
-            }
-            completionPanel.percentageText.color = Color.red;
+        else {
+            completionPanel.deactivateNextLevel();
+            completionPanel.redFlag.color = new Color(1f, 1f, 1f, 0.5f);
         }
+
+        if (score < 1f) {
+            completionPanel.goldFlag.color = new Color(1f, 1f, 1f, 0.5f);
+        }
+
+        if (level.week == 3 && level.day == 5) completionPanel.deactivateNextLevel();
     }
 }

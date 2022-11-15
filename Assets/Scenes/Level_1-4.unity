@@ -1213,17 +1213,6 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
---- !u!114 &1449867651 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7739133625081244291, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
-  m_PrefabInstance: {fileID: 1634642139}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35550ca371e05a7488decef361d42230, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1552909767
 GameObject:
   m_ObjectHideFlags: 0
@@ -1326,10 +1315,6 @@ PrefabInstance:
       propertyPath: bumpWallSound
       value: 
       objectReference: {fileID: 1634642140}
-    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
-      propertyPath: completionPanel
-      value: 
-      objectReference: {fileID: 1449867651}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: initialBattery1
       value: 6
