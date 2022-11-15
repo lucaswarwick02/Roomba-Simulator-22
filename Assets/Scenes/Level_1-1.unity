@@ -498,6 +498,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -10.399048
       objectReference: {fileID: 0}
+    - target: {fileID: 3717099336262501756, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_Volume
+      value: 0.339
+      objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt
       value: 3
@@ -558,6 +562,10 @@ PrefabInstance:
       propertyPath: roombaMoveSound
       value: 
       objectReference: {fileID: 572833370}
+    - target: {fileID: 6039251958978078259, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_Volume
+      value: 0.139
+      objectReference: {fileID: 0}
     - target: {fileID: 6397920106987399341, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -605,6 +613,14 @@ PrefabInstance:
     - target: {fileID: 6397920106987399343, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_Name
       value: LevelCreator
+      objectReference: {fileID: 0}
+    - target: {fileID: 7400421688325159276, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_Volume
+      value: 0.812
+      objectReference: {fileID: 0}
+    - target: {fileID: 8225791331359675953, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_Volume
+      value: 0.518
       objectReference: {fileID: 0}
     - target: {fileID: 8243075926101541254, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_AnchoredPosition.x

@@ -1496,6 +1496,7 @@ MonoBehaviour:
   level:
     week: 1
     day: 1
+  passScore: 0
   completionPanel: {fileID: 0}
   roombaMoveSound: {fileID: 6839250525515142253}
   roombaDiesSound: {fileID: 6404980488817953843}
@@ -1808,7 +1809,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 33d94f08ba2bd4a8da1c455b26bc341e, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.1
+  m_Volume: 0.468
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1904,7 +1905,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 4f4eb89d8b88644cda6e03403920cba6, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.37
+  m_Volume: 0.7
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -2000,7 +2001,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 191a6e69c9df7430aaa8a1b86ea0d0bb, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.6
+  m_Volume: 0.79
   m_Pitch: 1
   Loop: 0
   Mute: 0
