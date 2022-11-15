@@ -447,8 +447,8 @@ Tilemap:
   - first: {x: -2, y: -1, z: 0}
     second:
       serializedVersion: 2
-      m_TileIndex: 13
-      m_TileSpriteIndex: 13
+      m_TileIndex: 8
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -802,8 +802,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 0d5ef1ae09efd764d86ec41732cc9603, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: c5d00668c66fef443ad0a8e0806d8d0b, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: f09de557e8905b64ca172620f059b234, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: bec04ca51b89304478458034a79e0f75, type: 2}
   - m_RefCount: 8
@@ -812,7 +812,7 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: c7f59467220fa6b47861c9a5804a9a84, type: 2}
   - m_RefCount: 6
     m_Data: {fileID: 11400000, guid: b31b8c8bdb3747a47acf143b92e4007b, type: 2}
-  - m_RefCount: 8
+  - m_RefCount: 7
     m_Data: {fileID: 11400000, guid: 74deee9f4b66426489739440399c5a72, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: a39fbd366163b91459a054bc7c6e8cea, type: 2}
@@ -827,8 +827,8 @@ Tilemap:
     m_Data: {fileID: 0}
   - m_RefCount: 0
     m_Data: {fileID: 0}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: -1726071745, guid: 5f52875858ac8304aa791e199ee3daa8, type: 3}
   - m_RefCount: 1
     m_Data: {fileID: -1262389587, guid: 5f52875858ac8304aa791e199ee3daa8, type: 3}
   - m_RefCount: 4
@@ -847,7 +847,7 @@ Tilemap:
     m_Data: {fileID: -1954786374, guid: 5f52875858ac8304aa791e199ee3daa8, type: 3}
   - m_RefCount: 6
     m_Data: {fileID: 1772424462, guid: 5f52875858ac8304aa791e199ee3daa8, type: 3}
-  - m_RefCount: 8
+  - m_RefCount: 7
     m_Data: {fileID: -511454758, guid: 5f52875858ac8304aa791e199ee3daa8, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: -1147162495, guid: 5f52875858ac8304aa791e199ee3daa8, type: 3}
@@ -1115,7 +1115,7 @@ MonoBehaviour:
   floorTilemap: {fileID: 938364051}
   effectsTilemap: {fileID: 1827439478}
   invalidTilemap: {fileID: 1899078626}
-  singleDirtTile: {fileID: 11400000, guid: 44fcd9059fca1c649b6b6f4f988697f3, type: 2}
+  singleDirtTile: {fileID: 11400000, guid: 9e96e211082c1488184e2b2d3f0f0c1c, type: 2}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}
