@@ -38,7 +38,7 @@ public class GameStateUI : MonoBehaviour
 
         if(GameState.INSTANCE.startPos2 == check){
             batteryCount2.text = "";
-            roomba1Text.text = "";
+            // roomba1Text.text = "";
             roomba2Text.text = "";
         }
     }
