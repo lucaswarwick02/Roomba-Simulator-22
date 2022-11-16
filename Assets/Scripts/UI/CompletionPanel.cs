@@ -15,6 +15,7 @@ public class CompletionPanel : MonoBehaviour
     public TextMeshProUGUI medalScore;
 
     public TextMeshProUGUI score;
+    public Image coverUp;
 
     [HideInInspector] public Level level;
 
@@ -27,6 +28,9 @@ public class CompletionPanel : MonoBehaviour
     public Image tick1;
     public Image tick2;
     public Image medal;
+    public TextMeshProUGUI getPointsForNL;
+    public Image emptyTick1;
+
 
     public void deactivateNextLevel () {
         nextLevelButton.enabled = false;

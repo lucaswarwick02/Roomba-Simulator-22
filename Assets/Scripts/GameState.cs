@@ -73,6 +73,8 @@ public class GameState : MonoBehaviour
     }  
 
     private void Start() {
+        completionPanel.coverUp.enabled = false;
+
         String titleString = level + " Results";
         completionPanel.resultsTitle.text = "Room " + titleString.Substring(6);
         completionPanel.level = level;
@@ -81,13 +83,13 @@ public class GameState : MonoBehaviour
         // completionPanel.medal.gameObject.SetActive(false);
         completionPanel.tick1.gameObject.SetActive(false);
         completionPanel.tick2.gameObject.SetActive(false);
-        completionPanel.gameObject.SetActive(false);
         dirtCollected = 0;
         float passScore1 = (float) maxDirt/2;
         passScore = (int) Math.Ceiling((decimal) passScore1);
         Dirt = maxDirt;
         // Change scale of camera to match settings
         Camera.main.orthographicSize  = settings.largeScale ? 5f : 10f;
+        completionPanel.gameObject.SetActive(false);
     }
 
     private void Update() {
@@ -197,8 +199,10 @@ public class GameState : MonoBehaviour
                 default:
                     break;
             }
-        }
-        else
+
+    }
+
+    else
         {
             completionPanel.deactivateNextLevel();
             // CompletionPanel.nextLevelButton.enabled = false;
@@ -223,11 +227,19 @@ public class GameState : MonoBehaviour
             // completionPanel.percentageText.color = Color.red;
         }
 
-        // if(maxDirt <= dirtCollected){
-        //     score = 1f;
-        // }
+        Level nextLevel2 = level.NextLevel();
 
-        switch (level.week) {
+        if(nextLevel2.day == 1) {
+
+        completionPanel.deactivateNextLevel();
+        completionPanel.passScore.text =  "get " + passScore.ToString() + " points to finish this house";
+        if(passScore == 1){
+                completionPanel.passScore.text =  "get 1 point to finish this house";
+            }
+            completionPanel.coverUp.enabled = true;
+        }
+
+    switch (level.week) {
             case 1:
                 if (gameProgress.week1Levels[level.day - 1].percentage < score) {
                     if(score >= maxDirt){
@@ -256,5 +268,8 @@ public class GameState : MonoBehaviour
             default:
                 break;
         }
+    
     }
+
 }
+
