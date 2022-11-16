@@ -480,6 +480,11 @@ Transform:
   m_Father: {fileID: 2130963630}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &459183959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 766655766994282576, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1853257998}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &637649030 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2383217998352845836, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
@@ -1790,6 +1795,7 @@ MonoBehaviour:
   invalidTilemap: {fileID: 458495307}
   singleDirtTile: {fileID: 11400000, guid: 9e96e211082c1488184e2b2d3f0f0c1c, type: 2}
   roomba1: {fileID: 217687573}
+  roomba2: {fileID: 459183959}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}

@@ -128,6 +128,11 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5635934236054291561, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
   m_PrefabInstance: {fileID: 1125582598}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &426287565 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 766655766994282576, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1125582598}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938364048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1043,6 +1048,7 @@ MonoBehaviour:
   invalidTilemap: {fileID: 1899078626}
   singleDirtTile: {fileID: 11400000, guid: 44fcd9059fca1c649b6b6f4f988697f3, type: 2}
   roomba1: {fileID: 185278603}
+  roomba2: {fileID: 426287565}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}

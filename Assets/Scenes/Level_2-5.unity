@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &408112454 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 766655766994282576, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1512169110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938364048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1165,6 +1170,7 @@ MonoBehaviour:
   invalidTilemap: {fileID: 1899078626}
   singleDirtTile: {fileID: 11400000, guid: 9e96e211082c1488184e2b2d3f0f0c1c, type: 2}
   roomba1: {fileID: 1248690913}
+  roomba2: {fileID: 408112454}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}

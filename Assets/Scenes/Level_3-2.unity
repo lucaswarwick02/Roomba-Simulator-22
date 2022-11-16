@@ -158,6 +158,7 @@ MonoBehaviour:
   invalidTilemap: {fileID: 1132533771}
   singleDirtTile: {fileID: 11400000, guid: 9e96e211082c1488184e2b2d3f0f0c1c, type: 2}
   roomba1: {fileID: 1286065620}
+  roomba2: {fileID: 1850430161}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}
@@ -1941,3 +1942,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 35550ca371e05a7488decef361d42230, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1850430161 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 766655766994282576, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 796192792}
+  m_PrefabAsset: {fileID: 0}

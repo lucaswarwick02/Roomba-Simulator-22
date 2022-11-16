@@ -396,6 +396,7 @@ GameObject:
   - component: {fileID: 766655766994282582}
   - component: {fileID: 766655766994282577}
   - component: {fileID: 766655766994282602}
+  - component: {fileID: 2952810359610195850}
   m_Layer: 0
   m_Name: Roomba2
   m_TagString: roomba2
@@ -530,6 +531,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d50007d85f1364a76bfc549a73168a6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &2952810359610195850
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 766655766994282576}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e8db8ed52f91746eb96c3ccb80e46e63, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1234097818135465555
 GameObject:
   m_ObjectHideFlags: 0
