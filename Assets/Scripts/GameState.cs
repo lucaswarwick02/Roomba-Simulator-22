@@ -73,6 +73,8 @@ public class GameState : MonoBehaviour
     }  
 
     private void Start() {
+        String titleString = level + " Results";
+        completionPanel.resultsTitle.text = "Room " + titleString.Substring(6);
         completionPanel.level = level;
         Debug.Log(level);
         Debug.Log(level.NextLevel());
@@ -158,6 +160,7 @@ public class GameState : MonoBehaviour
         {
             completionPanel.tick1.gameObject.SetActive(true);
             if(score >= maxDirt){
+                
                 completionPanel.medal.gameObject.SetActive(true);
                 completionPanel.tick2.gameObject.SetActive(true);
             }
@@ -207,19 +210,35 @@ public class GameState : MonoBehaviour
             // completionPanel.percentageText.color = Color.red;
         }
 
-        if(maxDirt <= dirtCollected){
-            score = 1f;
-        }
+        // if(maxDirt <= dirtCollected){
+        //     score = 1f;
+        // }
 
         switch (level.week) {
             case 1:
-                if (gameProgress.week1Levels[level.day - 1].percentage < score) gameProgress.week1Levels[level.day - 1].percentage = score;
+                if (gameProgress.week1Levels[level.day - 1].percentage < score) {
+                    if(score >= maxDirt){
+                    gameProgress.week1Levels[level.day - 1].percentage = score;
+                    }
+                
+                }
                 break;
             case 2:
-                if (gameProgress.week2Levels[level.day - 1].percentage < score) gameProgress.week2Levels[level.day - 1].percentage = score;
+                if (gameProgress.week2Levels[level.day - 1].percentage < score) {
+                     gameProgress.week2Levels[level.day - 1].percentage = score;
+                 if(score >= maxDirt){
+                    gameProgress.week1Levels[level.day - 1].percentage = score;
+                    }
+                
+                }
                 break;
             case 3:
-                if (gameProgress.week3Levels[level.day - 1].percentage < score) gameProgress.week3Levels[level.day - 1].percentage = score;
+                if (gameProgress.week3Levels[level.day - 1].percentage < score) {
+                     gameProgress.week3Levels[level.day - 1].percentage = score;
+                 if(score >= maxDirt){
+                    gameProgress.week1Levels[level.day - 1].percentage = score;
+                    }
+                }
                 break;
             default:
                 break;

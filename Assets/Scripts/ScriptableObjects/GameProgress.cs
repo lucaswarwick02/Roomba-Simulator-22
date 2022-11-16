@@ -32,6 +32,7 @@ public class GameProgress : ScriptableObject
     };
 
     public bool IsWeekUnlocked (int week) {
+        
         switch (week) {
             case 1:
                 return true; // Week 1 is always unlocked
@@ -42,6 +43,7 @@ public class GameProgress : ScriptableObject
             default:
                 return false;
         }
+        
     }
 
     public bool IsDayUnlocked (int week, int day) {
@@ -57,6 +59,8 @@ public class GameProgress : ScriptableObject
         }
     }
 }
+
+
 
 [Serializable]
 public struct LevelSaveData {
