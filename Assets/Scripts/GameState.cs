@@ -137,22 +137,9 @@ public class GameState : MonoBehaviour
             gameOver = true;
         }
 
-        int score = (dirtCollected - Rings);
+        float score = (dirtCollected - Rings);
 
         // Assign score to level save data
-        switch (level.week) {
-            case 1:
-                if (gameProgress.week1Levels[level.day - 1].percentage < score) gameProgress.week1Levels[level.day - 1].percentage = score;
-                break;
-            case 2:
-                if (gameProgress.week2Levels[level.day - 1].percentage < score) gameProgress.week2Levels[level.day - 1].percentage = score;
-                break;
-            case 3:
-                if (gameProgress.week3Levels[level.day - 1].percentage < score) gameProgress.week3Levels[level.day - 1].percentage = score;
-                break;
-            default:
-                break;
-        }
 
         completionPanel.dirtCollected.text = dirtCollected.ToString();
         completionPanel.ringsCollected.text = Rings.ToString();
@@ -218,6 +205,24 @@ public class GameState : MonoBehaviour
                 // completionPanel.score.text = (score).ToString("#");
             }
             // completionPanel.percentageText.color = Color.red;
+        }
+
+        if(maxDirt <= dirtCollected){
+            score = 1f;
+        }
+
+        switch (level.week) {
+            case 1:
+                if (gameProgress.week1Levels[level.day - 1].percentage < score) gameProgress.week1Levels[level.day - 1].percentage = score;
+                break;
+            case 2:
+                if (gameProgress.week2Levels[level.day - 1].percentage < score) gameProgress.week2Levels[level.day - 1].percentage = score;
+                break;
+            case 3:
+                if (gameProgress.week3Levels[level.day - 1].percentage < score) gameProgress.week3Levels[level.day - 1].percentage = score;
+                break;
+            default:
+                break;
         }
     }
 }

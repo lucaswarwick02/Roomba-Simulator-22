@@ -36,9 +36,9 @@ public class GameProgress : ScriptableObject
             case 1:
                 return true; // Week 1 is always unlocked
             case 2:
-                return week1Levels.All(levelSaveData => levelSaveData.percentage == 1f);
+                return week1Levels.All(levelSaveData => levelSaveData.percentage >= 1f);
             case 3:
-                return week2Levels.All(levelSaveData => levelSaveData.percentage == 1f);
+                return week2Levels.All(levelSaveData => levelSaveData.percentage >= 1f);
             default:
                 return false;
         }
