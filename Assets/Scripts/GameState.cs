@@ -164,6 +164,10 @@ public class GameState : MonoBehaviour
                 completionPanel.medal.gameObject.SetActive(true);
                 completionPanel.tick2.gameObject.SetActive(true);
             }
+            else{
+                completionPanel.medal.gameObject.SetActive(false);
+                completionPanel.tick2.gameObject.SetActive(false);
+            }
 
             if(passScore == 1){
                 completionPanel.passScore.text =  "get 1 point to unlock next level";
@@ -196,6 +200,10 @@ public class GameState : MonoBehaviour
         }
         else
         {
+
+            completionPanel.medal.gameObject.SetActive(false);
+            completionPanel.tick1.gameObject.SetActive(false);
+            completionPanel.tick2.gameObject.SetActive(false);
             
         completionPanel.medalScore.text =  "get " + maxDirt.ToString() + " points to earn clean sweep medal";
             // * Completion Panel = Lose
