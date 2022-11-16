@@ -21,6 +21,12 @@ public class TilemapManager : MonoBehaviour
     public Tilemap invalidTilemap;
     public Tile singleDirtTile;
 
+    public GameObject roomba1;
+
+    private Color green = new Color(0.4f, 1f, 0.1f);
+
+    private Animator r1p_Animator;
+
     [HideInInspector] public static bool sliding1 = false;
     [HideInInspector] public static bool sliding2 = false;
     [HideInInspector] public static bool catPush1 = false;
@@ -41,6 +47,7 @@ public class TilemapManager : MonoBehaviour
     }
 
     private void Start () {
+        r1p_Animator = roomba1.GetComponent<Animator>();
         currentPos1 = GameState.INSTANCE.startPos1;
         currentPos2 = GameState.INSTANCE.startPos2;
     }
@@ -297,22 +304,26 @@ public class TilemapManager : MonoBehaviour
                 GameState.INSTANCE.Dirt -= 1;
                 GameState.INSTANCE.dirtCollected +=1;
                 effectsTilemap.SetTile(tilePos, null);
+                r1p_Animator.SetTrigger("dirtTrigger");
                 break;
             case TileEffect.DoubleDirt:
                 GameState.INSTANCE.dirtSound.Play();
                 GameState.INSTANCE.Dirt -= 1;
                 GameState.INSTANCE.dirtCollected +=1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
+                r1p_Animator.SetTrigger("dirtTrigger");
                 break;
             case TileEffect.Battery:
                 GameState.INSTANCE.batterySound.Play();
                 GameState.INSTANCE.Battery1 += 3;
                 effectsTilemap.SetTile(tilePos, null);
+                
                 break;
             case TileEffect.Ring:
                 GameState.INSTANCE.ringSound.Play();
                 GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
+                r1p_Animator.SetTrigger("ringTrigger1");
                 break;
             default:
                 break;

@@ -246,6 +246,10 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 766655766994282576, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1902290959339883731, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -390,6 +394,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -30
       objectReference: {fileID: 0}
+    - target: {fileID: 5231178807196482153, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399902
+      objectReference: {fileID: 0}
     - target: {fileID: 5411116061574405697, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.398926
@@ -526,6 +534,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6501967475592211645, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.400879
+      objectReference: {fileID: 0}
     - target: {fileID: 6845610201069005348, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -577,6 +589,10 @@ PrefabInstance:
     - target: {fileID: 7226284770571670956, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -134.02
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288488295174820635, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399902
       objectReference: {fileID: 0}
     - target: {fileID: 7495289090141906947, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_RootOrder
@@ -2232,6 +2248,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &976840057 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5635934236054291561, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 572833366}
+  m_PrefabAsset: {fileID: 0}
 --- !u!82 &1019946811 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 3542439165937634090, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
@@ -2301,6 +2322,7 @@ MonoBehaviour:
   effectsTilemap: {fileID: 1827439478}
   invalidTilemap: {fileID: 1899078626}
   singleDirtTile: {fileID: 11400000, guid: 44fcd9059fca1c649b6b6f4f988697f3, type: 2}
+  roomba1: {fileID: 976840057}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}

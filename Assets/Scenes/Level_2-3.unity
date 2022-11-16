@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!1 &299026866 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5635934236054291561, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1097334320}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &938364048
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +1455,10 @@ PrefabInstance:
       propertyPath: roombaMoveSound
       value: 
       objectReference: {fileID: 1097334326}
+    - target: {fileID: 5231178807196482153, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399902
+      objectReference: {fileID: 0}
     - target: {fileID: 5411116061574405697, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.398926
@@ -1502,9 +1511,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelCreator
       objectReference: {fileID: 0}
+    - target: {fileID: 6501967475592211645, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.400879
+      objectReference: {fileID: 0}
     - target: {fileID: 7184038075069425798, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.398926
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288488295174820635, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399902
       objectReference: {fileID: 0}
     - target: {fileID: 9148389892911478300, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_AnchoredPosition.x
@@ -1610,6 +1627,7 @@ MonoBehaviour:
   effectsTilemap: {fileID: 1827439478}
   invalidTilemap: {fileID: 1899078626}
   singleDirtTile: {fileID: 11400000, guid: 9e96e211082c1488184e2b2d3f0f0c1c, type: 2}
+  roomba1: {fileID: 299026866}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}

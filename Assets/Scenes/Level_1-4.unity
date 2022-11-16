@@ -1277,9 +1277,15 @@ MonoBehaviour:
   effectsTilemap: {fileID: 1827439478}
   invalidTilemap: {fileID: 1899078626}
   singleDirtTile: {fileID: 11400000, guid: 44fcd9059fca1c649b6b6f4f988697f3, type: 2}
+  roomba1: {fileID: 1606952851}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}
+--- !u!1 &1606952851 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5635934236054291561, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1634642139}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1634642139
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1335,6 +1341,14 @@ PrefabInstance:
       propertyPath: roombaMoveSound
       value: 
       objectReference: {fileID: 1634642144}
+    - target: {fileID: 5231178807196482153, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399902
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411116061574405697, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.398926
+      objectReference: {fileID: 0}
     - target: {fileID: 6397920106987399341, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1382,6 +1396,22 @@ PrefabInstance:
     - target: {fileID: 6397920106987399343, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_Name
       value: LevelCreator
+      objectReference: {fileID: 0}
+    - target: {fileID: 6501967475592211645, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.400879
+      objectReference: {fileID: 0}
+    - target: {fileID: 7184038075069425798, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.398926
+      objectReference: {fileID: 0}
+    - target: {fileID: 7288488295174820635, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.399902
+      objectReference: {fileID: 0}
+    - target: {fileID: 9148389892911478300, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -10.398926
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}

@@ -11,6 +11,7 @@ public class TextButton : MonoBehaviour, IPointerEnterHandler, IPointerExitHandl
     private Color hovered = new Color(0.5377358f, 0.5377358f, 0.5377358f);
     private Color down = new Color(0.3604486f, 0.9433962f, 0.882103f);
     private Color disabled = new Color(0.3113208f, 0.3113208f, 0.3113208f, 0.5f);
+    
 
     private TextMeshProUGUI textComp;
     private bool isHovered;
