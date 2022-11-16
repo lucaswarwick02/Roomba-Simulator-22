@@ -1933,6 +1933,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2730454719801330942, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.4703241
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730454719801330942, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730454719801330942, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.44028127
+      objectReference: {fileID: 0}
+    - target: {fileID: 2730454719801330942, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4286117232
+      objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt
       value: 2
@@ -2056,6 +2072,22 @@ PrefabInstance:
     - target: {fileID: 6397920106987399343, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_Name
       value: LevelCreator
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646360261183093023, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.5310609
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646360261183093023, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.9622642
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646360261183093023, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.60429513
+      objectReference: {fileID: 0}
+    - target: {fileID: 7646360261183093023, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4287100314
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
