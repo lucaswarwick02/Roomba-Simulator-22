@@ -130,9 +130,77 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 346884983974076303, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 353326387023597440, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -100
+      objectReference: {fileID: 0}
+    - target: {fileID: 353326387023597440, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -272
+      objectReference: {fileID: 0}
+    - target: {fileID: 573910711853936473, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 691134544863166395, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166359533112599754, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_text
+      value: z
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166359533112599754, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2166359533112599754, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2176867149495036584, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -132
+      objectReference: {fileID: 0}
+    - target: {fileID: 2176867149495036584, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -59
+      objectReference: {fileID: 0}
+    - target: {fileID: 2333509733671850253, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698669636961260225, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 415
+      objectReference: {fileID: 0}
+    - target: {fileID: 2698669636961260225, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 2706131610144424591, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 271.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 4102444067941367309, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -64
+      objectReference: {fileID: 0}
+    - target: {fileID: 4403670400695441550, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4435688320189390712, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_text
       value: Rings Vacuumed
+      objectReference: {fileID: 0}
+    - target: {fileID: 4554888992031799671, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_Color.a
+      value: 0.4862745
       objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt
@@ -194,9 +262,61 @@ PrefabInstance:
       propertyPath: roombaMoveSound
       value: 
       objectReference: {fileID: 572833370}
+    - target: {fileID: 5181207416595892384, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -30
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638854180345318931, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5638854180345318931, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 5774674236456514254, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -61
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080029639105392594, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1143.841
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080029639105392594, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 893.062
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080029639105392594, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.000015259
+      objectReference: {fileID: 0}
+    - target: {fileID: 6080029639105392594, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6207495154781135357, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_text
-      value: 'Rings vacuumed = '
+      value: 'Rings vacuumed  = '
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207495154781135357, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207495154781135357, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_margin.w
+      value: -0.00006484985
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207495154781135357, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_margin.z
+      value: -19.816895
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207495154781135357, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6207495154781135357, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
       objectReference: {fileID: 0}
     - target: {fileID: 6397920106987399341, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_RootOrder
@@ -246,9 +366,69 @@ PrefabInstance:
       propertyPath: m_Name
       value: LevelCreator
       objectReference: {fileID: 0}
+    - target: {fileID: 6397920106987399343, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125027109141647003, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 7125027109141647003, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
+    - target: {fileID: 7495289090141906947, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707123335621596178, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSize
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 8707123335621596178, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076174034037242391, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076174034037242391, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9076174034037242391, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191147019907149760, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -222
+      objectReference: {fileID: 0}
+    - target: {fileID: 9191147019907149760, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -25
+      objectReference: {fileID: 0}
     - target: {fileID: 9199057816101958850, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_text
       value: Dirt cleaned -
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199057816101958850, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSize
+      value: 55
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199057816101958850, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_margin.x
+      value: -227.8923
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199057816101958850, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9199057816101958850, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 55
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}

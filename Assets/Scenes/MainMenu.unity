@@ -342,7 +342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thursday
+  m_text: room 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -451,7 +451,7 @@ RectTransform:
   - {fileID: 1993579144}
   - {fileID: 2006878244}
   m_Father: {fileID: 909471252}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -838,7 +838,6 @@ RectTransform:
   - {fileID: 917969408}
   - {fileID: 848785846}
   - {fileID: 1082175322}
-  - {fileID: 1101560200}
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -921,7 +920,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 167.91}
+  m_AnchoredPosition: {x: -493, y: 156}
   m_SizeDelta: {x: 591.866, y: 189.735}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &103703010
@@ -944,7 +943,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 1
+  m_text: Select room to clean
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -1007,7 +1006,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: -993.9389, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -1523,7 +1522,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Friday
+  m_text: room 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -2053,7 +2052,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 36.522}
+  m_AnchoredPosition: {x: 2.9229, y: 313}
   m_SizeDelta: {x: 586.02, y: 73.045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &371161116
@@ -2076,7 +2075,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Day
+  m_text: house 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -3764,7 +3763,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thursday
+  m_text: room 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -3912,7 +3911,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tuesday
+  m_text: room 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -4020,7 +4019,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 909471252}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4343,7 +4342,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Friday
+  m_text: room 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -4890,11 +4889,12 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 1490300663}
   - {fileID: 1588866075}
   - {fileID: 745823230}
   - {fileID: 59246834}
   - {fileID: 1541362752}
+  - {fileID: 1490300663}
+  - {fileID: 1326707712}
   m_Father: {fileID: 66800669}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -5094,8 +5094,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000061989, y: 20.887}
-  m_SizeDelta: {x: 342.098, y: 58.225}
+  m_AnchoredPosition: {x: 0.000005722046, y: -2.302}
+  m_SizeDelta: {x: 342.1, y: -100.705}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &968896542
 MonoBehaviour:
@@ -5173,8 +5173,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -1782132207, guid: eaa25a8b70bf94f53b5a1e383d41b85d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5227,8 +5227,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: -39.42501}
-  m_SizeDelta: {x: 0, y: -78.851}
+  m_AnchoredPosition: {x: 0, y: 0.000011444092}
+  m_SizeDelta: {x: 0, y: -104.644}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &983329022
 MonoBehaviour:
@@ -5410,7 +5410,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tuesday
+  m_text: room 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -5706,7 +5706,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Thursday
+  m_text: room 4
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -5821,82 +5821,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 0}
---- !u!1 &1101560199
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1101560200}
-  - component: {fileID: 1101560202}
-  - component: {fileID: 1101560201}
-  m_Layer: 5
-  m_Name: Image
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &1101560200
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101560199}
-  m_LocalRotation: {x: -0, y: -0, z: 0.17818125, w: -0.9839977}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 66800669}
-  m_RootOrder: 5
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -20.528}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 825, y: -207}
-  m_SizeDelta: {x: 1793.9, y: 1216.486}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1101560201
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101560199}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 1079513998, guid: de5798376a6b94dacbbf22458893f342, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &1101560202
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1101560199}
-  m_CullTransparentMesh: 1
 --- !u!1 &1123098216
 GameObject:
   m_ObjectHideFlags: 0
@@ -5932,7 +5856,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 36.522}
+  m_AnchoredPosition: {x: 2.9229, y: 316}
   m_SizeDelta: {x: 586.02, y: 73.045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1123098218
@@ -5955,7 +5879,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Day
+  m_text: house 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -6161,6 +6085,82 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1326707711
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1326707712}
+  - component: {fileID: 1326707714}
+  - component: {fileID: 1326707713}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1326707712
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326707711}
+  m_LocalRotation: {x: -0, y: -0, z: 0.15316342, w: -0.9882009}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 909471252}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: -17.621}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 921, y: -250}
+  m_SizeDelta: {x: 1026.777, y: 1026.777}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1326707713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326707711}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 5d19e0a8d74a84ab3b48458165c19ad4, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1326707714
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1326707711}
+  m_CullTransparentMesh: 1
 --- !u!1 &1333400557
 GameObject:
   m_ObjectHideFlags: 0
@@ -6514,7 +6514,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Friday
+  m_text: room 5
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -6757,7 +6757,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 909471252}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 22.748}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -6981,7 +6981,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 909471252}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7399,7 +7399,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 909471252}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -7561,7 +7561,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 3
+  m_text: Select room to clean
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -7624,7 +7624,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -513.5154, y: 0, z: -536.96344, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -8317,7 +8317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Monday
+  m_text: room 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -8465,7 +8465,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wednesday
+  m_text: room 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -8613,7 +8613,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wednesday
+  m_text: room 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -8761,7 +8761,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Monday
+  m_text: room 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -9559,7 +9559,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Wednesday
+  m_text: room 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -9671,7 +9671,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 36.522}
+  m_AnchoredPosition: {x: 0, y: 313}
   m_SizeDelta: {x: 586.02, y: 73.045}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1942326033
@@ -9694,7 +9694,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Select Day
+  m_text: house 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -9808,7 +9808,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000010014, y: -37.338}
+  m_AnchoredPosition: {x: -0.000009536743, y: -37.338}
   m_SizeDelta: {x: 342.098, y: 58.225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1993579145
@@ -9942,7 +9942,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0.0000061989, y: -95.56302}
+  m_AnchoredPosition: {x: 0.000005722046, y: -95.56302}
   m_SizeDelta: {x: 342.098, y: 58.225}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2006878245
@@ -10406,7 +10406,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Monday
+  m_text: room 1
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -10541,7 +10541,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Week 2
+  m_text: Select room to clean
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -10604,7 +10604,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -492.412, y: 0, z: -508.82562, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_hasFontAssetChanged: 0
@@ -10689,7 +10689,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Tuesday
+  m_text: room 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}

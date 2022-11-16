@@ -73,6 +73,12 @@ public class GameState : MonoBehaviour
     }  
 
     private void Start() {
+        completionPanel.level = level;
+        Debug.Log(level);
+        Debug.Log(level.NextLevel());
+        // completionPanel.medal.gameObject.SetActive(false);
+        completionPanel.tick1.gameObject.SetActive(false);
+        completionPanel.tick2.gameObject.SetActive(false);
         completionPanel.gameObject.SetActive(false);
         dirtCollected = 0;
         float passScore1 = (float) maxDirt/2;
@@ -114,7 +120,7 @@ public class GameState : MonoBehaviour
             // Both Roombas have died! (Lose)
             isGameOver = true;
         }
-        if (Dirt <= 0) {
+        if (dirtCollected >= maxDirt) {
             // They have collected all the dirt! (Win)
             isGameOver = true;
         }
@@ -131,7 +137,7 @@ public class GameState : MonoBehaviour
             gameOver = true;
         }
 
-        float score = ((float) dirtCollected - (float) Rings);
+        int score = (dirtCollected - Rings);
 
         // Assign score to level save data
         switch (level.week) {
@@ -150,11 +156,24 @@ public class GameState : MonoBehaviour
 
         completionPanel.dirtCollected.text = dirtCollected.ToString();
         completionPanel.ringsCollected.text = Rings.ToString();
- 
-    
 
-        if (score > (int) passScore)
+        if(passScore == 1){
+                completionPanel.passScore.text =  "get 1 point to unlock next level";
+            }
+            else{
+                completionPanel.passScore.text =  "get " + passScore.ToString() + " points to unlock next level";
+            }
+            completionPanel.medalScore.text =  "get " + maxDirt.ToString() + " points to earn clean sweep medal";
+
+            completionPanel.score.text = score.ToString();
+
+        if (score >= (int) passScore)
         {
+            completionPanel.tick1.gameObject.SetActive(true);
+            if(score >= maxDirt){
+                completionPanel.medal.gameObject.SetActive(true);
+                completionPanel.tick2.gameObject.SetActive(true);
+            }
 
             if(passScore == 1){
                 completionPanel.passScore.text =  "get 1 point to unlock next level";
@@ -162,12 +181,6 @@ public class GameState : MonoBehaviour
             else{
                 completionPanel.passScore.text =  "get " + passScore.ToString() + " points to unlock next level";
             }
-
-        completionPanel.medalScore.text =  "get " + maxDirt.ToString() + " points to earn clean sweep medal";
-
-            completionPanel.score.text = score.ToString();
-
-
             // * Completion Panel = Win
             completionPanel.gameObject.SetActive(true);
             // completionPanel.titleText.text = "You Win!";
@@ -193,21 +206,16 @@ public class GameState : MonoBehaviour
         }
         else
         {
-            if(passScore == 1){
-                completionPanel.passScore.text =  "get 1 point to unlock next level";
-            }
-            else{
-                completionPanel.passScore.text =  "get " + passScore.ToString() + " points to unlock next level";
-            }
+            
         completionPanel.medalScore.text =  "get " + maxDirt.ToString() + " points to earn clean sweep medal";
             // * Completion Panel = Lose
             completionPanel.gameObject.SetActive(true);
             // completionPanel.titleText.text = "You Lose";
             if(score <= 0){
-                completionPanel.score.text = (0).ToString("#");
+                // completionPanel.score.text = (0).ToString("#");
             }
             else{
-                completionPanel.score.text = (score).ToString("#");
+                // completionPanel.score.text = (score).ToString("#");
             }
             // completionPanel.percentageText.color = Color.red;
         }
