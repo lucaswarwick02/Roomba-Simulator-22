@@ -200,6 +200,11 @@ public class GameState : MonoBehaviour
         }
         else
         {
+            completionPanel.deactivateNextLevel();
+            // CompletionPanel.nextLevelButton.enabled = false;
+        // CompletionPanel.nextLevelText.ToggleEffects(false);
+        // CompletionPanel.nextLevelText.ForceDisable();
+    
 
             completionPanel.medal.gameObject.SetActive(false);
             completionPanel.tick1.gameObject.SetActive(false);
