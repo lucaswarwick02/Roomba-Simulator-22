@@ -70,7 +70,12 @@ public class GameStateUI : MonoBehaviour
             roomba2Text.text = "";
         }
     }
+
     public void BackToMainMenu () {
         SceneManager.LoadScene("MainMenu");
+    }
+
+    public void RestartLevel () {
+        SceneManager.LoadScene("Level_" + GameState.INSTANCE.level.house + "-" + GameState.INSTANCE.level.room);
     }
 }

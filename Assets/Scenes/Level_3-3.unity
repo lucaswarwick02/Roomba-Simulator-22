@@ -785,7 +785,15 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1853258000}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: level.room
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: level.week
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: level.house
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
