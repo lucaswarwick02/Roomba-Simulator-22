@@ -2,18 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.EventSystems;
+using TMPro;
 
-public class MuteButton : MonoBehaviour, IPointerClickHandler
+public class MuteButton : MonoBehaviour
 {
     public Settings settings;
-    public Sprite muteOn;
-    public Sprite muteOff;
 
-    Image image;
+    TextMeshProUGUI buttonText;
 
     private void Awake() {
-        image = GetComponent<Image>();
+        buttonText = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
     }
 
     private void Start()
@@ -21,21 +19,13 @@ public class MuteButton : MonoBehaviour, IPointerClickHandler
         updateVisuals();    
     }
 
-    public void OnPointerClick(PointerEventData eventData)
-    {
+    public void ToggleMute () {
         settings.mute = !settings.mute;
         AudioListener.volume = settings.mute ? 0 : 1;
         updateVisuals();
     }
 
     private void updateVisuals () {
-        if (settings.mute) {
-            // Mute is on
-            image.sprite = muteOn;
-        }
-        else {
-            // Mute is off
-            image.sprite = muteOff;
-        }
+        buttonText.text = "Mute: " + (settings.mute ? "On" : "Off");
     }
 }
