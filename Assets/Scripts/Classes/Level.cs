@@ -5,37 +5,37 @@ using UnityEngine;
 [System.Serializable]
 public class Level
 {
-    public int week;
-    public int day;
+    public int house;
+    public int room;
 
-    public Level (int week, int day) {
-        this.week = week;
-        this.day = day;
+    public Level (int house, int room) {
+        this.house = house;
+        this.room = room;
     }
 
     public Level NextLevel () {
-        Level nextLevel = new Level(this.week, this.day + 1);
+        Level nextLevel = new Level(this.house, this.room + 1);
 
-        if (nextLevel.day == 6) {
-            nextLevel.week++;
-            nextLevel.day = 1;
+        if (nextLevel.room == 6) {
+            nextLevel.house++;
+            nextLevel.room = 1;
         }
 
         return nextLevel;
     }
 
     public Level PreviousLevel () {
-        Level previousLevel = new Level(this.week, this.day - 1);
+        Level previousLevel = new Level(this.house, this.room - 1);
 
-        if (previousLevel.day == 0) {
-            previousLevel.week--;
-            previousLevel.day = 1;
+        if (previousLevel.room == 0) {
+            previousLevel.house--;
+            previousLevel.room = 1;
         }
 
         return previousLevel;
     }
 
     public override string ToString () {
-        return "Level_" + this.week + "-" + this.day;
+        return "Level_" + this.house + "-" + this.room;
     }
 }

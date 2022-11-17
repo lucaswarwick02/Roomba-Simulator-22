@@ -41,11 +41,11 @@ public class CompletionPanel : MonoBehaviour
     public void NextLevel () {
         Debug.Log(level);
         Level nextLevel = level.NextLevel();
-        SceneManager.LoadScene("Level_" + nextLevel.week + "-" + nextLevel.day);
+        SceneManager.LoadScene("Level_" + nextLevel.house + "-" + nextLevel.room);
     }
 
     public void RetryLevel () {
-        SceneManager.LoadScene("Level_" + level.week + "-" + level.day);
+        SceneManager.LoadScene("Level_" + level.house + "-" + level.room);
     }
 
     public void MainMenu () {

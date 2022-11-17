@@ -40,14 +40,16 @@ public class GameState : MonoBehaviour
     private bool batteryCheck2 = false;
 
     private int _battery1;
-    private Vector3Int check = new Vector3Int(-100,0,0);
-    public int Battery1 {
+    private Vector3Int check = new Vector3Int(-100, 0, 0);
+    public int Battery1
+    {
         get { return _battery1; }
         set { _battery1 = value; }
     }
 
     private int _battery2;
-    public int Battery2 {
+    public int Battery2
+    {
         get { return _battery2; }
         set { _battery2 = value; }
     }
@@ -57,24 +59,28 @@ public class GameState : MonoBehaviour
 
 
     private int _dirt;
-    public int Dirt {
+    public int Dirt
+    {
         get { return _dirt; }
         set { _dirt = value; }
     }
 
     private int _rings;
-    public int Rings {
+    public int Rings
+    {
         get { return _rings; }
         set { _rings = value; }
     }
 
-    private void Awake() {
+    private void Awake()
+    {
         INSTANCE = this;
         Battery1 = initialBattery1;
         Battery2 = initialBattery2;
-    }  
+    }
 
-    private void Start() {
+    private void Start()
+    {
         completionPanel.coverUp.enabled = false;
 
         String titleString = level + " Results";
@@ -86,59 +92,73 @@ public class GameState : MonoBehaviour
         completionPanel.tick1.gameObject.SetActive(false);
         completionPanel.tick2.gameObject.SetActive(false);
         dirtCollected = 0;
-        float passScore1 = (float) maxDirt/2;
-        passScore = (int) Math.Ceiling((decimal) passScore1);
+        float passScore1 = (float)maxDirt / 2;
+        passScore = (int)Math.Ceiling((decimal)passScore1);
         Dirt = maxDirt;
         // Change scale of camera to match settings
         completionPanel.gameObject.SetActive(false);
     }
 
-    private void Update() {
+    private void Update()
+    {
         if (!gameOver) checkGameStatus();
 
-        if (!PlayerMovement.INSTANCE.isMoving()) {
-        if(!batteryCheck1){
-            if (_battery1 <= 0){
-                batteryCheck1 = true;
-                roombaDiesSound.Play();
+        if (!PlayerMovement.INSTANCE.isMoving())
+        {
+            if (!batteryCheck1)
+            {
+                if (_battery1 <= 0)
+                {
+                    batteryCheck1 = true;
+                    roombaDiesSound.Play();
+                }
             }
         }
-        }
-        if(startPos2 != check){
-        if (!PlayerMovement.INSTANCE.isMoving()) {
-        if(!batteryCheck2){
-            if (_battery2 <= 0){
-                batteryCheck2 = true;
-                roombaDiesSound.Play();
+        if (startPos2 != check)
+        {
+            if (!PlayerMovement.INSTANCE.isMoving())
+            {
+                if (!batteryCheck2)
+                {
+                    if (_battery2 <= 0)
+                    {
+                        batteryCheck2 = true;
+                        roombaDiesSound.Play();
+                    }
+                }
             }
         }
-      }  
-    }
     }
 
 
-    private void checkGameStatus () {
+    private void checkGameStatus()
+    {
         // Stop function if the game is still runnings
         bool isGameOver = false;
 
-        if (Battery1 <= 0 && Battery2 <= 0) {
+        if (Battery1 <= 0 && Battery2 <= 0)
+        {
             // Both Roombas have died! (Lose)
             isGameOver = true;
         }
-        if (dirtCollected >= maxDirt) {
+        if (dirtCollected >= maxDirt)
+        {
             // They have collected all the dirt! (Win)
             isGameOver = true;
         }
 
-        if (PlayerMovement.INSTANCE.isMoving()) {
+        if (PlayerMovement.INSTANCE.isMoving())
+        {
             isGameOver = false;
         }
 
-        if (!isGameOver) {
+        if (!isGameOver)
+        {
             return;
         }
-        else {
-            
+        else
+        {
+
             gameOver = true;
         }
 
@@ -149,47 +169,40 @@ public class GameState : MonoBehaviour
         completionPanel.dirtCollected.text = dirtCollected.ToString();
         completionPanel.ringsCollected.text = Rings.ToString();
 
-        if(passScore == 1){
-                completionPanel.passScore.text =  "get 1 point to unlock next level";
-            }
-            else{
-                completionPanel.passScore.text =  "get " + passScore.ToString() + " points to unlock next level";
-            }
-            completionPanel.medalScore.text =  "get " + maxDirt.ToString() + " points to earn clean sweep medal";
+        if (passScore == 1)
+        {
+            completionPanel.passScore.text = "get 1 point to unlock next level";
+        }
+        else
+        {
+            completionPanel.passScore.text = "get " + passScore.ToString() + " points to unlock next level";
+        }
+        completionPanel.medalScore.text = "get " + maxDirt.ToString() + " points to earn clean sweep medal";
 
-            completionPanel.score.text = score.ToString();
+        completionPanel.score.text = score.ToString();
 
-        if (score >= (int) passScore)
+        if (score >= (int)passScore)
         {
             completionPanel.tick1.gameObject.SetActive(true);
-            if(score >= maxDirt){
-                switch (level.week)
-                {
-                    case 1:
-                        gameProgress.week1Levels[level.day - 1].hasMedal = true;
-                        break;
-                    case 2:
-                        gameProgress.week2Levels[level.day - 1].hasMedal = true;
-                        break;
-                    case 3:
-                        gameProgress.week3Levels[level.day - 1].hasMedal = true;
-                        break;
-                    default:
-                        break;
-                }
+            if (score >= maxDirt)
+            {
+                gameProgress.GetHouseSaveData(level.house)[level.room - 1].hasMedal = true;
                 completionPanel.medal.gameObject.SetActive(true);
                 completionPanel.tick2.gameObject.SetActive(true);
             }
-            else{
+            else
+            {
                 completionPanel.medal.gameObject.SetActive(false);
                 completionPanel.tick2.gameObject.SetActive(false);
             }
 
-            if(passScore == 1){
-                completionPanel.passScore.text =  "get 1 point to unlock next level";
+            if (passScore == 1)
+            {
+                completionPanel.passScore.text = "get 1 point to unlock next level";
             }
-            else{
-                completionPanel.passScore.text =  "get " + passScore.ToString() + " points to unlock next level";
+            else
+            {
+                completionPanel.passScore.text = "get " + passScore.ToString() + " points to unlock next level";
             }
             // * Completion Panel = Win
             completionPanel.gameObject.SetActive(true);
@@ -199,91 +212,44 @@ public class GameState : MonoBehaviour
 
             // Unlock next level
             Level nextLevel = level.NextLevel();
-            switch (nextLevel.week)
-            {
-                case 1:
-                    gameProgress.week1Levels[nextLevel.day - 1].isUnlocked = true;
-                    break;
-                case 2:
-                    gameProgress.week2Levels[nextLevel.day - 1].isUnlocked = true;
-                    break;
-                case 3:
-                    gameProgress.week3Levels[nextLevel.day - 1].isUnlocked = true;
-                    break;
-                default:
-                    break;
-            }
+            gameProgress.GetHouseSaveData(nextLevel.house)[nextLevel.room - 1].isUnlocked = true;
 
-    }
+        }
 
-    else
+        else
         {
             completionPanel.deactivateNextLevel();
-            // CompletionPanel.nextLevelButton.enabled = false;
-        // CompletionPanel.nextLevelText.ToggleEffects(false);
-        // CompletionPanel.nextLevelText.ForceDisable();
-    
 
             completionPanel.medal.gameObject.SetActive(false);
             completionPanel.tick1.gameObject.SetActive(false);
             completionPanel.tick2.gameObject.SetActive(false);
-            
-        completionPanel.medalScore.text =  "get " + maxDirt.ToString() + " points to earn clean sweep medal";
-            // * Completion Panel = Lose
+
+            completionPanel.medalScore.text = "get " + maxDirt.ToString() + " points to earn clean sweep medal";
             completionPanel.gameObject.SetActive(true);
-            // completionPanel.titleText.text = "You Lose";
-            if(score <= 0){
-                // completionPanel.score.text = (0).ToString("#");
-            }
-            else{
-                // completionPanel.score.text = (score).ToString("#");
-            }
-            // completionPanel.percentageText.color = Color.red;
         }
 
         Level nextLevel2 = level.NextLevel();
 
-        if(nextLevel2.day == 1) {
+        if (nextLevel2.room == 1)
+        {
 
-        completionPanel.deactivateNextLevel();
-        completionPanel.passScore.text =  "get " + passScore.ToString() + " points to finish this house";
-        if(passScore == 1){
-                completionPanel.passScore.text =  "get 1 point to finish this house";
+            completionPanel.deactivateNextLevel();
+            completionPanel.passScore.text = "get " + passScore.ToString() + " points to finish this house";
+            if (passScore == 1)
+            {
+                completionPanel.passScore.text = "get 1 point to finish this house";
             }
             completionPanel.coverUp.enabled = true;
         }
 
-    switch (level.week) {
-            case 1:
-                if (gameProgress.week1Levels[level.day - 1].highScore < score) {
-                    if(score >= maxDirt){
-                    gameProgress.week1Levels[level.day - 1].highScore = (int) score;
-                    }
-                
-                }
-                break;
-            case 2:
-                if (gameProgress.week2Levels[level.day - 1].highScore < score) {
-                     gameProgress.week2Levels[level.day - 1].highScore = (int) score;
-                 if(score >= maxDirt){
-                    gameProgress.week1Levels[level.day - 1].highScore = (int) score;
-                    }
-                
-                }
-                break;
-            case 3:
-                if (gameProgress.week3Levels[level.day - 1].highScore < score) {
-                     gameProgress.week3Levels[level.day - 1].highScore = (int) score;
-                 if(score >= maxDirt){
-                    gameProgress.week1Levels[level.day - 1].highScore = (int) score;
-                    }
-                }
-                break;
-            default:
-                break;
-        }
-    
-    }
 
+        if (gameProgress.GetHouseSaveData(level.house)[level.room - 1].highScore < score)
+        {
+            if (score >= maxDirt)
+            {
+                gameProgress.GetHouseSaveData(level.house)[level.room - 1].highScore = (int)score;
+            }
+        }
+    }
 }
 

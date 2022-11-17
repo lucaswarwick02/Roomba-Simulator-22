@@ -69,41 +69,46 @@ public class MainMenuManager : MonoBehaviour
     public void UpdateUI () {
         AudioListener.volume = settings.mute ? 0 : 1;
 
-        week1Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(1);
-        week1Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsWeekUnlocked(1));
+        for (int house = 1; house <= 3; house++) {
+            getHouseOption(house).GetComponent<Button>().enabled = gameProgress.IsHouseUnlocked(house);
+            getHouseOption(house).transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsHouseUnlocked(house));
 
-        week2Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(2);
-        week2Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsWeekUnlocked(2));
-        // needtext1.enabled = !(gameProgress.IsWeekUnlocked(2));
-
-        week3Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(3);
-        week3Option.transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsWeekUnlocked(3));
-
-        for (int i = 0; i < gameProgress.week1Levels.Length; i++) {
-            week1Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(1, i + 1);
-            week1Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(1, i + 1));
-            week1Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week1Levels[i].highScore);
-            week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(1, i + 1));
-            week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
-            week1Levels[i].transform.GetChild(3).gameObject.SetActive(gameProgress.DayHasMedal(1, i + 1));
+            LevelSaveData[] levelSaveDatas = gameProgress.GetHouseSaveData(house);
+            
+            for (int i = 0; i < levelSaveDatas.Length; i++) {
+                getHouseLevels(house)[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(house, i + 1);
+                getHouseLevels(house)[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(house, i + 1));
+                getHouseLevels(house)[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + levelSaveDatas[i].highScore);
+                getHouseLevels(house)[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(house, i + 1));
+                getHouseLevels(house)[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
+                getHouseLevels(house)[i].transform.GetChild(3).gameObject.SetActive(gameProgress.DayHasMedal(house, i + 1));
+            }
         }
+    }
 
-        for (int i = 0; i < gameProgress.week2Levels.Length; i++) {
-            week2Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(2, i + 1);
-            week2Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(2, i + 1));
-            week2Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week2Levels[i].highScore);
-            week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(2, i + 1));
-            week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
-            week2Levels[i].transform.GetChild(3).gameObject.SetActive(gameProgress.DayHasMedal(2, i + 1));
+    public GameObject[] getHouseLevels (int house) {
+        switch (house) {
+            case 1:
+                return week1Levels;
+            case 2:
+                return week2Levels;
+            case 3:
+                return week3Levels;
+            default:
+                return week1Levels;
         }
+    }
 
-        for (int i = 0; i < gameProgress.week3Levels.Length; i++) {
-            week3Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(3, i + 1);
-            week3Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(3, i + 1));
-            week3Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week3Levels[i].highScore);
-            week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(3, i + 1));
-            week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
-            week3Levels[i].transform.GetChild(3).gameObject.SetActive(gameProgress.DayHasMedal(3, i + 1));
+    public GameObject getHouseOption (int house) {
+        switch (house) {
+            case 1:
+                return week1Option;
+            case 2:
+                return week2Option;
+            case 3:
+                return week3Option;
+            default:
+                return week1Option;
         }
     }
 
