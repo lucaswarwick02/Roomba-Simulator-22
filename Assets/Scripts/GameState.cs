@@ -164,7 +164,20 @@ public class GameState : MonoBehaviour
         {
             completionPanel.tick1.gameObject.SetActive(true);
             if(score >= maxDirt){
-                
+                switch (level.week)
+                {
+                    case 1:
+                        gameProgress.week1Levels[level.day - 1].hasMedal = true;
+                        break;
+                    case 2:
+                        gameProgress.week2Levels[level.day - 1].hasMedal = true;
+                        break;
+                    case 3:
+                        gameProgress.week3Levels[level.day - 1].hasMedal = true;
+                        break;
+                    default:
+                        break;
+                }
                 completionPanel.medal.gameObject.SetActive(true);
                 completionPanel.tick2.gameObject.SetActive(true);
             }
@@ -190,13 +203,13 @@ public class GameState : MonoBehaviour
             switch (nextLevel.week)
             {
                 case 1:
-                    gameProgress.week1Levels[nextLevel.day - 1].unlocked = true;
+                    gameProgress.week1Levels[nextLevel.day - 1].isUnlocked = true;
                     break;
                 case 2:
-                    gameProgress.week2Levels[nextLevel.day - 1].unlocked = true;
+                    gameProgress.week2Levels[nextLevel.day - 1].isUnlocked = true;
                     break;
                 case 3:
-                    gameProgress.week3Levels[nextLevel.day - 1].unlocked = true;
+                    gameProgress.week3Levels[nextLevel.day - 1].isUnlocked = true;
                     break;
                 default:
                     break;
@@ -243,27 +256,27 @@ public class GameState : MonoBehaviour
 
     switch (level.week) {
             case 1:
-                if (gameProgress.week1Levels[level.day - 1].percentage < score) {
+                if (gameProgress.week1Levels[level.day - 1].highScore < score) {
                     if(score >= maxDirt){
-                    gameProgress.week1Levels[level.day - 1].percentage = score;
+                    gameProgress.week1Levels[level.day - 1].highScore = (int) score;
                     }
                 
                 }
                 break;
             case 2:
-                if (gameProgress.week2Levels[level.day - 1].percentage < score) {
-                     gameProgress.week2Levels[level.day - 1].percentage = score;
+                if (gameProgress.week2Levels[level.day - 1].highScore < score) {
+                     gameProgress.week2Levels[level.day - 1].highScore = (int) score;
                  if(score >= maxDirt){
-                    gameProgress.week1Levels[level.day - 1].percentage = score;
+                    gameProgress.week1Levels[level.day - 1].highScore = (int) score;
                     }
                 
                 }
                 break;
             case 3:
-                if (gameProgress.week3Levels[level.day - 1].percentage < score) {
-                     gameProgress.week3Levels[level.day - 1].percentage = score;
+                if (gameProgress.week3Levels[level.day - 1].highScore < score) {
+                     gameProgress.week3Levels[level.day - 1].highScore = (int) score;
                  if(score >= maxDirt){
-                    gameProgress.week1Levels[level.day - 1].percentage = score;
+                    gameProgress.week1Levels[level.day - 1].highScore = (int) score;
                     }
                 }
                 break;

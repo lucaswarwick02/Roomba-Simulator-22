@@ -26,16 +26,15 @@ public class MainMenuManager : MonoBehaviour
     public GameObject[] week2Levels;
     public GameObject[] week3Levels;
 
-    public static TextMeshProUGUI needtext1;
+    public TextMeshProUGUI needtext1;
     public TextMeshProUGUI needtext2;
     public Image needMedal1;
     public Image needMedal2;
-    public static int medalAmount;
     public TextMeshProUGUI medalAmountT;
 
     private void Start() {
         UpdateUI();
-        medalAmountT.text = "x " + medalAmount.ToString();
+        medalAmountT.text = "x " + gameProgress.NumberOfMedals();
         
     }
 
@@ -87,7 +86,7 @@ public class MainMenuManager : MonoBehaviour
         for (int i = 0; i < gameProgress.week1Levels.Length; i++) {
             week1Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(1, i + 1);
             week1Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(1, i + 1));
-            week1Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week1Levels[i].percentage);
+            week1Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week1Levels[i].highScore);
             week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(1, i + 1));
             week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
             // week1Levels[1].transform.GetChild(2).GetComponent< = gameProgress.IsDayUnlocked(1, i + 1);
@@ -96,7 +95,7 @@ public class MainMenuManager : MonoBehaviour
         for (int i = 0; i < gameProgress.week2Levels.Length; i++) {
             week2Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(2, i + 1);
             week2Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(2, i + 1));
-            week2Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week2Levels[i].percentage);
+            week2Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week2Levels[i].highScore);
             week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(2, i + 1));
             week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
         }
@@ -104,7 +103,7 @@ public class MainMenuManager : MonoBehaviour
         for (int i = 0; i < gameProgress.week3Levels.Length; i++) {
             week3Levels[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(3, i + 1);
             week3Levels[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(3, i + 1));
-            week3Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week3Levels[i].percentage);
+            week3Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week3Levels[i].highScore);
             week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(3, i + 1));
             week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
         }
