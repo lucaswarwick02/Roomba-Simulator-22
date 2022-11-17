@@ -304,6 +304,7 @@ public class TilemapManager : MonoBehaviour
         {
             case TileEffect.SingleDirt:
                 GameState.INSTANCE.dirtSound.Play();
+                GameState.INSTANCE.getPoint.Play();
                 GameState.INSTANCE.Dirt -= 1;
                 GameState.INSTANCE.dirtCollected +=1;
                 effectsTilemap.SetTile(tilePos, null);
@@ -311,6 +312,7 @@ public class TilemapManager : MonoBehaviour
                 break;
             case TileEffect.DoubleDirt:
                 GameState.INSTANCE.dirtSound.Play();
+                GameState.INSTANCE.getPoint.Play();
                 GameState.INSTANCE.Dirt -= 1;
                 GameState.INSTANCE.dirtCollected +=1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
@@ -324,6 +326,7 @@ public class TilemapManager : MonoBehaviour
                 break;
             case TileEffect.Ring:
                 GameState.INSTANCE.ringSound.Play();
+                GameState.INSTANCE.losePoint.Play();
                 GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 r1p_Animator.SetTrigger("ringTrigger1");
@@ -337,6 +340,7 @@ public class TilemapManager : MonoBehaviour
         {
             case TileEffect.SingleDirt:
                 GameState.INSTANCE.dirtSound.Play();
+                GameState.INSTANCE.getPoint.Play();
                 GameState.INSTANCE.Dirt -= 1;
                 GameState.INSTANCE.dirtCollected +=1;
                 effectsTilemap.SetTile(tilePos, null);
@@ -344,6 +348,7 @@ public class TilemapManager : MonoBehaviour
                 break;
             case TileEffect.DoubleDirt:
                 GameState.INSTANCE.dirtSound.Play();
+                GameState.INSTANCE.getPoint.Play();
                 GameState.INSTANCE.Dirt -= 1;
                 GameState.INSTANCE.dirtCollected +=1;
                 effectsTilemap.SetTile(tilePos, singleDirtTile);
@@ -356,6 +361,7 @@ public class TilemapManager : MonoBehaviour
                 break;
             case TileEffect.Ring:
                 GameState.INSTANCE.ringSound.Play();
+                GameState.INSTANCE.losePoint.Play();
                 GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
                 r2p_Animator.SetTrigger("ring2trigger");

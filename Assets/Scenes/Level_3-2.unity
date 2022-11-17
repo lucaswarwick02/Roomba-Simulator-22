@@ -1359,6 +1359,10 @@ PrefabInstance:
       value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: getPoint
+      value: 
+      objectReference: {fileID: 1684979394}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: dirtSound
       value: 
       objectReference: {fileID: 796192797}
@@ -1366,6 +1370,10 @@ PrefabInstance:
       propertyPath: level.day
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: losePoint
+      value: 
+      objectReference: {fileID: 1684979395}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: ringSound
       value: 
@@ -1929,6 +1937,16 @@ Transform:
 --- !u!1 &1286065620 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5635934236054291561, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 796192792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1684979394 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5059089563312631766, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 796192792}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &1684979395 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6239269213837173153, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
   m_PrefabInstance: {fileID: 796192792}
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &1726163072 stripped

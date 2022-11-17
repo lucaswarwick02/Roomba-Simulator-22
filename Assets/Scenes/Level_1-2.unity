@@ -123,6 +123,11 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &371579933 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5059089563312631766, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1408910523}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &492885292 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5635934236054291561, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
@@ -832,6 +837,10 @@ PrefabInstance:
       propertyPath: maxDirt
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: getPoint
+      value: 
+      objectReference: {fileID: 371579933}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: dirtSound
       value: 

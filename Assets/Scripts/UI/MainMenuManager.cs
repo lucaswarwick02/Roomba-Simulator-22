@@ -16,6 +16,8 @@ public class MainMenuManager : MonoBehaviour
     public GameObject week2Panel;
     public GameObject week3Panel;
 
+    [SerializeField] public AudioSource click;
+
     public GameObject week1Option;
     public GameObject week2Option;
     public GameObject week3Option;
@@ -39,14 +41,17 @@ public class MainMenuManager : MonoBehaviour
 
 
     public void SelectWeek1 () {
+        click.Play();
         DeactivateAllPanels();
         week1Panel.SetActive(true);
     }
     public void SelectWeek2 () {
+        click.Play();
         DeactivateAllPanels();
         week2Panel.SetActive(true);
     }
     public void SelectWeek3 () {
+        click.Play();
         DeactivateAllPanels();
         week3Panel.SetActive(true);
     }
@@ -55,6 +60,7 @@ public class MainMenuManager : MonoBehaviour
     /// Go back to the MainMenu panel.
     /// </summary>
     public void Back () {
+        click.Play();
         DeactivateAllPanels();
         mainMenuPanel.SetActive(true);
     }
@@ -105,6 +111,7 @@ public class MainMenuManager : MonoBehaviour
     }
 
     public void StartLevel (string levelID) {
+        click.Play();
         // Load level scene
         SceneManager.LoadScene("Level_" + levelID);
     }

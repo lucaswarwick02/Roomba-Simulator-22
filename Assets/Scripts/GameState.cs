@@ -29,6 +29,8 @@ public class GameState : MonoBehaviour
     [SerializeField] public AudioSource catPushSound;
     [SerializeField] public AudioSource bumpWallSound;
     [SerializeField] public AudioSource bumpRoombaSound;
+    [SerializeField] public AudioSource getPoint;
+    [SerializeField] public AudioSource losePoint;
 
     public Vector3Int startPos1 = new Vector3Int(0, 0, 0);
     public Vector3Int startPos2 = new Vector3Int(-100, 0, 0);

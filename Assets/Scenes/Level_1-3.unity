@@ -976,6 +976,11 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!82 &1233236649 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5059089563312631766, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1325453394}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1236701526 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5635934236054291561, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
@@ -992,6 +997,10 @@ PrefabInstance:
       propertyPath: maxDirt
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: getPoint
+      value: 
+      objectReference: {fileID: 1233236649}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: dirtSound
       value: 

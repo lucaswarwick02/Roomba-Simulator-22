@@ -123,6 +123,16 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
+--- !u!82 &223210474 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 5059089563312631766, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1512169110}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &223210475 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 6239269213837173153, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1512169110}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &408112454 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 766655766994282576, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
@@ -923,6 +933,10 @@ PrefabInstance:
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: getPoint
+      value: 
+      objectReference: {fileID: 223210474}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: dirtSound
       value: 
       objectReference: {fileID: 1512169114}
@@ -930,6 +944,10 @@ PrefabInstance:
       propertyPath: level.day
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: losePoint
+      value: 
+      objectReference: {fileID: 223210475}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: ringSound
       value: 
@@ -993,6 +1011,10 @@ PrefabInstance:
     - target: {fileID: 5411116061574405697, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -10.398926
+      objectReference: {fileID: 0}
+    - target: {fileID: 6239269213837173153, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_Volume
+      value: 0.932
       objectReference: {fileID: 0}
     - target: {fileID: 6397920106987399341, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_RootOrder
