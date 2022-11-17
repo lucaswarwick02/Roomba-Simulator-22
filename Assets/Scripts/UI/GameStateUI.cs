@@ -36,7 +36,7 @@ public class GameStateUI : MonoBehaviour
         if(GameState.INSTANCE.Battery1 == 1){
             batteryCount.color = red;
         }
-        if(GameState.INSTANCE.Battery1 < 3 && GameState.INSTANCE.Battery1 > 1){
+        if(GameState.INSTANCE.Battery1 <= 3 && GameState.INSTANCE.Battery1 > 1){
             batteryCount.color = orange;
         }
         if(GameState.INSTANCE.Battery1 > 3){
@@ -53,8 +53,8 @@ public class GameStateUI : MonoBehaviour
         if(GameState.INSTANCE.Battery2 == 1){
             batteryCount2.color = red;
         }
-        if(GameState.INSTANCE.Battery2 < 3 && GameState.INSTANCE.Battery2 > 1){
-            batteryCount.color = orange;
+        if(GameState.INSTANCE.Battery2 <= 3 && GameState.INSTANCE.Battery2 > 1){
+            batteryCount2.color = orange;
         }
         if(GameState.INSTANCE.Battery2 > 3){
             batteryCount2.color = green;
