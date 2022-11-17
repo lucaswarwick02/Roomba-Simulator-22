@@ -1347,7 +1347,7 @@ Tilemap:
       - {fileID: 858225729, guid: 5477817141a1345569d47f4a41e9ea58, type: 3}
       - {fileID: 306049205, guid: 5477817141a1345569d47f4a41e9ea58, type: 3}
       - {fileID: 1918302310, guid: 5477817141a1345569d47f4a41e9ea58, type: 3}
-      m_AnimationSpeed: 3.0000002
+      m_AnimationSpeed: 3
       m_AnimationTimeOffset: 0
       m_IsLooping: 1
   m_TileAssetArray:
@@ -1970,6 +1970,10 @@ PrefabInstance:
     - target: {fileID: 2730454719801330942, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4286117232
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767796685123189155, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.15
       objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt

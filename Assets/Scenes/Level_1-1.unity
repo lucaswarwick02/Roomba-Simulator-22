@@ -342,6 +342,18 @@ PrefabInstance:
       propertyPath: m_Color.a
       value: 0.4862745
       objectReference: {fileID: 0}
+    - target: {fileID: 4767796685123189152, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_ForceIntoRT
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767796685123189152, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: orthographic size
+      value: 5.625
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767796685123189155, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.67
+      objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt
       value: 3
@@ -641,6 +653,18 @@ PrefabInstance:
     - target: {fileID: 7495289090141906947, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255211681366679961, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_UpscaleRT
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255211681366679961, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_CropFrameX
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8255211681366679961, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_CropFrameY
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8707123335621596178, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_fontSize

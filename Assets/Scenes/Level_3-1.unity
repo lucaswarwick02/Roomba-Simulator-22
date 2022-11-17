@@ -1908,6 +1908,14 @@ PrefabInstance:
       propertyPath: m_text
       value: room-girl
       objectReference: {fileID: 0}
+    - target: {fileID: 4767796685123189155, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 1.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4767796685123189155, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.72
+      objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt
       value: 3

@@ -90,7 +90,6 @@ public class GameState : MonoBehaviour
         passScore = (int) Math.Ceiling((decimal) passScore1);
         Dirt = maxDirt;
         // Change scale of camera to match settings
-        Camera.main.orthographicSize  = settings.largeScale ? 5f : 10f;
         completionPanel.gameObject.SetActive(false);
     }
 

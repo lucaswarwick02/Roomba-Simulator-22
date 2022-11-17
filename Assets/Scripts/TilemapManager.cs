@@ -411,7 +411,6 @@ public class TilemapManager : MonoBehaviour
                 case "catRightA":
                     return TileEffect.CatPush;
                 default:
-                    Debug.LogError("Tilename" + tileName + " not defined");
                     return TileEffect.Invalid;
             }
     }

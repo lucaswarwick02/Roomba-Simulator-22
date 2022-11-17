@@ -35,7 +35,6 @@ public class MainMenuManager : MonoBehaviour
     private void Start() {
         UpdateUI();
         medalAmountT.text = "x " + gameProgress.NumberOfMedals();
-        
     }
 
 
@@ -68,9 +67,6 @@ public class MainMenuManager : MonoBehaviour
     /// (De)activates the UI based on the current GameSave data.
     /// </summary>
     public void UpdateUI () {
-
-        // medalAmountT.text = "x " + medalAmount.ToString();
-        
         AudioListener.volume = settings.mute ? 0 : 1;
 
         week1Option.GetComponent<Button>().enabled = gameProgress.IsWeekUnlocked(1);
@@ -89,7 +85,7 @@ public class MainMenuManager : MonoBehaviour
             week1Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week1Levels[i].highScore);
             week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(1, i + 1));
             week1Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
-            // week1Levels[1].transform.GetChild(2).GetComponent< = gameProgress.IsDayUnlocked(1, i + 1);
+            week1Levels[i].transform.GetChild(3).gameObject.SetActive(gameProgress.DayHasMedal(1, i + 1));
         }
 
         for (int i = 0; i < gameProgress.week2Levels.Length; i++) {
@@ -98,6 +94,7 @@ public class MainMenuManager : MonoBehaviour
             week2Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week2Levels[i].highScore);
             week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(2, i + 1));
             week2Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
+            week2Levels[i].transform.GetChild(3).gameObject.SetActive(gameProgress.DayHasMedal(2, i + 1));
         }
 
         for (int i = 0; i < gameProgress.week3Levels.Length; i++) {
@@ -106,6 +103,7 @@ public class MainMenuManager : MonoBehaviour
             week3Levels[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + gameProgress.week3Levels[i].highScore);
             week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(3, i + 1));
             week3Levels[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
+            week3Levels[i].transform.GetChild(3).gameObject.SetActive(gameProgress.DayHasMedal(3, i + 1));
         }
     }
 
