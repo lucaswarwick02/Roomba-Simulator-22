@@ -23,6 +23,12 @@ public class GameStateUI : MonoBehaviour
 
     private Vector3Int check = new Vector3Int(-100,0,0);
 
+    public TextMeshProUGUI levelID;
+
+    private void Start() {
+        levelID.text = GameState.INSTANCE.level.house + "-" + GameState.INSTANCE.level.room;
+    }
+
     // Update is called once per frame
     void Update()
     {

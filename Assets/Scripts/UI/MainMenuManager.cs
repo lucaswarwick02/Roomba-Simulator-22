@@ -69,6 +69,12 @@ public class MainMenuManager : MonoBehaviour
     public void UpdateUI () {
         AudioListener.volume = settings.mute ? 0 : 1;
 
+        needMedal1.gameObject.SetActive(gameProgress.NumberOfMedals() < 5);
+        needtext1.gameObject.SetActive(gameProgress.NumberOfMedals() < 5);
+
+        needMedal2.gameObject.SetActive(gameProgress.NumberOfMedals() < 10);
+        needtext2.gameObject.SetActive(gameProgress.NumberOfMedals() < 10);
+
         for (int house = 1; house <= 3; house++) {
             getHouseOption(house).GetComponent<Button>().enabled = gameProgress.IsHouseUnlocked(house);
             getHouseOption(house).transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsHouseUnlocked(house));

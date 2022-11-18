@@ -17,6 +17,7 @@ public class GameState : MonoBehaviour
     public Level level;
     private int passScore;
 
+    public GameStateUI gameStateUI;
     public CompletionPanel completionPanel;
 
     [SerializeField] public AudioSource roombaMoveSound;
@@ -152,15 +153,7 @@ public class GameState : MonoBehaviour
             isGameOver = false;
         }
 
-        if (!isGameOver)
-        {
-            return;
-        }
-        else
-        {
-
-            gameOver = true;
-        }
+        if (!isGameOver) return;
 
         float score = (dirtCollected - Rings);
 
@@ -204,11 +197,6 @@ public class GameState : MonoBehaviour
             {
                 completionPanel.passScore.text = "get " + passScore.ToString() + " points to unlock next level";
             }
-            // * Completion Panel = Win
-            completionPanel.gameObject.SetActive(true);
-            // completionPanel.titleText.text = "You Win!";
-            // completionPanel.percentageText.text = (score).ToString("#");
-            // completionPanel.percentageText.color = Color.green;
 
             // Unlock next level
             Level nextLevel = level.NextLevel();
@@ -225,7 +213,6 @@ public class GameState : MonoBehaviour
             completionPanel.tick2.gameObject.SetActive(false);
 
             completionPanel.medalScore.text = "get " + maxDirt.ToString() + " points to earn clean sweep medal";
-            completionPanel.gameObject.SetActive(true);
         }
 
         Level nextLevel2 = level.NextLevel();
@@ -250,6 +237,9 @@ public class GameState : MonoBehaviour
                 gameProgress.GetHouseSaveData(level.house)[level.room - 1].highScore = (int)score;
             }
         }
+
+        gameStateUI.gameObject.SetActive(false);
+        completionPanel.gameObject.SetActive(true);
     }
 }
 
