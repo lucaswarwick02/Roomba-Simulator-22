@@ -374,34 +374,16 @@ public class TilemapManager : MonoBehaviour
     public static TileEffect TileNameToEnum (string tileName) {
         switch (tileName)
             {
-                case "Effects_0":
-                    return TileEffect.SingleDirt;
-                case "Effects_1":
-                    return TileEffect.DoubleDirt;
-                case "Effects_2":
+                case "slippery":
                     return TileEffect.Slippery;
-                case "Effects_4":
-                    return TileEffect.Battery;
-                case "Effects_5":
-                    return TileEffect.Ring;
-                case "Effects_6":
-                    return TileEffect.CatPush;
-                case "Effects_7":
-                    return TileEffect.CatPush;
-                case "Effects_8":
-                    return TileEffect.CatPush;
-                case "Effects_9":
-                    return TileEffect.CatPush;
                 case "singleDirt":
                     return TileEffect.SingleDirt;
                 case "doubleDirt":
                     return TileEffect.DoubleDirt;
-                case "battery":
-                    return TileEffect.Battery;
-                case "slippery":
-                    return TileEffect.Slippery;
                 case "ring":
                     return TileEffect.Ring;
+                case "battery":
+                    return TileEffect.Battery;
                 case "catDownA":
                     return TileEffect.CatPush;
                 case "catUpA":
@@ -411,6 +393,7 @@ public class TilemapManager : MonoBehaviour
                 case "catRightA":
                     return TileEffect.CatPush;
                 default:
+                    Debug.Log(tileName);
                     return TileEffect.Invalid;
             }
     }
