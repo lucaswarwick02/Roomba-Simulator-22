@@ -87,8 +87,6 @@ public class GameState : MonoBehaviour
         String titleString = level + " Results";
         completionPanel.resultsTitle.text = "Room " + titleString.Substring(6);
         completionPanel.level = level;
-        Debug.Log(level);
-        Debug.Log(level.NextLevel());
         // completionPanel.medal.gameObject.SetActive(false);
         completionPanel.tick1.gameObject.SetActive(false);
         completionPanel.tick2.gameObject.SetActive(false);
