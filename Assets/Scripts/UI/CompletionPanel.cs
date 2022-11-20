@@ -16,6 +16,12 @@ public class CompletionPanel : MonoBehaviour
 
     public TextMeshProUGUI score;
     public Image coverUp;
+    public TextMeshProUGUI hc;
+
+    [SerializeField] public AudioSource win;
+    [SerializeField] public AudioSource lose;
+
+     [SerializeField] public AudioSource click;
 
     [HideInInspector] public Level level;
 
@@ -39,16 +45,18 @@ public class CompletionPanel : MonoBehaviour
     }
 
     public void NextLevel () {
-        Debug.Log(level);
+        click.Play();
         Level nextLevel = level.NextLevel();
         SceneManager.LoadScene("Level_" + nextLevel.house + "-" + nextLevel.room);
     }
 
     public void RetryLevel () {
+        click.Play();
         SceneManager.LoadScene("Level_" + level.house + "-" + level.room);
     }
 
     public void MainMenu () {
+        click.Play();
         SceneManager.LoadScene("MainMenu");
     }
 }

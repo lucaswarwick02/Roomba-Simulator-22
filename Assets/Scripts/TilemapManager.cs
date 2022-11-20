@@ -322,6 +322,7 @@ public class TilemapManager : MonoBehaviour
                 GameState.INSTANCE.batterySound.Play();
                 GameState.INSTANCE.Battery1 += 3;
                 effectsTilemap.SetTile(tilePos, null);
+                r1p_Animator.SetTrigger("batteryTrigger");
                 
                 break;
             case TileEffect.Ring:
@@ -358,13 +359,14 @@ public class TilemapManager : MonoBehaviour
                 GameState.INSTANCE.batterySound.Play();
                 GameState.INSTANCE.Battery2 += 3;
                 effectsTilemap.SetTile(tilePos, null);
+                r2p_Animator.SetTrigger("battery2Trigger");
                 break;
             case TileEffect.Ring:
                 GameState.INSTANCE.ringSound.Play();
                 GameState.INSTANCE.losePoint.Play();
                 GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
-                r2p_Animator.SetTrigger("ring2trigger");
+                r2p_Animator.SetTrigger("ring2Trigger");
                 break;
             default:
                 break;

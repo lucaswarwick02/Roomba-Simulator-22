@@ -15,10 +15,14 @@ public class GameState : MonoBehaviour
     public int initialBattery2 = 10;
     public int maxDirt = 3;
     public Level level;
+    private bool notPlayed = true;
     private int passScore;
 
     public GameStateUI gameStateUI;
     public CompletionPanel completionPanel;
+
+    [SerializeField] public AudioSource win;
+    [SerializeField] public AudioSource lose;
 
     [SerializeField] public AudioSource roombaMoveSound;
     [SerializeField] public AudioSource roombaDiesSound;
@@ -83,6 +87,8 @@ public class GameState : MonoBehaviour
     private void Start()
     {
         completionPanel.coverUp.enabled = false;
+        completionPanel.hc.text = "";
+        completionPanel.hc.enabled = false;
 
         String titleString = level + " Results";
         completionPanel.resultsTitle.text = "Room " + titleString.Substring(6);
@@ -174,6 +180,11 @@ public class GameState : MonoBehaviour
 
         if (score >= (int)passScore)
         {
+            if(notPlayed){
+                win.Play();
+                notPlayed = false;
+            }
+            
             completionPanel.tick1.gameObject.SetActive(true);
             if (score >= maxDirt)
             {
@@ -204,6 +215,10 @@ public class GameState : MonoBehaviour
 
         else
         {
+            if(notPlayed){
+                lose.Play();
+                notPlayed = false;
+            }
             completionPanel.deactivateNextLevel();
 
             completionPanel.medal.gameObject.SetActive(false);
@@ -225,6 +240,10 @@ public class GameState : MonoBehaviour
                 completionPanel.passScore.text = "get 1 point to finish this house";
             }
             completionPanel.coverUp.enabled = true;
+            if(score >= passScore){
+                completionPanel.hc.enabled= true;
+                completionPanel.hc.text = "House finished!";
+            }
         }
 
 

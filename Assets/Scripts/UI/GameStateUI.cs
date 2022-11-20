@@ -12,6 +12,8 @@ public class GameStateUI : MonoBehaviour
     public TextMeshProUGUI roomba2Text;
     public TextMeshProUGUI batteryCount2;
 
+    [SerializeField] public AudioSource click;
+
     private Color dead = new Color(0.5377358f, 0.5377358f, 0.5377358f);
     private Color red = new Color(0.8f, 0f, 0.1f);
     private Color orange = new Color(0.8f, 0.6f, 0.2f);
@@ -78,10 +80,12 @@ public class GameStateUI : MonoBehaviour
     }
 
     public void BackToMainMenu () {
+        click.Play();
         SceneManager.LoadScene("MainMenu");
     }
 
     public void RestartLevel () {
+        click.Play();
         SceneManager.LoadScene("Level_" + GameState.INSTANCE.level.house + "-" + GameState.INSTANCE.level.room);
     }
 }
