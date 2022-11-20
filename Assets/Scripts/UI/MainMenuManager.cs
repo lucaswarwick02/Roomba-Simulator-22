@@ -64,7 +64,7 @@ public class MainMenuManager : MonoBehaviour
     }
 
     /// <summary>
-    /// (De)activates the UI based on the current GameSave data.
+    /// Toggle UI components based on the current GameSave data.
     /// </summary>
     public void UpdateUI () {
         AudioListener.volume = settings.mute ? 0 : 1;
@@ -82,16 +82,21 @@ public class MainMenuManager : MonoBehaviour
             LevelSaveData[] levelSaveDatas = gameProgress.GetHouseSaveData(house);
             
             for (int i = 0; i < levelSaveDatas.Length; i++) {
-                getHouseLevels(house)[i].GetComponent<Button>().enabled = gameProgress.IsDayUnlocked(house, i + 1);
-                getHouseLevels(house)[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(house, i + 1));
+                getHouseLevels(house)[i].GetComponent<Button>().enabled = gameProgress.IsRoomUnlocked(house, i + 1);
+                getHouseLevels(house)[i].transform.GetChild(0).GetComponent<TextButton>().ToggleEffects(gameProgress.IsRoomUnlocked(house, i + 1));
                 getHouseLevels(house)[i].transform.GetChild(1).GetComponent<TextMeshProUGUI>().text = ("high score " + levelSaveDatas[i].highScore);
-                getHouseLevels(house)[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsDayUnlocked(house, i + 1));
+                getHouseLevels(house)[i].transform.GetChild(1).GetComponent<TextButton>().ToggleEffects(gameProgress.IsRoomUnlocked(house, i + 1));
                 getHouseLevels(house)[i].transform.GetChild(1).GetComponent<TextButton>().ForceDisable();
-                getHouseLevels(house)[i].transform.GetChild(3).gameObject.SetActive(gameProgress.DayHasMedal(house, i + 1));
+                getHouseLevels(house)[i].transform.GetChild(3).gameObject.SetActive(gameProgress.RoomHasMedal(house, i + 1));
             }
         }
     }
 
+    /// <summary>
+    /// Get all of the UI objects for the levels.
+    /// </summary>
+    /// <param name="house">House number</param>
+    /// <returns>List of GameObjects</returns>
     public GameObject[] getHouseLevels (int house) {
         switch (house) {
             case 1:
@@ -105,6 +110,11 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Get the GameObject for the house option.
+    /// </summary>
+    /// <param name="house">House number</param>
+    /// <returns>GameObject for the option</returns>
     public GameObject getHouseOption (int house) {
         switch (house) {
             case 1:
@@ -118,12 +128,19 @@ public class MainMenuManager : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Change the current scene to a given level.
+    /// </summary>
+    /// <param name="levelID">Name of the scene being loaded</param>
     public void StartLevel (string levelID) {
         click.Play();
         // Load level scene
         SceneManager.LoadScene("Level_" + levelID);
     }
 
+    /// <summary>
+    /// Decactivate all of the UI panels.
+    /// </summary>
     private void DeactivateAllPanels () {
         week1Panel.SetActive(false);
         week2Panel.SetActive(false);

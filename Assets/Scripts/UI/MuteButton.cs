@@ -19,12 +19,18 @@ public class MuteButton : MonoBehaviour
         updateVisuals();    
     }
 
+    /// <summary>
+    /// Toggle sound based on game settings.
+    /// </summary>
     public void ToggleMute () {
         settings.mute = !settings.mute;
         AudioListener.volume = settings.mute ? 0 : 1;
         updateVisuals();
     }
 
+    /// <summary>
+    /// Update the visuals to match the game settings.
+    /// </summary>
     private void updateVisuals () {
         buttonText.text = "Mute: " + (settings.mute ? "On" : "Off");
     }

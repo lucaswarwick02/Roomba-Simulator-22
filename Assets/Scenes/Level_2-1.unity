@@ -1771,11 +1771,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4767796685123189155, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.67
+      value: -1.38
       objectReference: {fileID: 0}
     - target: {fileID: 4767796685123189155, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.4
+      value: 1.52
       objectReference: {fileID: 0}
     - target: {fileID: 5065912997770088978, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: maxDirt

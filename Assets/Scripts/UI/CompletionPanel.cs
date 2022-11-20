@@ -21,7 +21,7 @@ public class CompletionPanel : MonoBehaviour
     [SerializeField] public AudioSource win;
     [SerializeField] public AudioSource lose;
 
-     [SerializeField] public AudioSource click;
+    [SerializeField] public AudioSource click;
 
     [HideInInspector] public Level level;
 
@@ -37,25 +37,40 @@ public class CompletionPanel : MonoBehaviour
     public TextMeshProUGUI getPointsForNL;
     public Image emptyTick1;
 
-
-    public void deactivateNextLevel () {
+    /// <summary>
+    /// Deactivate the next level button.
+    /// </summary>
+    public void deactivateNextLevel()
+    {
         nextLevelButton.enabled = false;
         nextLevelText.ToggleEffects(false);
         nextLevelText.ForceDisable();
     }
 
-    public void NextLevel () {
+    /// <summary>
+    /// Change the scene to the next level.
+    /// </summary>
+    public void NextLevel()
+    {
         click.Play();
         Level nextLevel = level.NextLevel();
         SceneManager.LoadScene("Level_" + nextLevel.house + "-" + nextLevel.room);
     }
 
-    public void RetryLevel () {
+    /// <summary>
+    /// Restart the level.
+    /// </summary>
+    public void RetryLevel()
+    {
         click.Play();
         SceneManager.LoadScene("Level_" + level.house + "-" + level.room);
     }
 
-    public void MainMenu () {
+    /// <summary>
+    /// Return to the main menu.
+    /// </summary>
+    public void MainMenu()
+    {
         click.Play();
         SceneManager.LoadScene("MainMenu");
     }

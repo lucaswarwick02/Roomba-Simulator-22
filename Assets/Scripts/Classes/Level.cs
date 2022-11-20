@@ -8,11 +8,20 @@ public class Level
     public int house;
     public int room;
 
+    /// <summary>
+    /// Used for calculating levels.
+    /// </summary>
+    /// <param name="house"> House number</param>
+    /// <param name="room">Room number</param>
     public Level (int house, int room) {
         this.house = house;
         this.room = room;
     }
 
+    /// <summary>
+    /// Calculate the level information for the next level.
+    /// </summary>
+    /// <returns>Next Level</returns>
     public Level NextLevel () {
         Level nextLevel = new Level(this.house, this.room + 1);
 
@@ -24,6 +33,10 @@ public class Level
         return nextLevel;
     }
 
+    /// <summary>
+    /// Calculate the level information for the previous level.
+    /// </summary>
+    /// <returns>Previous Level</returns>
     public Level PreviousLevel () {
         Level previousLevel = new Level(this.house, this.room - 1);
 
@@ -35,6 +48,10 @@ public class Level
         return previousLevel;
     }
 
+    /// <summary>
+    /// Get the scene name of the level.
+    /// </summary>
+    /// <returns>Scene name for the level</returns>
     public override string ToString () {
         return "Level_" + this.house + "-" + this.room;
     }

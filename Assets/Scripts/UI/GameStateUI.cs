@@ -79,11 +79,17 @@ public class GameStateUI : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Return to the main menu.
+    /// </summary>
     public void BackToMainMenu () {
         click.Play();
         SceneManager.LoadScene("MainMenu");
     }
 
+    /// <summary>
+    /// Restart the level.
+    /// </summary>
     public void RestartLevel () {
         click.Play();
         SceneManager.LoadScene("Level_" + GameState.INSTANCE.level.house + "-" + GameState.INSTANCE.level.room);
