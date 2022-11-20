@@ -366,7 +366,7 @@ public class TilemapManager : MonoBehaviour
                 GameState.INSTANCE.losePoint.Play();
                 GameState.INSTANCE.Rings += 1;
                 effectsTilemap.SetTile(tilePos, null);
-                r2p_Animator.SetTrigger("ring2Trigger");
+                r2p_Animator.SetTrigger("ring2trigger");
                 break;
             default:
                 break;
