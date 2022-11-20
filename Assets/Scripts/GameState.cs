@@ -168,11 +168,11 @@ public class GameState : MonoBehaviour
 
         if (passScore == 1)
         {
-            completionPanel.passScore.text = "get 1 point to unlock next level";
+            completionPanel.passScore.text = "get 1 point to unlock next room";
         }
         else
         {
-            completionPanel.passScore.text = "get " + passScore.ToString() + " points to unlock next level";
+            completionPanel.passScore.text = "get " + passScore.ToString() + " points to unlock next room";
         }
         completionPanel.medalScore.text = "get " + maxDirt.ToString() + " points to earn clean sweep medal";
 
@@ -200,11 +200,11 @@ public class GameState : MonoBehaviour
 
             if (passScore == 1)
             {
-                completionPanel.passScore.text = "get 1 point to unlock next level";
+                completionPanel.passScore.text = "get 1 point to unlock next room";
             }
             else
             {
-                completionPanel.passScore.text = "get " + passScore.ToString() + " points to unlock next level";
+                completionPanel.passScore.text = "get " + passScore.ToString() + " points to unlock next room";
             }
 
             // Unlock next level
@@ -243,6 +243,9 @@ public class GameState : MonoBehaviour
             if(score >= passScore){
                 completionPanel.hc.enabled= true;
                 completionPanel.hc.text = "House finished!";
+            }
+            if(nextLevel2.house == 4){
+                completionPanel.hc.text = "All houses finished!!!";
             }
         }
 

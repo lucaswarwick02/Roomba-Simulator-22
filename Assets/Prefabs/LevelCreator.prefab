@@ -1258,7 +1258,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1685617929972626715
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2373,7 +2373,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Next Level
+  m_text: Next room
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
@@ -6535,7 +6535,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Retry Level
+  m_text: Retry room
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}
   m_sharedMaterial: {fileID: -6467290545640629144, guid: 472dd86bb2efd7446bf41a751c9d0cf4, type: 2}

@@ -30,6 +30,7 @@ public class MainMenuManager : MonoBehaviour
     public TextMeshProUGUI needtext2;
     public Image needMedal1;
     public Image needMedal2;
+    public Image completeStar;
     public TextMeshProUGUI medalAmountT;
 
     private void Start() {
@@ -74,6 +75,8 @@ public class MainMenuManager : MonoBehaviour
 
         needMedal2.gameObject.SetActive(gameProgress.NumberOfMedals() < 10);
         needtext2.gameObject.SetActive(gameProgress.NumberOfMedals() < 10);
+
+        completeStar.gameObject.SetActive(gameProgress.NumberOfMedals() >= 15);
 
         for (int house = 1; house <= 3; house++) {
             getHouseOption(house).GetComponent<Button>().enabled = gameProgress.IsHouseUnlocked(house);
