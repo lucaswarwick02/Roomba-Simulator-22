@@ -17,6 +17,7 @@ public class CompletionPanel : MonoBehaviour
     public TextMeshProUGUI score;
     public Image coverUp;
     public TextMeshProUGUI hc;
+    public TextMeshProUGUI hc2;
 
     [SerializeField] public AudioSource win;
     [SerializeField] public AudioSource lose;

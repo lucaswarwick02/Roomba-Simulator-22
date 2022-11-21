@@ -241,10 +241,12 @@ public class GameState : MonoBehaviour
             }
             completionPanel.coverUp.enabled = true;
             if(score >= passScore){
-                completionPanel.hc.enabled= true;
-                completionPanel.hc.text = "House finished!";
+                completionPanel.hc2.enabled= true;
+                completionPanel.hc2.text = "House finished!";
             }
             if(nextLevel2.house == 4){
+                completionPanel.hc2.enabled= false;
+                completionPanel.hc.enabled= true;
                 completionPanel.hc.text = "All houses finished!!!";
             }
         }
