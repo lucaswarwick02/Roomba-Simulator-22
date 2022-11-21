@@ -150,4 +150,8 @@ public class MainMenuManager : MonoBehaviour
         week3Panel.SetActive(false);
         mainMenuPanel.SetActive(false);
     }
+
+    public void QuitGame () {
+        Application.Quit();
+    }
 }
