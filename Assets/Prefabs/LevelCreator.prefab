@@ -4068,15 +4068,15 @@ MonoBehaviour:
   lose: {fileID: 6726212596737333031}
   roombaMoveSound: {fileID: 6839250525515142253}
   roombaDiesSound: {fileID: 6404980488817953843}
-  batterySound: {fileID: 0}
+  batterySound: {fileID: 8225791331359675953}
   dirtSound: {fileID: 3717099336262501756}
-  ringSound: {fileID: 0}
+  ringSound: {fileID: 3542439165937634090}
   slipSound: {fileID: 3542439165937634090}
   catPushSound: {fileID: 6404980488817953843}
   bumpWallSound: {fileID: 2800554106366346431}
-  bumpRoombaSound: {fileID: 0}
-  getPoint: {fileID: 0}
-  losePoint: {fileID: 0}
+  bumpRoombaSound: {fileID: 700596266054376009}
+  getPoint: {fileID: 5059089563312631766}
+  losePoint: {fileID: 6239269213837173153}
   startPos1: {x: 3, y: -2, z: 0}
   startPos2: {x: -100, y: 0, z: 0}
   dirtCollected: 0

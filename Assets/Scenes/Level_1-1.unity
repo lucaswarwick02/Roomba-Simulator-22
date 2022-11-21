@@ -1995,10 +1995,20 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6397920106987399343, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: m_Name
-      value: LevelCreator (1)
+      value: LevelCreator
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+--- !u!1 &1354855822 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 766655766994282576, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1354855821}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1354855823 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5635934236054291561, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
+  m_PrefabInstance: {fileID: 1354855821}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1552909767
 GameObject:
   m_ObjectHideFlags: 0
@@ -2063,9 +2073,9 @@ MonoBehaviour:
   floorTilemap: {fileID: 938364051}
   effectsTilemap: {fileID: 1827439478}
   invalidTilemap: {fileID: 1899078626}
-  singleDirtTile: {fileID: 11400000, guid: 44fcd9059fca1c649b6b6f4f988697f3, type: 2}
-  roomba1: {fileID: 0}
-  roomba2: {fileID: 0}
+  singleDirtTile: {fileID: 11400000, guid: 9e96e211082c1488184e2b2d3f0f0c1c, type: 2}
+  roomba1: {fileID: 1354855823}
+  roomba2: {fileID: 1354855822}
   currentPos1: {x: 0, y: 0, z: 0}
   currentPos2: {x: 0, y: 0, z: 0}
   offset: {x: -0.5, y: -0.5, z: 0}
