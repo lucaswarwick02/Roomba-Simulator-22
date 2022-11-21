@@ -86,8 +86,6 @@ public class GameState : MonoBehaviour
 
     private void Start()
     {
-        completionPanel.coverUp.enabled = false;
-        completionPanel.hc.text = "";
         completionPanel.hc.enabled = false;
 
         String titleString = level + " Results";
@@ -176,7 +174,7 @@ public class GameState : MonoBehaviour
         }
         completionPanel.medalScore.text = "get " + maxDirt.ToString() + " points to earn clean sweep medal";
 
-        completionPanel.score.text = score.ToString();
+        completionPanel.points.text = score.ToString();
 
         if (score >= (int)passScore)
         {
@@ -219,7 +217,7 @@ public class GameState : MonoBehaviour
                 lose.Play();
                 notPlayed = false;
             }
-            completionPanel.deactivateNextLevel();
+            completionPanel.removeNextLevelButton();
 
             completionPanel.medal.gameObject.SetActive(false);
             completionPanel.tick1.gameObject.SetActive(false);
@@ -228,27 +226,26 @@ public class GameState : MonoBehaviour
             completionPanel.medalScore.text = "get " + maxDirt.ToString() + " points to earn clean sweep medal";
         }
 
-        Level nextLevel2 = level.NextLevel();
-
-        if (nextLevel2.room == 1)
+        if (level.room == 5)
         {
-
-            completionPanel.deactivateNextLevel();
+            completionPanel.removeNextLevelButton();
             completionPanel.passScore.text = "get " + passScore.ToString() + " points to finish this house";
+
             if (passScore == 1)
             {
                 completionPanel.passScore.text = "get 1 point to finish this house";
             }
-            completionPanel.coverUp.enabled = true;
             if(score >= passScore){
-                completionPanel.hc2.enabled= true;
-                completionPanel.hc2.text = "House finished!";
+                completionPanel.hc.enabled= true;
+                completionPanel.hc.text = "House finished!";
             }
-            if(nextLevel2.house == 4){
-                completionPanel.hc2.enabled= false;
+            if(level.house == 3){
                 completionPanel.hc.enabled= true;
                 completionPanel.hc.text = "All houses finished!!!";
             }
+        }
+        else {
+            completionPanel.hc.enabled = false;
         }
 
 

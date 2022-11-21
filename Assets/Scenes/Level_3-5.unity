@@ -204,14 +204,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 4619170961972206258, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
-      propertyPath: m_margin.x
-      value: -109.58823
-      objectReference: {fileID: 0}
-    - target: {fileID: 4619170961972206258, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
-      propertyPath: m_margin.z
-      value: 177.0271
-      objectReference: {fileID: 0}
     - target: {fileID: 4767796685123189152, guid: 2fef2f959f093984092e3056fe8009d5, type: 3}
       propertyPath: orthographic size
       value: 6.428571
