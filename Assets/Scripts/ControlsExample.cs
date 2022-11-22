@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class ControlsExample : MonoBehaviour
 {
@@ -18,7 +19,7 @@ public class ControlsExample : MonoBehaviour
 
         if (timer >= maxTimer) {
             isDown = !isDown;
-            GetComponent<SpriteRenderer>().sprite = controls[isDown ? 1 : 0];
+            GetComponent<Image>().sprite = controls[isDown ? 1 : 0];
             timer = 0f;
         }
     }
